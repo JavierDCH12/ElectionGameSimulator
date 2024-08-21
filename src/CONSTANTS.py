@@ -6,9 +6,9 @@ from src.prefecture import Prefecture
 PARTY_LDP = Party("Liberal Democratic Party", 1955, "Conservative")
 PARTY_CDPJ = Party("Constitutional Democratic Party of Japan", 2017, "Liberal")
 PARTY_KOMEITO = Party("Komeito", 1964, "Centrist")
-PARTY_CP = Party("Communist Party", 1922, "Left-wing")
+PARTY_JCP = Party("Japanese Communist Party", 1922, "Left-wing")
 
-PARTIES = [PARTY_LDP, PARTY_CDPJ, PARTY_KOMEITO, PARTY_CP]
+PARTIES = [PARTY_LDP, PARTY_CDPJ, PARTY_KOMEITO, PARTY_JCP]
 
 #Prefectures
 HOKKAIDO = Prefecture("Hokkaido")
@@ -69,4 +69,3 @@ PREFECTURES = [
     KUMAMOTO, OITA, MIYAZAKI, KAGOSHIMA, OKINAWA
 ]
 
-print(len(PREFECTURES))

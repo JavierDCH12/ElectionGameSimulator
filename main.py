@@ -1,4 +1,5 @@
 from src.politician import Politician
+from simulation.game import create_politician
 
 
 from src import CONSTANTS
@@ -6,7 +7,7 @@ from src import CONSTANTS
 
 def main():
     
-    yo = Politician("Yoshida", 30, "male", CONSTANTS.PARTY_LDP, CONSTANTS.AKITA)
+    yo=create_politician()
     print(yo)
     
     
