@@ -1,5 +1,5 @@
-from Party import Party
-from Prefecture import Prefecture
+from src.party import Party
+from src.prefecture import Prefecture
 
 
 class Politician:

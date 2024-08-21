@@ -1,4 +1,5 @@
-from src import Party, Prefecture
+from src.party import Party
+from src.prefecture import Prefecture
 
 
 #Parties
