@@ -1,4 +1,5 @@
 from Party import Party
+from Prefecture import Prefecture
 
 
 class Politician:
