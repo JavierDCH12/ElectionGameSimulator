@@ -4,19 +4,29 @@ from src import CONSTANTS
 import random
 
 def ask_name() -> str:
-    return input("Enter the politician's name: ")
+    return input("Enter the politician's name: ").capitalize()
 
 def ask_age() -> int:
-    age = int(input("Enter the politician's age: "))
-    if age < 25 or age > 100:
-        raise ValueError("Age can't be lower than 25 or higher than 100")
-    return age
+    while True:
+        try:
+            age = int(input("Enter the politician's age: "))
+            if 25 <= age <= 100:
+                return age
+            else:
+                print("Age must be between 25 and 100. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer for age.")
+
+
 
 def ask_gender() -> str:
-    gender = input("Enter the politician's gender (Male/Female): ").capitalize()
-    if gender not in ["Male", "Female"]:
-        raise ValueError("Gender must be 'Male' or 'Female'")
-    return gender
+    while True:
+        gender = input("Enter the politician's gender (Male/Female): ").capitalize()
+        
+        if gender in ["Male", "Female"]:
+            return gender
+        else:
+            print("Gender must be 'Male' or 'Female'. Please try again.")
 
 
 

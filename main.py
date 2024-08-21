@@ -8,6 +8,7 @@ from src import CONSTANTS
 def main():
     
     yo=create_politician()
+    print("New politician created ")
     print(yo)
     
     
