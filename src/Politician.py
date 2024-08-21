@@ -1,3 +1,6 @@
+from Party import Party
+
+
 class Politician:
     
     def __init__(self, name: str = "", age: int = 0, gender: str = "", 
@@ -43,10 +46,10 @@ class Politician:
         
     @gender.setter
     def gender(self, value):
-        if value in ["Male", "Female", "Other"]:
+        if value in ["Male", "Female"]:
             self._gender = value
         else:
-            raise ValueError("Gender must be 'Male', 'Female', or 'Other'")
+            raise ValueError("Gender must be 'Male' or 'Female'")
         
     @party.setter
     def party(self, value):
@@ -65,3 +68,7 @@ class Politician:
     def __str__(self) -> str:
         return (f"Name: {self.name} | Age: {self.age} | Gender: {self.gender} | "
                 f"Political Party: {self.party.name} | Prefecture: {self.prefecture.name}")
+        
+        
+        
+
