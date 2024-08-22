@@ -69,3 +69,33 @@ PREFECTURES = [
     KUMAMOTO, OITA, MIYAZAKI, KAGOSHIMA, OKINAWA
 ]
 
+
+#Male Names
+MALE_NAMES = [
+    "Hiroshi Suzuki",
+    "Takeshi Takahashi",
+    "Yoshio Tanaka",
+    "Kenji Watanabe",
+    "Kazuo Yamamoto",
+    "Shinji Nakamura",
+    "Makoto Kobayashi",
+    "Akira Saito",
+    "Katsuo Kato",
+    "Hidetoshi Yoshida"
+]
+
+#Female Names
+
+FEMALE_NAMES = [
+    "Yuki Tanaka",
+    "Aiko Suzuki",
+    "Hana Sato",
+    "Miyuki Nakamura",
+    "Emi Watanabe",
+    "Rina Yamamoto",
+    "Sakura Kobayashi",
+    "Yumi Saito",
+    "Mika Kato",
+    "Akiko Yoshida"
+]
+

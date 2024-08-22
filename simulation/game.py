@@ -32,6 +32,8 @@ def ask_gender() -> str:
 
 
 def create_politician():
+    
+    #Creation of the politician with all its atributes
     name=ask_name()
     age=ask_age()
     gender=ask_gender()
@@ -41,5 +43,19 @@ def create_politician():
     
     return Politician(name, age, gender, party, prefecture)
         
+
+
+def create_ai_politician():
+    age = random.randint(25, 100) 
+    gender = random.choice(["Male", "Female"])
     
+    if gender == "Male":
+        name = random.choice(CONSTANTS.MALE_NAMES)
+    elif gender=="Female":
+        name= random.choice(CONSTANTS.MALE_NAMES)
+    
+    party=random.choice(CONSTANTS.PARTIES)
+    prefecture=random.choice(CONSTANTS.PREFECTURES)
+    
+    return Politician(name, age, gender, party, prefecture)
     

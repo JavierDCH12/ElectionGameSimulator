@@ -1,7 +1,5 @@
 from src.politician import Politician
-from simulation.game import create_politician
-
-
+from simulation.game import create_politician, create_ai_politician
 from src import CONSTANTS
 import time
 import os
@@ -38,6 +36,8 @@ def main():
     yo=create_politician()
     print("New politician created ")
     print(yo)
+    ai=create_ai_politician()
+    print(ai)
     
     
 if __name__=="__main__":
