@@ -58,4 +58,29 @@ def create_ai_politician():
     prefecture=random.choice(CONSTANTS.PREFECTURES)
     
     return Politician(name, age, gender, party, prefecture)
+
+
+
+def age_bonus(politician: Politician) -> int:
+    score = 0
+    if politician.age >= 80:
+        score = 5
+    elif 60 <= politician.age < 80:
+        score = 10
+    elif 40 <= politician.age < 60:
+        score = 15
+    elif 25 <= politician.age < 40:
+        score = 5
+    return score  
+
+
+def set_initial_score(politician : Politician):
+    score = 0
     
+    score+=CONSTANTS.PARTY_POPULARITY.get(politician.party.name, 0) #ADD PARTY POINTS
+    
+    score +=CONSTANTS.PREFECTURE_BONUS.get(politician.prefecture.name, 0) #ADD PREFECTURE POINTS
+    
+    score +=age_bonus(politician)
+
+    return score

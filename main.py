@@ -1,5 +1,5 @@
 from src.politician import Politician
-from simulation.game import create_politician, create_ai_politician
+from simulation.game import create_politician, create_ai_politician, set_initial_score
 from src import CONSTANTS
 import time
 import os
@@ -33,11 +33,16 @@ def print_start_message():
 
 def main():
     print_start_message()    
-    yo=create_politician()
-    print("New politician created ")
-    print(yo)
-    ai=create_ai_politician()
-    print(ai)
+    
+    yo = create_politician()
+    print("Your candidate: ")
+    score = set_initial_score(yo)
+    print(f"{yo}: Score: {score}")
+    
+    print("\nA.I Candidate:")
+    ai = create_ai_politician()
+    ai_score = set_initial_score(ai)
+    print(f"{ai}: Score: {ai_score}")
     
     
 if __name__=="__main__":

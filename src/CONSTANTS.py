@@ -2,7 +2,11 @@ from src.party import Party
 from src.prefecture import Prefecture
 
 
-#Parties
+#Rounds#####################################################################################################
+
+ROUND_WEEKS=5
+
+#Parties#####################################################################################################
 PARTY_LDP = Party("Liberal Democratic Party", 1955, "Conservative")
 PARTY_CDPJ = Party("Constitutional Democratic Party of Japan", 2017, "Liberal")
 PARTY_KOMEITO = Party("Komeito", 1964, "Centrist")
@@ -10,7 +14,7 @@ PARTY_JCP = Party("Japanese Communist Party", 1922, "Left-wing")
 
 PARTIES = [PARTY_LDP, PARTY_CDPJ, PARTY_KOMEITO, PARTY_JCP]
 
-#Prefectures
+#Prefectures#####################################################################################################
 HOKKAIDO = Prefecture("Hokkaido")
 AOMORI = Prefecture("Aomori")
 IWATE = Prefecture("Iwate")
@@ -69,8 +73,7 @@ PREFECTURES = [
     KUMAMOTO, OITA, MIYAZAKI, KAGOSHIMA, OKINAWA
 ]
 
-
-#Male Names
+#Male Names#####################################################################################################
 MALE_NAMES = [
     "Hiroshi Suzuki",
     "Takeshi Takahashi",
@@ -84,7 +87,7 @@ MALE_NAMES = [
     "Hidetoshi Yoshida"
 ]
 
-#Female Names
+#Female Names#####################################################################################################
 
 FEMALE_NAMES = [
     "Yuki Tanaka",
@@ -99,3 +102,25 @@ FEMALE_NAMES = [
     "Akiko Yoshida"
 ]
 
+
+#Points#####################################################################################################
+PARTY_POPULARITY = {
+    "Liberal Democratic Party": 30,
+    "Constitutional Democratic Party of Japan": 20,
+    "Komeito": 15,
+    "Japanese Communist Party": 10
+}
+
+PREFECTURE_BONUS = {
+    "Tokyo": 20,
+    "Kanagawa": 15,
+    "Aichi": 10,
+    "Osaka": 15
+}
+
+AGE_BONUS = {
+    "25-40": 5,
+    "40-60": 15,
+    "60-80": 10,
+    "80+": 5
+}
