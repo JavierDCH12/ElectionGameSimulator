@@ -1,6 +1,7 @@
 from src.politician import Politician
 from src import CONSTANTS
 import random
+from simulation.user_decisions import apply_strategy_modifiers
 
 def ask_name() -> str:
     return input("Enter the politician's name: ").capitalize()
@@ -105,12 +106,20 @@ def week_simulation(politician, is_player=False) -> int:
     
     return impact
 
-def simulate_election(politician, score, is_player=True) -> int:
+def simulate_election(politician, score, is_player=True, strategy=None) -> int:
     impact = week_simulation(politician, is_player)
+    
+    if is_player and strategy:
+        impact = apply_strategy_modifiers(strategy, impact)
+    
     score += impact
-    score = max(0, score)  # Ensure score does not go below zero
+    score = max(0, score)
+    
     print(f"Score after this week: {score}\n")
     return score
+
+
+
 
 def final_score_msg(player_score, ai_score):
     if player_score > ai_score:
@@ -129,3 +138,17 @@ def final_score_msg(player_score, ai_score):
  | |_| | (_| | | | | | |  __/ | |_| |\ V /  __/ |   
   \____|\__,_|_| |_| |_|\___|  \___/  \_/ \___|_|   
         """)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

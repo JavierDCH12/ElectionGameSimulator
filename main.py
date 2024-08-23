@@ -3,8 +3,8 @@ import time
 import os
 import src.CONSTANTS as CONSTANTS
 
-from simulation.user_actions import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
-
+from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
+from simulation.user_decisions import set_strategy, apply_strategy_modifiers
 
 ###############################################################
 def print_start_message():
@@ -31,7 +31,7 @@ def print_start_message():
     time.sleep(2)  # Pause for 2 seconds to let the user read the message
 
 
-def display_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources):
+def display_initial_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources):
     player_total_resources = player_financial_resources + player_influence_resources + player_internal_resources
     ai_total_resources = ai_financial_resources + ai_influence_resources + ai_internal_resources
 
@@ -53,7 +53,6 @@ def display_candidate_resources(player, player_score, player_financial_resources
 
 
 ###############################################################
-
 def main():
     print_start_message()    
     
@@ -62,29 +61,47 @@ def main():
     
     # Set initial scores and resources
     player_score = set_initial_score(player)
-    player_financial_resources =set_initial_financial_resources(player)
-    player_influence_resources = set_initial_financial_resources(player)
+    player_financial_resources = set_initial_financial_resources(player)
+    player_influence_resources = set_initial_personal_resources(player)
     player_internal_resources = set_initial_internal_resources(player)
     
     ai_score = set_initial_score(ai)
     ai_financial_resources = set_initial_financial_resources(ai)
-    ai_influence_resources = set_initial_financial_resources(ai)
-    ai_internal_resources =set_initial_internal_resources(ai)
-
-    display_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources)
+    ai_influence_resources = set_initial_personal_resources(ai)
+    ai_internal_resources = set_initial_internal_resources(ai)
+    
+    display_initial_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, 
+                                        ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources)
+    
+    # Player chooses a campaign strategy
+    player_strategy = set_strategy()
 
     # Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
         print(f"\nWeek {week + 1}:")
-        player_score = simulate_election(player, player_score, is_player=True)
+        player_score = simulate_election(player, player_score, is_player=True, strategy=player_strategy)
         time.sleep(10)
-        ai_score = simulate_election(ai, ai_score, is_player=False)
+        ai_score = simulate_election(ai, ai_score, is_player=False)  # A.I. podría tener una estrategia predeterminada
         time.sleep(4)
 
     print(f"\nFinal Score for {player.name}: {player_score}")
     print(f"Final Score for {ai.name}: {ai_score}")
     
     final_score_msg(player_score, ai_score)
+
+    strategy_elected=set()
+
+def simulate_election(politician, current_score, is_player, strategy_elected=None):
+    # Simulación de eventos con modificadores basados en la estrategia
+    # Este es un ejemplo simplificado de cómo aplicar los modificadores
+    event_impact = simulate_election(politician)  # Simula un evento
+    
+    if is_player and strategy_elected:
+        event_impact = apply_strategy_modifiers(strategy_elected, event_impact)
+    
+    new_score = current_score + event_impact
+    return new_score
+
 
 
  
