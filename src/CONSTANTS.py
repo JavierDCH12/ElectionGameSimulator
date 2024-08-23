@@ -127,8 +127,20 @@ AGE_BONUS = {
 
 #Random Events#####################################################################################################
 EVENTS = [
-    ("Positive News", 10),
-    ("Sex scandal", -20),
-    ("Campaign Success", 15),
-    ("Corruption scandal", -15)
+    ("Positive Media Coverage", 10),
+    ("Minor Gaffe", -5),
+    ("Small Corruption Scandal", -10),
+    ("Economic Slowdown", -10),
+    ("Successful Small Rally", 10),
+    ("Internal Party Disagreement", -5)
+]
+
+SPECIAL_EVENTS = [
+    ("Major Positive Media Coverage", 20),
+    ("Major Sex Scandal", -30),
+    ("Major Corruption Scandal", -20),
+    ("Major Gaffe", -20),
+    ("Severe Economic Crisis", -30),
+    ("Massively Successful Rally", 20),
+    ("Severe Internal Party Conflict", -15)
 ]

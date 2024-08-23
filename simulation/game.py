@@ -75,6 +75,9 @@ def age_bonus(politician: Politician) -> int:
     return score  
 
 
+def random_score_modifier():
+    return random.uniform(0.8, 1.2)
+
 def set_initial_score(politician : Politician):
     score = 0
     
@@ -87,17 +90,51 @@ def set_initial_score(politician : Politician):
     return score
 
 
-def week_simulation(politician, is_user=True): #With is_user cwe control the message tailored for the ai of your player
-    event, impact = random.choice(CONSTANTS.EVENTS)
+def week_simulation(politician, is_user=False):
+    
+    if random.random() < 0.2:  
+        event, base_impact = random.choice(CONSTANTS.SPECIAL_EVENTS)
+    else:
+        event, base_impact = random.choice(CONSTANTS.EVENTS)
+    
+    modifier = random_score_modifier() 
+    impact = round(base_impact * modifier)
+    
+    # Asegurar que el puntaje no sea negativo
+    impact = max(0, impact) if base_impact > 0 else min(0, impact)
+    
     if is_user:
-        print(f"Something happened this week: {event} with an impact of {impact} points in your score")
-    if not is_user:
-        print(f"Something happened this week: {event} with an impact of {impact} points in the score of your adversary")
+        print(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
         
+    else:
+        
+        print(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
+    
     return impact
 
 def simulate_election(politician, score, is_user=True):
     impact = week_simulation(politician, is_user)
     score += impact
+    if score<0:
+        score=0
     print(f"Score after this week: {score}")
     return score
+    
+
+def final_score_msg(player_score, ai_score):
+    if player_score > ai_score:
+        print("You have been elected President of Japan!")
+        print("""
+  ____    _    _   _ _____   _    ___  
+ | __ )  / \  | \ | |__  /  / \  |_ _| 
+ |  _ \ / _ \ |  \| | / /  / _ \  | |  
+ | |_) / ___ \| |\  |/ /_ / ___ \ | |  
+ |____/_/   \_\_| \_/____/_/   \_\___| """)
+    elif ai_score > player_score:
+        print("The AI candidate has won the election...")
+        print("""
+  / ___| __ _ _ __ ___   ___   / _ \__   _____ _ __ 
+ | |  _ / _` | '_ ` _ \ / _ \ | | | \ \ / / _ \ '__|
+ | |_| | (_| | | | | | |  __/ | |_| |\ V /  __/ |   
+  \____|\__,_|_| |_| |_|\___|  \___/  \_/ \___|_|   
+        """)

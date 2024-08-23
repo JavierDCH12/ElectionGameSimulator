@@ -1,4 +1,4 @@
-from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score
+from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
 import time
 import os
 import src.CONSTANTS as CONSTANTS
@@ -32,28 +32,49 @@ def print_start_message():
 def main():
     print_start_message()    
     
-    yo = create_politician()
+    player = create_politician()
     ai = create_ai_politician()
     
     # Set initial scores
-    yo_score = set_initial_score(yo)
+    player_score = set_initial_score(player)
     ai_score = set_initial_score(ai)
 
     print("Your candidate: ")
-    print(f"{yo}: \nInitial Score: {yo_score}")
+    print(f"{player}: \nInitial Score: {player_score}")
 
     print("\nA.I Candidate:")
     print(f"{ai}: \nInitial Score: {ai_score}")
 
     # Simulate elections for 5 weeks
-    for week in range(CONSTANTS.ROUND_WEEKS):
+    for week in range(1):
         print(f"\nWeek {week + 1}:")
-        yo_score = simulate_election(yo, yo_score, is_user=True)
+        player_score = simulate_election(player, player_score, is_user=True)
+        time.sleep(10)
         ai_score = simulate_election(ai, ai_score, is_user=False)
         time.sleep(4)
 
-    print(f"\nFinal Score for {yo.name}: {yo_score}")
+    print(f"\nFinal Score for {player.name}: {player_score}")
     print(f"Final Score for {ai.name}: {ai_score}")
     
+    final_score_msg(player_score, ai_score)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+###################################################################3    
 if __name__=="__main__":
     main()
