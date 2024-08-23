@@ -4,13 +4,15 @@ from src.prefecture import Prefecture
 
 class Politician:
     
-    def __init__(self, name: str = "", age: int = 0, gender: str = "", 
+    def __init__(self, name: str = "", age: int = 0, gender: str = "", experience:str="", 
                  party = None, prefecture = None) -> None:
         self._name = name
         self._age = age
         self._gender = gender
+        self._experience=experience
         self._party = party
         self._prefecture = prefecture
+        
     
     # GETTERS
     @property
@@ -24,6 +26,10 @@ class Politician:
     @property
     def gender(self):
         return self._gender
+    
+    @property
+    def experience(self):
+        return self._experience
     
     @property
     def party(self):
@@ -51,6 +57,14 @@ class Politician:
             self._gender = value
         else:
             raise ValueError("Gender must be 'Male' or 'Female'")
+    
+    @experience.setter
+    def experience(self, value):
+        if value in ["Incumbent", "New candidate"]:
+            self._experience = value
+        else:
+            raise ValueError("Experience must be 'Incumbent' or 'New candidate'")
+    
         
     @party.setter
     def party(self, value):

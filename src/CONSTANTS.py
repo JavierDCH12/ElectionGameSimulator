@@ -103,8 +103,8 @@ FEMALE_NAMES = [
 ]
 
 
-#Points#####################################################################################################
-PARTY_POPULARITY = {
+#initial Points#####################################################################################################
+PARTY_POPULARITY_BONUS = {
     "Liberal Democratic Party": 30,
     "Constitutional Democratic Party of Japan": 20,
     "Komeito": 15,
@@ -123,6 +123,13 @@ AGE_BONUS = {
     "40-60": 15,
     "60-80": 10,
     "80+": 5
+}
+
+#INITIAL MODIFIER
+EXPERIENCE_LEVEL_MODIFIER={
+    "Incumbent": 0.5,
+    "New Candidate": 0.2,
+    
 }
 
 #Random Events#####################################################################################################
@@ -144,3 +151,5 @@ SPECIAL_EVENTS = [
     ("Massively Successful Rally", 20),
     ("Severe Internal Party Conflict", -15)
 ]
+
+

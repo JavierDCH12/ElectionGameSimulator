@@ -28,10 +28,10 @@ def print_start_message():
 
 
 ###############################################################
-
 def main():
     print_start_message()    
     
+    # Create politicians
     player = create_politician()
     ai = create_ai_politician()
     
@@ -39,23 +39,27 @@ def main():
     player_score = set_initial_score(player)
     ai_score = set_initial_score(ai)
 
+    # Display initial scores
     print("Your candidate: ")
-    print(f"{player}: \nInitial Score: {player_score}")
+    print(f"{player} \nInitial Score: {player_score}")
 
     print("\nA.I Candidate:")
-    print(f"{ai}: \nInitial Score: {ai_score}")
-
-    # Simulate elections for 5 weeks
-    for week in range(1):
+    print(f"{ai} \nInitial Score: {ai_score}")
+    
+    
+    
+    for week in range(CONSTANTS.ROUND_WEEKS):  
         print(f"\nWeek {week + 1}:")
-        player_score = simulate_election(player, player_score, is_user=True)
-        time.sleep(10)
-        ai_score = simulate_election(ai, ai_score, is_user=False)
-        time.sleep(4)
+        player_score = simulate_election(player, player_score, is_player=True)
+        time.sleep(10)  # Pause to allow reading
+        ai_score = simulate_election(ai, ai_score, is_player=False)
+        time.sleep(4)   # Shorter pause for AI
 
+    # Display final scores
     print(f"\nFinal Score for {player.name}: {player_score}")
     print(f"Final Score for {ai.name}: {ai_score}")
     
+    # Display final results
     final_score_msg(player_score, ai_score)
  
  
