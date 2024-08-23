@@ -74,7 +74,7 @@ def set_initial_score(politician: Politician) -> int:
 
     # Apply experience modifier after calculating the base score
     experience_modifier = experience_bonus(politician)
-    score = round(score * experience_modifier)
+    score = round((score)+score * experience_modifier)
     
     return score
 

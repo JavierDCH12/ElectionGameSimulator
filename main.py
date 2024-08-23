@@ -2,6 +2,11 @@ from simulation.game import create_politician, create_ai_politician, simulate_el
 import time
 import os
 import src.CONSTANTS as CONSTANTS
+
+from simulation.user_actions import set_initial_resources
+
+
+###############################################################
 def print_start_message():
     
 
@@ -28,41 +33,48 @@ def print_start_message():
 
 
 ###############################################################
+
 def main():
     print_start_message()    
     
-    # Create politicians
     player = create_politician()
     ai = create_ai_politician()
     
-    # Set initial scores
+    # Set initial scores and resources
     player_score = set_initial_score(player)
+    player_financial_resources, player_influence_resources, player_internal_resources = set_initial_resources(player)
+    
     ai_score = set_initial_score(ai)
+    ai_financial_resources, ai_influence_resources, ai_internal_resources = set_initial_resources(ai)
 
-    # Display initial scores
     print("Your candidate: ")
-    print(f"{player} \nInitial Score: {player_score}")
+    print(f"{player}")
+    print(f"Initial Score: {player_score}")
+    print(f"Financial Resources: {player_financial_resources}")
+    print(f"Influence Resources: {player_influence_resources}")
+    print(f"Internal Resources: {player_internal_resources}")
 
     print("\nA.I Candidate:")
-    print(f"{ai} \nInitial Score: {ai_score}")
-    
-    
-    
-    for week in range(CONSTANTS.ROUND_WEEKS):  
+    print(f"{ai}")
+    print(f"Initial Score: {ai_score}")
+    print(f"Financial Resources: {ai_financial_resources}")
+    print(f"Influence Resources: {ai_influence_resources}")
+    print(f"Internal Resources: {ai_internal_resources}")
+
+    # Simulate elections for 5 weeks
+    for week in range(5):
         print(f"\nWeek {week + 1}:")
         player_score = simulate_election(player, player_score, is_player=True)
-        time.sleep(10)  # Pause to allow reading
+        time.sleep(10)
         ai_score = simulate_election(ai, ai_score, is_player=False)
-        time.sleep(4)   # Shorter pause for AI
+        time.sleep(4)
 
-    # Display final scores
     print(f"\nFinal Score for {player.name}: {player_score}")
     print(f"Final Score for {ai.name}: {ai_score}")
     
-    # Display final results
     final_score_msg(player_score, ai_score)
- 
- 
+
+
  
  
  
