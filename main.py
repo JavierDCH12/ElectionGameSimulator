@@ -81,7 +81,7 @@ def main():
         print(f"\nWeek {week + 1}:")
         player_score = simulate_election(player, player_score, is_player=True, strategy=player_strategy)
         time.sleep(10)
-        ai_score = simulate_election(ai, ai_score, is_player=False)  # A.I. podría tener una estrategia predeterminada
+        ai_score = simulate_election(ai, ai_score, is_player=False)  
         time.sleep(4)
 
     print(f"\nFinal Score for {player.name}: {player_score}")
@@ -89,18 +89,8 @@ def main():
     
     final_score_msg(player_score, ai_score)
 
-    strategy_elected=set()
+    
 
-def simulate_election(politician, current_score, is_player, strategy_elected=None):
-    # Simulación de eventos con modificadores basados en la estrategia
-    # Este es un ejemplo simplificado de cómo aplicar los modificadores
-    event_impact = simulate_election(politician)  # Simula un evento
-    
-    if is_player and strategy_elected:
-        event_impact = apply_strategy_modifiers(strategy_elected, event_impact)
-    
-    new_score = current_score + event_impact
-    return new_score
 
 
 
