@@ -34,6 +34,7 @@ def ask_gender() -> str:
 def create_politician():
     
     #Creation of the politician with all its atributes
+    print("Let's create your desired candidate: ")
     name=ask_name()
     age=ask_age()
     gender=ask_gender()
@@ -52,7 +53,7 @@ def create_ai_politician():
     if gender == "Male":
         name = random.choice(CONSTANTS.MALE_NAMES)
     elif gender=="Female":
-        name= random.choice(CONSTANTS.MALE_NAMES)
+        name= random.choice(CONSTANTS.FEMALE_NAMES)
     
     party=random.choice(CONSTANTS.PARTIES)
     prefecture=random.choice(CONSTANTS.PREFECTURES)
@@ -83,4 +84,20 @@ def set_initial_score(politician : Politician):
     
     score +=age_bonus(politician)
 
+    return score
+
+
+def week_simulation(politician, is_user=True): #With is_user cwe control the message tailored for the ai of your player
+    event, impact = random.choice(CONSTANTS.EVENTS)
+    if is_user:
+        print(f"Something happened this week: {event} with an impact of {impact} points in your score")
+    if not is_user:
+        print(f"Something happened this week: {event} with an impact of {impact} points in the score of your adversary")
+        
+    return impact
+
+def simulate_election(politician, score, is_user=True):
+    impact = week_simulation(politician, is_user)
+    score += impact
+    print(f"Score after this week: {score}")
     return score

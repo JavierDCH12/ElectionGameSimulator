@@ -124,3 +124,11 @@ AGE_BONUS = {
     "60-80": 10,
     "80+": 5
 }
+
+#Random Events#####################################################################################################
+EVENTS = [
+    ("Positive News", 10),
+    ("Sex scandal", -20),
+    ("Campaign Success", 15),
+    ("Corruption scandal", -15)
+]
