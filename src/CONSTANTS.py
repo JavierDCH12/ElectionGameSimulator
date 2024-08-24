@@ -152,4 +152,7 @@ SPECIAL_EVENTS = [
     ("Severe Internal Party Conflict", -15)
 ]
 
+#Strategies#####################################################################################################
+
+STRATEGIES= ["aggressive campaign", "neutral campaign", "defensive campaign"]
 

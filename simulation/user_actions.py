@@ -27,6 +27,7 @@ def set_initial_personal_resources(politician: Politician):
 
     experience_modifier = CONSTANTS.EXPERIENCE_LEVEL_MODIFIER.get(politician.experience, 1)
     influence_resources = round(experience_modifier * random.uniform(0.2, 0.4) * age_score)
+    return influence_resources
 
 
 

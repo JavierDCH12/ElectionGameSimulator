@@ -1,15 +1,17 @@
 
+from src import CONSTANTS
 def set_strategy():
-    valid_strategies = ["aggressive campaign", "neutral campaign", "defensive campaign"]
     
     while True:
-        strategy = input("Which kind of political strategy do you want to follow in this campaign? ").strip().lower()
         
-        if strategy in valid_strategies:
+        strategy = input("Which kind of political strategy do you want to follow in this campaign? ").strip().lower()
+        print(CONSTANTS.STRATEGIES)
+        
+        if strategy in CONSTANTS.STRATEGIES:
             print(f"You have chosen the {strategy.title()} strategy.")
             return strategy
         else:
-            print("You have to choose a valid campaign strategy: Aggressive Campaign, Neutral Campaign, or Defensive Campaign.")
+            print("You have to choose a valid campaign strategy: ", CONSTANTS.STRATEGIES)
 
 def apply_strategy_modifiers(strategy, event_impact):
     if strategy == "aggressive campaign":
