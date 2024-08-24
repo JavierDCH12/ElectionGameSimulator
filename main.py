@@ -4,7 +4,7 @@ import os
 import src.CONSTANTS as CONSTANTS
 
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
-from simulation.user_decisions import set_strategy, apply_strategy_modifiers
+from simulation.user_decisions import set_strategy
 
 ###############################################################
 def print_start_message():
@@ -35,20 +35,16 @@ def display_initial_candidate_resources(player, player_score, player_financial_r
     player_total_resources = player_financial_resources + player_influence_resources + player_internal_resources
     ai_total_resources = ai_financial_resources + ai_influence_resources + ai_internal_resources
 
-    print("Your candidate: ")
+    print("\nYour candidate: ")
     print(f"{player}")
     print(f"Initial Score: {player_score}")
-    print(f"Financial Resources: {player_financial_resources}")
-    print(f"Influence Resources: {player_influence_resources}")
-    print(f"Internal Resources: {player_internal_resources}")
+    print(f"Financial Resources: {player_financial_resources} | Influence Resources: {player_influence_resources} | Internal Resources: {player_internal_resources}  ")
     print(f"Total Resources: {player_total_resources}")  #Total Resources
 
     print("\nA.I Candidate:")
     print(f"{ai}")
     print(f"Initial Score: {ai_score}")
-    print(f"Financial Resources: {ai_financial_resources}")
-    print(f"Influence Resources: {ai_influence_resources}")
-    print(f"Internal Resources: {ai_internal_resources}")
+    print(f"Financial Resources: {ai_financial_resources} | Influence Resources: {ai_influence_resources} | Internal Resources: {ai_internal_resources}  ")
     print(f"Total Resources: {ai_total_resources}")  #Total Resources
 
 
@@ -57,6 +53,7 @@ def main():
     print_start_message()    
     
     player = create_politician()
+    time.sleep(3)
     ai = create_ai_politician()
     
     # Set initial scores and resources
@@ -69,6 +66,7 @@ def main():
     ai_financial_resources = set_initial_financial_resources(ai)
     ai_influence_resources = set_initial_personal_resources(ai)
     ai_internal_resources = set_initial_internal_resources(ai)
+    
     
     display_initial_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, 
                                         ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources)
