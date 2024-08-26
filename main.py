@@ -31,21 +31,31 @@ def print_start_message():
     time.sleep(2)  # Pause for 2 seconds to let the user read the message
 
 
-def display_initial_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources):
-    player_total_resources = player_financial_resources + player_influence_resources + player_internal_resources
-    ai_total_resources = ai_financial_resources + ai_influence_resources + ai_internal_resources
+def display_initial_candidate_resources(player, ai):
+    # Obtener los recursos totales para el jugador y el AI
+    player_total_resources = (player.resources['financial'] +
+                              player.resources['influence'] +
+                              player.resources['internal'])
+    ai_total_resources = (ai.resources['financial'] +
+                          ai.resources['influence'] +
+                          ai.resources['internal'])
 
-    print("\nYour candidate: ")
+    print("\nYour candidate:")
     print(f"{player}")
-    print(f"Initial Score: {player_score}")
-    print(f"Financial Resources: {player_financial_resources} | Influence Resources: {player_influence_resources} | Internal Resources: {player_internal_resources}  ")
-    print(f"Total Resources: {player_total_resources}")  #Total Resources
+    print(f"Initial Score: {player.points}")
+    print(f"Financial Resources: {player.resources['financial']} | "
+          f"Influence Resources: {player.resources['influence']} | "
+          f"Internal Resources: {player.resources['internal']}")
+    print(f"Total Resources: {player_total_resources}")  # Total Resources
     time.sleep(3)
+    
     print("\nA.I Candidate:")
     print(f"{ai}")
-    print(f"Initial Score: {ai_score}")
-    print(f"Financial Resources: {ai_financial_resources} | Influence Resources: {ai_influence_resources} | Internal Resources: {ai_internal_resources}  ")
-    print(f"Total Resources: {ai_total_resources}")  #Total Resources
+    print(f"Initial Score: {ai.points}")
+    print(f"Financial Resources: {ai.resources['financial']} | "
+          f"Influence Resources: {ai.resources['influence']} | "
+          f"Internal Resources: {ai.resources['internal']}")
+    print(f"Total Resources: {ai_total_resources}")  # Total Resources
 
 
 ###############################################################
@@ -60,19 +70,18 @@ def main():
     time.sleep(2)
     
     # Set initial scores and resources
-    player_score = set_initial_score(player)
-    player_financial_resources = set_initial_financial_resources(player)
-    player_influence_resources = set_initial_personal_resources(player)
-    player_internal_resources = set_initial_internal_resources(player)
+    player.points = set_initial_score(player)
+    player.resources['financial'] = set_initial_financial_resources(player)
+    player.resources['influence'] = set_initial_personal_resources(player)
+    player.resources['internal'] = set_initial_internal_resources(player)
+
+    ai.points = set_initial_score(ai)
+    ai.resources['financial'] = set_initial_financial_resources(ai)
+    ai.resources['influence'] = set_initial_personal_resources(ai)
+    ai.resources['internal'] = set_initial_internal_resources(ai)
     
-    ai_score = set_initial_score(ai)
-    ai_financial_resources = set_initial_financial_resources(ai)
-    ai_influence_resources = set_initial_personal_resources(ai)
-    ai_internal_resources = set_initial_internal_resources(ai)
     
-    
-    display_initial_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, 
-                                        ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources)
+    display_initial_candidate_resources(player, ai)
     
     # Player chooses a campaign strategy
     player_strategy = set_strategy()
@@ -81,15 +90,15 @@ def main():
     # Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
         print(f"\nWeek {week + 1}:")
-        player_score = simulate_election(player, player_score, is_player=True, strategy=player_strategy)
+        player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
         time.sleep(10)
-        ai_score = simulate_election(ai, ai_score, is_player=False)  
+        ai.points = simulate_election(ai, ai.points, is_player=False)  
         time.sleep(4)
 
-    print(f"\nFinal Score for {player.name}: {player_score}")
-    print(f"Final Score for {ai.name}: {ai_score}")
+    print(f"\nFinal Score for {player.name}: {player.points}")
+    print(f"Final Score for {ai.name}: {ai.points}")
     
-    final_score_msg(player_score, ai_score)
+    final_score_msg(player.pointsa, ai.points)
 
 
 

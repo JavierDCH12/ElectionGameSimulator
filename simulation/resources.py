@@ -13,7 +13,7 @@ def set_initial_financial_resources(politician: Politician):
         if party == CONSTANTS.PARTY_LDP.name or party == CONSTANTS.PARTY_CDPJ.name: 
             financial_resources = base_value + (base_value * 0.5)
         elif party ==CONSTANTS.PARTY_JCP.name or party == CONSTANTS.PARTY_KOMEITO.name:
-            financial_resources = base_value + (base_value * 0.3)
+            financial_resources = base_value + (base_value * 0.4)
         else:
             financial_resources = base_value
     else:
@@ -26,7 +26,7 @@ def set_initial_personal_resources(politician: Politician):
     age_score = game.age_bonus(politician)
 
     experience_modifier = CONSTANTS.EXPERIENCE_LEVEL_MODIFIER.get(politician.experience, 1)
-    influence_resources = round(experience_modifier * random.uniform(0.2, 0.4) * age_score)
+    influence_resources = round(age_score+ (experience_modifier * random.uniform(0.2, 0.4) * age_score))
     return influence_resources
 
 

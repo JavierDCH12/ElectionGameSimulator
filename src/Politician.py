@@ -4,13 +4,13 @@ from src.prefecture import Prefecture
 
 class Politician:
     
-    def __init__(self, name: str = "", age: int = 0, gender: str = "", experience:str="", points:int=0, resources:int=0,
+    def __init__(self, name: str = "", age: int = 0, gender: str = "", experience:str="",
                  party = None, prefecture = None) -> None:
         self._name = name
         self._age = age
         self._gender = gender
         self._experience=experience
-        self._points=points
+        self._points=0
         self._resources = {
             'financial': 0,
             'influence': 0,
@@ -79,6 +79,13 @@ class Politician:
         else:
             raise ValueError("Experience must be 'Incumbent' or 'New candidate'")
     
+    @points.setter
+    def points(self, value):
+        self._points=value
+    
+    @resources.setter
+    def resources(self, value):
+        self._resources=value
         
     @party.setter
     def party(self, value):
@@ -97,7 +104,6 @@ class Politician:
     def __str__(self) -> str:
         return (f"Name: {self.name} | Age: {self.age} | Gender: {self.gender} | "
                 f"Political Party: {self.party.name} | Prefecture: {self.prefecture.name}"
-                f"Points: {self.points} || Resources: {self.resources}"
                 )
         
         
