@@ -4,7 +4,7 @@ import os
 import src.CONSTANTS as CONSTANTS
 
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
-from simulation.user_decisions import set_strategy
+from simulation.user_decisions import set_strategy, show_actions
 
 ###############################################################
 def print_start_message():
@@ -50,7 +50,10 @@ def display_initial_candidate_resources(player, player_score, player_financial_r
 
 ###############################################################
 def main():
-    print_start_message()    
+    
+    show_actions()
+    
+    """print_start_message()    
     
     player = create_politician()
     time.sleep(3)
@@ -73,6 +76,7 @@ def main():
     
     # Player chooses a campaign strategy
     player_strategy = set_strategy()
+    show_actions()
 
     # Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
@@ -86,7 +90,7 @@ def main():
     print(f"Final Score for {ai.name}: {ai_score}")
     
     final_score_msg(player_score, ai_score)
-
+"""
     
 
 

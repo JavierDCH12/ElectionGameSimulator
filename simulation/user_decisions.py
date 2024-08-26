@@ -6,7 +6,6 @@ def set_strategy():
     while True:
         
         strategy = input("Which kind of political strategy do you want to follow in this campaign? ").strip().lower()
-        print(CONSTANTS.STRATEGIES)
         
         if strategy in CONSTANTS.STRATEGIES:
             print(f"You have chosen the {strategy.title()} strategy.")
@@ -37,6 +36,22 @@ def apply_strategy_modifiers(strategy, event_impact):
     return event_impact
 
 
-def choose_action(politician: Politician):
+def show_actions():
+    print("\nChoose an action for this week:")
+    for idx, action in enumerate(CONSTANTS.ACTIONS): #Showing the actions
+        print(f"{idx + 1}. {action}")
+    
+
+def select_action():
+    
+    while True:
+        try:
+            choice = int(input("Enter the number of your choice: ")) - 1
+            if 0 <= choice < len(CONSTANTS.ACTIONS):
+                return CONSTANTS.ACTIONS[choice]
+            else:
+                print("Invalid choice. Please select a valid action number.")
+        except ValueError:
+            print("Please enter a valid number.")
     
 

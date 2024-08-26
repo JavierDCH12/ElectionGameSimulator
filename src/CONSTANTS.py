@@ -1,5 +1,6 @@
 from src.party import Party
 from src.prefecture import Prefecture
+from src.actions import Action
 
 
 #Rounds#####################################################################################################
@@ -159,7 +160,48 @@ STRATEGIES= ["aggressive campaign", "neutral campaign", "defensive campaign"]
 #Actions#####################################################################################################
 
 
-ACTIONS={
-    "Set up Local Support Groups (Koenkai),"
-    
-}
+
+# Acciones posibles que el jugador puede tomar
+ACTION_KOENKAI = Action(
+    name="Set up support groups (Koenkai)",
+    cost={"financial": 20, "influence": 10},
+    benefit=40,
+    description="Mobilize support by establishing grassroots volunteer groups in each prefecture."
+)
+
+ACTION_TV_PRESENCE = Action(
+    name="Increase your presence in traditional media",
+    cost={"financial": 15, "influence": 5},
+    benefit=30,
+    description="Boost your presence and popularity through a series of Tv appareances."
+)
+
+ACTION_HOST_RALLY = Action(
+    name="Host a Rally",
+    cost={"financial": 25, "influence": 15},
+    benefit=50,
+    description="Host a large rally in a major city to energize your supporters and gain media attention."
+)
+
+ACTION_POLICY_ANNOUNCEMENT = Action(
+    name="Announce New Policy",
+    cost={"financial": 10, "influence": 20},
+    benefit=35,
+    description="Introduce a new policy proposal to attract undecided voters and sway public opinion."
+)
+
+ACTION_INTERNAL_MEETING = Action(
+    name="Hold Internal Party Meeting",
+    cost={"financial": 5, "influence": 10},
+    benefit=25,
+    description="Strengthen internal support by discussing strategy and uniting party members."
+)
+
+# Lista de todas las acciones disponibles
+ACTIONS = [
+    ACTION_KOENKAI,
+    ACTION_TV_PRESENCE,
+    ACTION_HOST_RALLY,
+    ACTION_POLICY_ANNOUNCEMENT,
+    ACTION_INTERNAL_MEETING,
+]
