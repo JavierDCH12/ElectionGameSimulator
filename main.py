@@ -40,7 +40,7 @@ def display_initial_candidate_resources(player, player_score, player_financial_r
     print(f"Initial Score: {player_score}")
     print(f"Financial Resources: {player_financial_resources} | Influence Resources: {player_influence_resources} | Internal Resources: {player_internal_resources}  ")
     print(f"Total Resources: {player_total_resources}")  #Total Resources
-
+    time.sleep(3)
     print("\nA.I Candidate:")
     print(f"{ai}")
     print(f"Initial Score: {ai_score}")

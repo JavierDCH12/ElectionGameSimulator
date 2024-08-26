@@ -1,3 +1,4 @@
+from src.politician import Politician
 
 from src import CONSTANTS
 def set_strategy():
@@ -36,5 +37,6 @@ def apply_strategy_modifiers(strategy, event_impact):
     return event_impact
 
 
-
+def choose_action(politician: Politician):
+    
 

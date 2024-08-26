@@ -156,3 +156,10 @@ SPECIAL_EVENTS = [
 
 STRATEGIES= ["aggressive campaign", "neutral campaign", "defensive campaign"]
 
+#Actions#####################################################################################################
+
+
+ACTIONS={
+    "Set up Local Support Groups (Koenkai),"
+    
+}
