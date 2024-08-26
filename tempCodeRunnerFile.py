@@ -1,1 +1,1 @@
-    player = create_politician()
+select_action

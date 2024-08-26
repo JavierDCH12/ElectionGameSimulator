@@ -4,7 +4,7 @@ import os
 import src.CONSTANTS as CONSTANTS
 
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
-from simulation.user_decisions import set_strategy, show_actions
+from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action
 
 ###############################################################
 def print_start_message():
@@ -85,11 +85,24 @@ def main():
     
     # Player chooses a campaign strategy
     player_strategy = set_strategy()
-    show_actions()
+    
 
     # Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
         print(f"\nWeek {week + 1}:")
+        
+        show_actions()
+        # Player decides whether to take an action or let the random event happen
+        decision = input("Do you want to take an action or let the week go by? (action/letgo): ").lower()
+        
+        if decision == "action":
+            action = select_action()  # Selects an action from available options
+            apply_action(player, action)
+        else:
+            print("No action taken. A random event will occur.")
+            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
+        
+        
         player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
         time.sleep(10)
         ai.points = simulate_election(ai, ai.points, is_player=False)  

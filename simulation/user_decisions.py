@@ -1,5 +1,5 @@
 from src.politician import Politician
-
+from src.actions import Action
 from src import CONSTANTS
 def set_strategy():
     print(f"\n{CONSTANTS.STRATEGIES}")
@@ -54,4 +54,17 @@ def select_action():
         except ValueError:
             print("Please enter a valid number.")
     
+def apply_action(politician: Politician, action: Action):
+    can_afford = True
+    for resource_type, cost in action.cost.items():
+        if politician.resources[resource_type] < cost:
+            can_afford = False
+            break
 
+    if can_afford:
+        for resource_type, cost in action.cost.items():
+            politician.resources[resource_type] -= cost
+        politician.points += action.benefit
+        print(f"{action.name} applied successfully! Points gained: {action.benefit}")
+    else:
+        print(f"Not enough resources to apply {action.name}.")
