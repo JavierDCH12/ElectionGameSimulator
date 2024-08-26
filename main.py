@@ -51,13 +51,13 @@ def display_initial_candidate_resources(player, player_score, player_financial_r
 ###############################################################
 def main():
     
-    show_actions()
     
-    """print_start_message()    
+    print_start_message()    
     
     player = create_politician()
     time.sleep(3)
     ai = create_ai_politician()
+    time.sleep(2)
     
     # Set initial scores and resources
     player_score = set_initial_score(player)
@@ -90,8 +90,7 @@ def main():
     print(f"Final Score for {ai.name}: {ai_score}")
     
     final_score_msg(player_score, ai_score)
-"""
-    
+
 
 
 

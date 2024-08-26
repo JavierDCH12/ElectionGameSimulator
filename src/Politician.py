@@ -4,12 +4,18 @@ from src.prefecture import Prefecture
 
 class Politician:
     
-    def __init__(self, name: str = "", age: int = 0, gender: str = "", experience:str="", 
+    def __init__(self, name: str = "", age: int = 0, gender: str = "", experience:str="", points:int=0, resources:int=0,
                  party = None, prefecture = None) -> None:
         self._name = name
         self._age = age
         self._gender = gender
         self._experience=experience
+        self._points=points
+        self._resources = {
+            'financial': 0,
+            'influence': 0,
+            'internal': 0
+        }
         self._party = party
         self._prefecture = prefecture
         
@@ -30,6 +36,14 @@ class Politician:
     @property
     def experience(self):
         return self._experience
+    
+    @property
+    def points(self):
+        return self._points
+    
+    @property
+    def resources(self):
+        return self._resources
     
     @property
     def party(self):
@@ -82,7 +96,9 @@ class Politician:
     
     def __str__(self) -> str:
         return (f"Name: {self.name} | Age: {self.age} | Gender: {self.gender} | "
-                f"Political Party: {self.party.name} | Prefecture: {self.prefecture.name}")
+                f"Political Party: {self.party.name} | Prefecture: {self.prefecture.name}"
+                f"Points: {self.points} || Resources: {self.resources}"
+                )
         
         
         
