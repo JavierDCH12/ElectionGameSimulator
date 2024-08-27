@@ -1,6 +1,8 @@
 from src.politician import Politician
 from src.actions import Action
 from src import CONSTANTS
+
+
 def set_strategy():
     print(f"\n{CONSTANTS.STRATEGIES}")
     while True:
@@ -20,7 +22,8 @@ def apply_strategy_modifiers(strategy, event_impact):
     if strategy == "aggressive campaign":
         if event_impact > 0:
             event_impact *= 1.2
-            print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})") #TODO CONTROLAR LOS DECIMALES
+            print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})") #CHANGES THE IMAPCT OF THE RANDOM EVENT
+                                                                                                    #INCREASE OR DECREASE
         else:
             event_impact *= 1.2
             print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})")

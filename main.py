@@ -98,7 +98,7 @@ def main():
         
         show_actions()
         # Player decides whether to take an action or let the random event happen
-        decision = input("Do you want to take an action or let the week go by? (action/letgo): ").upper()
+        decision = input("Do you want to take an action or let the week go by? (action/letgo): ")
         
         if decision == "action".strip():
             action = select_action()  # Selects an action from available options

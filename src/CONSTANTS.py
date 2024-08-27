@@ -129,7 +129,7 @@ AGE_BONUS = {
 #INITIAL MODIFIER
 EXPERIENCE_LEVEL_MODIFIER={
     "Incumbent": 0.5,
-    "New Candidate": 0.2,
+    "New Candidate": 0.3,
     
 }
 
@@ -138,20 +138,27 @@ EVENTS = [
     ("Positive Media Coverage", 10),
     ("Minor Gaffe", -5),
     ("Small Corruption Scandal", -10),
-    ("Economic Slowdown", -10),
     ("Successful Small Rally", 10),
-    ("Internal Party Disagreement", -5)
+    ("Internal Party Disagreement", -5),
+    ("Controversial Statement During Diet Session", -10),
+    ("Positive Coverage in the Newspapers", 5),
+    ("Minor Scandal Involving Staff Member", -5),
+    ("Endorsement by Influential Industry Group", 20),
+    ("Public Criticism from Former Party Leader", -5),
+    ("Positive Reception in Social Media", 5)
 ]
-
 SPECIAL_EVENTS = [
     ("Major Positive Media Coverage", 20),
-    ("Major Sex Scandal", -30),
+    ("Major Sex Scandal", -25),
     ("Major Corruption Scandal", -20),
     ("Major Gaffe", -20),
     ("Severe Economic Crisis", -30),
     ("Massively Successful Rally", 20),
-    ("Severe Internal Party Conflict", -15)
+    ("Severe Internal Party Conflict", -15),
+    ("Prime Minister Endorsement", 25),
+    ("Sudden Health Issue", -10)
 ]
+
 
 #Strategies#####################################################################################################
 
