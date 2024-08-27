@@ -104,7 +104,9 @@ def main():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
         else:
-            print("No action taken. A random event will occur.\n")
+            print("No action taken")
+            print("You saved resources and increased them")
+            print("A random event will occur.\n")
             player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
         
         

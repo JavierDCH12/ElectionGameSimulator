@@ -107,9 +107,9 @@ FEMALE_NAMES = [
 #initial Points#####################################################################################################
 PARTY_POPULARITY_BONUS = {
     "Liberal Democratic Party": 30,
-    "Constitutional Democratic Party of Japan": 20,
-    "Komeito": 15,
-    "Japanese Communist Party": 10
+    "Constitutional Democratic Party of Japan": 25,
+    "Komeito": 25,
+    "Japanese Communist Party": 20
 }
 
 PREFECTURE_BONUS = {
@@ -128,8 +128,8 @@ AGE_BONUS = {
 
 #INITIAL MODIFIER
 EXPERIENCE_LEVEL_MODIFIER={
-    "Incumbent": 0.5,
-    "New Candidate": 0.3,
+    "Incumbent": 1,
+    "New Candidate": 0.8,
     
 }
 
@@ -186,7 +186,7 @@ ACTION_TV_PRESENCE = Action(
 ACTION_HOST_RALLY = Action(
     name="Host a Rally",
     cost={"financial": 25, "influence": 15},
-    benefit=50,
+    benefit=40,
     description="Host a large rally in a major city to energize your supporters and gain media attention."
 )
 

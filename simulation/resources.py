@@ -26,7 +26,7 @@ def set_initial_personal_resources(politician: Politician):
     age_score = game.age_bonus(politician)
 
     experience_modifier = CONSTANTS.EXPERIENCE_LEVEL_MODIFIER.get(politician.experience, 1)
-    influence_resources = round(age_score+ (experience_modifier * random.uniform(0.2, 0.4) * age_score))
+    influence_resources = round(age_score+ (experience_modifier * random.uniform(0.5, 0.7) * age_score)) #TODO TUNEIN
     return influence_resources
 
 
@@ -48,3 +48,6 @@ def set_initial_internal_resources(politician: Politician):
         internal_resources = 0  
     
     return internal_resources
+
+def add_resources(politician:Politician):
+    politician.resources['financial'] +=
