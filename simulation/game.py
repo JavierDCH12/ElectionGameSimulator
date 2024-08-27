@@ -84,7 +84,7 @@ def random_score_modifier() -> float:
 
 
 
-def week_simulation(politician, is_player=False) -> int:
+def week_simulation(is_player=False) -> int:
     if random.random() < 0.2:  
         event, base_impact = random.choice(CONSTANTS.SPECIAL_EVENTS)
     else:
@@ -106,10 +106,10 @@ def week_simulation(politician, is_player=False) -> int:
     
     return impact
 
-def simulate_election(politician, score, is_player=True, strategy=None) -> int:
-    impact = week_simulation(politician, is_player)
+def simulate_election(politician:Politician, score, is_player=True, strategy=None) -> int:
+    impact = week_simulation(is_player)
     
-    if is_player and strategy:
+    if strategy:
         impact = apply_strategy_modifiers(strategy, impact)
     
     score += impact

@@ -6,10 +6,10 @@ def set_strategy():
     while True:
         
         strategy = input("Which kind of political strategy do you want to follow in this campaign? ").strip().lower()
-        
+        print("The chosen strategy will either intensify or dampen the impact of the random events, accordingly\n")
+
         if strategy in CONSTANTS.STRATEGIES:
             print(f"You have chosen the {strategy.title()} strategy.")
-            print("The chosen strategy will either intensify or dampen the impact of the random events, accordingly")
             return strategy
         else:
             print("You have to choose a valid campaign strategy: ")
@@ -33,11 +33,11 @@ def apply_strategy_modifiers(strategy, event_impact):
             print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})")
     
     # No message needed for neutral strategy since no modification is applied
-    return event_impact
+    return round(event_impact)
 
 
 def show_actions():
-    print("\nChoose an action for this week:")
+    print("\nYou can choose an action for this week:")
     for idx, action in enumerate(CONSTANTS.ACTIONS): #Showing the actions
         print(f"{idx + 1}. {action}")
     

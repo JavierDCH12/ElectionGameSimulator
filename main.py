@@ -2,6 +2,7 @@ from simulation.game import create_politician, create_ai_politician, simulate_el
 import time
 import os
 import src.CONSTANTS as CONSTANTS
+import random
 
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
 from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action
@@ -85,33 +86,36 @@ def main():
     
     # Player chooses a campaign strategy
     player_strategy = set_strategy()
+    ai_strategy=random.choice(CONSTANTS.STRATEGIES)
+    print(f"The AI has chosen the {ai_strategy.title()} strategy")
     
 
     # Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
+        print(f"\nYOUR RESOURCES: {player.resources} | YOUR POINTS: {player.points}")
+        print(f"nAI RESOURCES: {ai.resources} | AI POINTS: {ai.points}")
         print(f"\nWeek {week + 1}:")
         
         show_actions()
         # Player decides whether to take an action or let the random event happen
-        decision = input("Do you want to take an action or let the week go by? (action/letgo): ").lower()
+        decision = input("Do you want to take an action or let the week go by? (action/letgo): ").upper()
         
-        if decision == "action":
+        if decision == "action".strip():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
         else:
-            print("No action taken. A random event will occur.")
+            print("No action taken. A random event will occur.\n")
             player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
         
         
-        player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
-        time.sleep(10)
-        ai.points = simulate_election(ai, ai.points, is_player=False)  
+        time.sleep(3)
+        ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)  
         time.sleep(4)
 
     print(f"\nFinal Score for {player.name}: {player.points}")
     print(f"Final Score for {ai.name}: {ai.points}")
     
-    final_score_msg(player.pointsa, ai.points)
+    final_score_msg(player.points, ai.points)
 
 
 
