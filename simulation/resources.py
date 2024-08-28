@@ -50,4 +50,6 @@ def set_initial_internal_resources(politician: Politician):
     return internal_resources
 
 def add_resources(politician:Politician):
-    politician.resources['financial'] +=
+    politician.resources['financial'] +=2
+    politician.resources['influence'] +=2
+    politician.resources['internal'] +=2

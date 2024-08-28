@@ -4,7 +4,7 @@ import os
 import src.CONSTANTS as CONSTANTS
 import random
 
-from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
+from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
 from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action
 
 ###############################################################
@@ -104,10 +104,11 @@ def main():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
         else:
-            print("No action taken")
-            print("You saved resources and increased them")
+            print("\nNo action taken.")
+            print("You saved resources and increased them.")
             print("A random event will occur.\n")
             player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
+            add_resources(player)
         
         
         time.sleep(3)
