@@ -118,7 +118,7 @@ def main():
             apply_action(ai, ai_action)
         else:
             add_resources(ai)
-        ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)  
+            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)  
         time.sleep(4)
         
         
