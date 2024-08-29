@@ -1,10 +1,9 @@
 from src.politician import Politician
 from src.actions import Action
 from src import CONSTANTS
-import random
 
 
-def set_strategy():
+def set_strategy(): #Set an initial strategy
     print(f"\n{CONSTANTS.STRATEGIES}")
     while True:
         
@@ -47,7 +46,6 @@ def show_actions():
     
 
 def select_action():
-    
     while True:
         try:
             choice = int(input("Enter the number of your choice: ")) - 1
@@ -57,6 +55,7 @@ def select_action():
                 print("Invalid choice. Please select a valid action number.")
         except ValueError:
             print("Please enter a valid number.")
+
 
 def random_action(ai:Politician):
     affordable_actions = [

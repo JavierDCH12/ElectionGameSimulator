@@ -70,7 +70,7 @@ def main():
     ai = create_ai_politician()
     time.sleep(2)
     
-    # Set initial scores and resources
+    #Set initial scores and resources
     player.points = set_initial_score(player)
     player.resources['financial'] = set_initial_financial_resources(player)
     player.resources['influence'] = set_initial_personal_resources(player)
@@ -84,13 +84,13 @@ def main():
     
     display_initial_candidate_resources(player, ai)
     
-    # Player chooses a campaign strategy
+    #Player chooses a campaign strategy
     player_strategy = set_strategy()
     ai_strategy=random.choice(CONSTANTS.STRATEGIES)
     print(f"The AI has chosen the {ai_strategy.title()} strategy")
     
 
-    # Simulate elections for 5 weeks
+    #Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
         print("--------------------------------------------------------------------------------------")
         print(f"\nWeek {week + 1}:")

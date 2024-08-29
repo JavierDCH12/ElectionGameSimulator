@@ -49,7 +49,7 @@ def set_initial_internal_resources(politician: Politician):
     
     return internal_resources
 
-def add_resources(politician:Politician):
+def add_resources(politician:Politician): #Add resources when action is not taken
     politician.resources['financial'] +=2
     politician.resources['influence'] +=2
     politician.resources['internal'] +=2
