@@ -1,6 +1,7 @@
 from src.politician import Politician
 from src.actions import Action
 from src import CONSTANTS
+import random
 
 
 def set_strategy():
@@ -56,8 +57,25 @@ def select_action():
                 print("Invalid choice. Please select a valid action number.")
         except ValueError:
             print("Please enter a valid number.")
+
+def random_action(ai:Politician):
+    affordable_actions = [
+        action for action in CONSTANTS.ACTIONS 
+        if all(ai.resources[resource] >= cost for resource, cost in action.cost.items())
+    ]
     
+    if not affordable_actions:  #We check if AI has resources to spend
+        print("AI has no affordable actions.")
+        return None
+
+    
+    best_action = max(affordable_actions, key=lambda a: a.benefit / sum(a.cost.values()))
+
+    return best_action
+    
+
 def apply_action(politician: Politician, action: Action):
+   
     can_afford = True
     for resource_type, cost in action.cost.items():
         if politician.resources[resource_type] < cost:
