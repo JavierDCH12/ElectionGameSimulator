@@ -3,6 +3,12 @@ from src.politician import Politician
 from src.action import Action
 from src import CONSTANTS
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)  
+file_handler = logging.FileHandler('errors.log')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 def set_strategy(): #Set an initial strategy
     print(f"\n{CONSTANTS.STRATEGIES}")
@@ -55,9 +61,9 @@ def select_action():
                 return CONSTANTS.ACTIONS[choice]
             else:
                 print("Invalid choice. Please select a valid action number.")
-        except ValueError as e:
+                logger.warning(f"\nInvalid input for age: {choice}\n", exc_info=True)
+        except ValueError:
             print("Please enter a valid number.")
-            logging.warning(f"\nInvalid input for age: {e}\n", exc_info=True)
 
 
 def random_action(ai:Politician):

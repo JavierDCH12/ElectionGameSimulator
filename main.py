@@ -77,7 +77,7 @@ def display_initial_candidate_resources(player, ai):
 ###############################################################
 def main():
     
-    logger.info("Game starts")
+    logger.info("Game starts\n")
     print_start_message()    
     
     player = create_politician() 
