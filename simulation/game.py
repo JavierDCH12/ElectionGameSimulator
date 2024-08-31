@@ -2,6 +2,7 @@ from src.politician import Politician
 from src import CONSTANTS
 import random
 from simulation.user_decisions import apply_strategy_modifiers
+import logging
 
 def ask_name() -> str:
     return input("Enter the politician's name: ").capitalize()
@@ -101,8 +102,10 @@ def week_simulation(is_player=False) -> int:
     
     if is_player:
         print(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
+        logging.info(f"No action taken. Random event: {event}")
     else:
         print(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
+        logging.info(f"No action taken. Random event: {event}")
     
     return impact
 

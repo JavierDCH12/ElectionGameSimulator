@@ -1,6 +1,6 @@
 from src.party import Party
 from src.prefecture import Prefecture
-from src.actions import Action
+from src.action import Action
 
 
 #Rounds#####################################################################################################

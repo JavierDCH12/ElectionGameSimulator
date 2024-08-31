@@ -1,5 +1,5 @@
 from src.politician import Politician
-from src.actions import Action
+from src.action import Action
 from src import CONSTANTS
 
 

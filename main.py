@@ -72,12 +72,14 @@ def display_initial_candidate_resources(player, ai):
 ###############################################################
 def main():
     
-    
+    logging.info("Game starts")
     print_start_message()    
     
-    player = create_politician()
+    player = create_politician() 
+    logging.info(player)
     time.sleep(3)
     ai = create_ai_politician()
+    logging.info(ai)
     time.sleep(2)
     
     #Set initial scores and resources
@@ -104,8 +106,12 @@ def main():
     for week in range(CONSTANTS.ROUND_WEEKS):
         print("--------------------------------------------------------------------------------------")
         print(f"\nWeek {week + 1}:")
+        logging.info(f"\nWeek {week + 1}:")
         print(f"\nYOUR RESOURCES: {player.resources} | YOUR POINTS: {player.points}")
         print(f"AI RESOURCES: {ai.resources} | AI POINTS: {ai.points}")
+        logging.info(player.resources)
+        logging.info(ai.resources)
+
         
         show_actions()
         # Player decides whether to take an action or let the random event happen
@@ -114,12 +120,14 @@ def main():
         if decision == "action".strip().lower():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
+            logging.info(f"Action taken: {action}")
         else:
             print("\nNo action taken.")
             print("You saved resources and increased them.")
             print("A random event will occur.\n")
             player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
             add_resources(player)
+            
         
         print("\nIA's TURN\n")
         time.sleep(3)
@@ -136,8 +144,10 @@ def main():
 
     print(f"\nFinal Score for {player.name}: {player.points}")
     print(f"Final Score for {ai.name}: {ai.points}")
+    logging.info(f"Player points: {player.points} ; Ai points: {ai.points}")
     
     final_score_msg(player.points, ai.points)
+    logging.info("Game over")
 
 
 
