@@ -1,11 +1,21 @@
 from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
-import time
-import os
-import src.CONSTANTS as CONSTANTS
-import random
-
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
 from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
+import src.CONSTANTS as CONSTANTS
+
+import time
+import os
+import random
+import logging
+
+#LOGGING CONFIG
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename="game.log",
+    filemode="a"
+    
+)
 
 ###############################################################
 def print_start_message():
