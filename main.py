@@ -1,3 +1,6 @@
+
+import logging
+
 from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
 from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
@@ -5,7 +8,17 @@ import src.CONSTANTS as CONSTANTS
 import time
 import os
 import random
-import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)  
+
+file_handler = logging.FileHandler('simulation.log')
+file_handler.setLevel(logging.INFO)  
+
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 
@@ -64,14 +77,14 @@ def display_initial_candidate_resources(player, ai):
 ###############################################################
 def main():
     
-    logging.info("Game starts")
+    logger.info("Game starts")
     print_start_message()    
     
     player = create_politician() 
-    logging.info(player)
+    logger.info(player)
     time.sleep(3)
     ai = create_ai_politician()
-    logging.info(ai)
+    logger.info(ai)
     time.sleep(2)
     
     #Set initial scores and resources
@@ -98,11 +111,11 @@ def main():
     for week in range(CONSTANTS.ROUND_WEEKS):
         print("--------------------------------------------------------------------------------------")
         print(f"\nWeek {week + 1}:")
-        logging.info(f"\nWeek {week + 1}:")
+        logger.info(f"\nWeek {week + 1}:")
         print(f"\nYOUR RESOURCES: {player.resources} | YOUR POINTS: {player.points}")
         print(f"AI RESOURCES: {ai.resources} | AI POINTS: {ai.points}")
-        logging.info(player.resources)
-        logging.info(ai.resources)
+        logger.info(f"{player.name}: {player.resources}")
+        logger.info(f"{ai.name}: {ai.resources}")
 
         
         show_actions()
@@ -112,7 +125,7 @@ def main():
         if decision == "action".strip().lower():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
-            logging.info(f"Action taken: {action}")
+            logger.info(f"Action taken: {action}")
         else:
             print("\nNo action taken.")
             print("You saved resources and increased them.")
@@ -130,16 +143,19 @@ def main():
             add_resources(ai)
             ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)  
         time.sleep(4)
+        logger.info(f"{player.name}: {player.points}")
+        logger.info(f"{ai.name}: {ai.points}")
+
         
         
         print("--------------------------------------------------------------------------------------")
 
     print(f"\nFinal Score for {player.name}: {player.points}")
     print(f"Final Score for {ai.name}: {ai.points}")
-    logging.info(f"Player points: {player.points} ; Ai points: {ai.points}")
+    logger.info(f"Player points: {player.points} ; Ai points: {ai.points}")
     
     final_score_msg(player.points, ai.points)
-    logging.info("Game over")
+    logger.info("Game over")
 
 
 

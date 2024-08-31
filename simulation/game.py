@@ -1,8 +1,17 @@
+import logging
+
 from src.politician import Politician
 from src import CONSTANTS
 import random
 from simulation.user_decisions import apply_strategy_modifiers
-import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)  
+file_handler = logging.FileHandler('errors.log')
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
 
 def ask_name() -> str:
     return input("Enter the politician's name: ").capitalize()
@@ -15,8 +24,11 @@ def ask_age() -> int:
                 return age
             else:
                 print("Age must be between 25 and 100. Please try again.")
-        except ValueError:
+                logger.error(f"\nInvalid input for age: {age}\n", exc_info=True)
+        except ValueError as e:
             print("Invalid input. Please enter a valid integer for age.")
+            logger.error(f"\nInvalid input for age: {e}\n", exc_info=True)
+
 
 def ask_gender() -> str:
     while True:
@@ -102,10 +114,10 @@ def week_simulation(is_player=False) -> int:
     
     if is_player:
         print(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
-        logging.info(f"No action taken. Random event: {event}")
+        logger.info(f"No action taken. Random event: {event}")
     else:
         print(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
-        logging.info(f"No action taken. Random event: {event}")
+        logger.info(f"No action taken. Random event: {event}")
     
     return impact
 

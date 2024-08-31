@@ -1,3 +1,4 @@
+import logging
 from src.politician import Politician
 from src.action import Action
 from src import CONSTANTS
@@ -8,10 +9,11 @@ def set_strategy(): #Set an initial strategy
     while True:
         
         strategy = input("Which kind of political strategy do you want to follow in this campaign? ").strip().lower()
-        print("The chosen strategy will either intensify or dampen the impact of the random events, accordingly\n")
+        
 
         if strategy in CONSTANTS.STRATEGIES:
             print(f"You have chosen the {strategy.title()} strategy.")
+            print("The chosen strategy will either intensify or dampen the impact of the random events, accordingly\n")
             return strategy
         else:
             print("You have to choose a valid campaign strategy: ")
@@ -53,8 +55,9 @@ def select_action():
                 return CONSTANTS.ACTIONS[choice]
             else:
                 print("Invalid choice. Please select a valid action number.")
-        except ValueError:
+        except ValueError as e:
             print("Please enter a valid number.")
+            logging.warning(f"\nInvalid input for age: {e}\n", exc_info=True)
 
 
 def random_action(ai:Politician):
