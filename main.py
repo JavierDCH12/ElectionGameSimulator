@@ -5,6 +5,7 @@ from simulation.game import create_politician, create_ai_politician, simulate_el
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
 from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
 import src.CONSTANTS as CONSTANTS
+from simulation.log_actions import log_action, log_event, log_strategy
 import time
 import os
 import random
@@ -63,7 +64,7 @@ def display_initial_candidate_resources(player, ai):
           f"Influence Resources: {player.resources['influence']} | "
           f"Internal Resources: {player.resources['internal']}")
     print(f"Total Resources: {player_total_resources}")  # Total Resources
-    time.sleep(3)
+    time.sleep(2)
     
     print("\nA.I Candidate:")
     print(f"{ai}")
@@ -118,6 +119,7 @@ def main():
         logger.info(f"{ai.name}: {ai.resources}")
 
         
+        #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
         show_actions()
         # Player decides whether to take an action or let the random event happen
         decision = input("Do you want to take an action or let the week go by? (action/letgo): ")
@@ -133,8 +135,8 @@ def main():
             player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
             add_resources(player)
             
-        
-        print("\nIA's TURN\n")
+        #AI TURN++++++++++++++++++++++++++++++++++++++++++
+        print("\nAI's TURN\n")
         time.sleep(3)
         ai_action=random_action(ai)
         if ai_action is not None:
