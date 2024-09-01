@@ -2,6 +2,8 @@ import logging
 from src.politician import Politician
 from src.action import Action
 from src import CONSTANTS
+from simulation.log_actions import log_action, log_strategy
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)  
@@ -94,6 +96,8 @@ def apply_action(politician: Politician, action: Action):
         for resource_type, cost in action.cost.items():
             politician.resources[resource_type] -= cost
         politician.points += action.benefit
+        
+        log_action(politician.name, action.name, action.cost, action.benefit, politician.resources)
         print(f"{action.name} applied successfully! Points gained: {action.benefit}")
     else:
         print(f"Not enough resources to apply {action.name}.")

@@ -1,4 +1,3 @@
-
 import logging
 
 from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
@@ -104,7 +103,9 @@ def main():
     
     #Player chooses a campaign strategy
     player_strategy = set_strategy()
+    log_strategy(player.name, player_strategy, player.points)
     ai_strategy=random.choice(CONSTANTS.STRATEGIES)
+    log_strategy(ai.name, ai_strategy, ai.points)
     print(f"The AI has chosen the {ai_strategy.title()} strategy")
     
 
