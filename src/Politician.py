@@ -102,7 +102,7 @@ class Politician:
             raise ValueError("The prefecture must be an instance of the Prefecture class.")
     
     def __str__(self) -> str:
-        return (f"Name: {self.name} | Age: {self.age} | Gender: {self.gender} | Experience: {self.experience} "
+        return (f"Name: {self.name} | Age: {self.age} | Gender: {self.gender} | Experience: {self.experience} | "
                 f"Political Party: {self.party.name} | Prefecture: {self.prefecture.name}"
                 )
         

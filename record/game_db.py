@@ -1,50 +1,67 @@
-import sqlite3
-import re
+import mysql.connector
+from mysql.connector import Error
+import datetime
 
-#CREATE DATABASE
-connection = sqlite3.connect("record/game.db")
-cursor = connection.cursor()
-
-#CREATE TABLE
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS Politicians (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    age INTEGER,
-    gender TEXT,
-    experience TEXT,
-    party TEXT,
-    prefecture TEXT,
-    log_time TEXT
-)
-''')
-
-
-def extract_pol_data(log_path):
-    with open(log_path, 'r') as file:
-        for line in file:
-            match = re.search(r"INFO - Name: (?P<name>.+?) \| Age: (?P<age>\d+|None) \| Gender: (?P<gender>Male|Female) \| Experience: (?P<experience>Incumbent|New candidate) \| Political Party: (?P<party>.+?) \| Prefecture: (?P<prefecture>.+)", line)
-            if match: 
-                name=match.group('name')
-                age=match.group('age')
-                gender=match.group('gender')
-                experience=match.group('experience')
-                party=match.group('party')
-                prefecture=match.group('prefecture')
-                
-                
-                log_time = line.split(" - ")[0]
-                
-                cursor.execute('''
-                INSERT INTO Politicians (name, age, gender, experience, party, prefecture, log_time)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-                ''', (name, age, gender, experience, party, prefecture, log_time))
-                
-extract_pol_data("logs\pols.log")   
-
-connection.commit()
-#cursor.close()
-cursor.execute("SELECT * FROM Politicians")
-
-
+#CONNECTION TO MYSQL
+def create_connect_db():
+    try:
+        connection=mysql.connector.connect(
+            host="localhost",
+            user="root",
+            passwd="root",
+            database="election_game_simulator"
+        )
+        if connection.is_connected():
+            print("Successful connection to MYSQL")
+            return connection
         
+    except Error as e:
+        print(f"Can't connect to MYSQL: {e}")
+        return None
+
+
+#FUNCTION TO RECORD GAME SESSION
+def add_game_session_db(connection, session_id, player, ai, start_time):
+    cursor = connection.cursor()
+    query = """
+    INSERT INTO game_sessions (session_id, player_name, ai_name, start_time)
+    VALUES (%s, %s, %s, %s)
+    """
+    cursor.execute(query, (session_id, player.name, ai.name, start_time))
+    connection.commit()
+
+#FUNCTION TO RECORD POLITICIAN
+def add_politician_db(connection, politician, session_id):
+    cursor = connection.cursor()
+    query = """
+    INSERT INTO politicians (name, party, age, experience, financial_resources, influence_resources, internal_resources, points, session_id, created_at)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """
+    # Extraer atributos del objeto politician
+    cursor.execute(query, (
+        politician.name, politician.party.name, politician.age, politician.experience,
+        politician.resources['financial'], politician.resources['influence'], politician.resources['internal'],
+        politician.points, session_id, datetime.now()
+    ))
+    connection.commit()
+
+#FUNCTION TO ADD EVENT
+def add_event_db(connection, session_id, event_description, impact):
+    cursor = connection.cursor()
+    query = """
+    INSERT INTO events (session_id, event_description, impact)
+    VALUES (%s, %s, %s)
+    """
+    cursor.execute(query, (session_id, event_description, impact))
+    connection.commit()
+    
+#FUNCTION TO ADD ACTION
+def add_action_db(connection, session_id, politician_name, action_name, result):
+    cursor = connection.cursor()
+    query = """
+    INSERT INTO actions (session_id, politician_name, action_name, result)
+    VALUES (%s, %s, %s, %s)
+    """
+    cursor.execute(query, (session_id, politician_name, action_name, result))
+    connection.commit()
+

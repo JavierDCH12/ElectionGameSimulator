@@ -1,2 +1,11 @@
-2024-09-01 13:36:33 - simulation.game - INFO - Name: Irene | Age: 45 | Gender: Male | Political Party: Constitutional Democratic Party of Japan | Prefecture: Kumamoto
-2024-09-01 13:36:36 - simulation.game - INFO - Name: Yoshio Tanaka | Age: 53 | Gender: Male | Political Party: Constitutional Democratic Party of Japan | Prefecture: Okinawa
+2024-09-01 14:03:44 - simulation.game - INFO - Name: Javier | Age: 78 | Gender: Male | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Mie
+2024-09-01 14:03:47 - simulation.game - INFO - Name: Kenji Watanabe | Age: 46 | Gender: Male | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Aichi
+2024-09-01 14:24:14 - simulation.game - INFO - Name: Javier delgado | Age: 78 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Nagasaki
+2024-09-01 14:24:17 - simulation.game - INFO - Name: Katsuo Kato | Age: 90 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Niigata
+2024-09-01 14:25:19 - simulation.game - ERROR - 
+Invalid input for age: 24
+NoneType: None
+2024-09-01 14:25:21 - simulation.game - INFO - Name: Mario | Age: 28 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Nagasaki
+2024-09-01 14:25:24 - simulation.game - INFO - Name: Sakura Kobayashi | Age: 64 | Gender: Female | Experience: New Candidate | Political Party: Komeito | Prefecture: Nagano
+2024-09-01 14:28:35 - simulation.game - INFO - Name: Abe shinzo | Age: 85 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Iwate
+2024-09-01 14:28:38 - simulation.game - INFO - Name: Kazuo Yamamoto | Age: 60 | Gender: Male | Experience: Incumbent | Political Party: Komeito | Prefecture: Yamaguchi

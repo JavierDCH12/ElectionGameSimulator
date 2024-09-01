@@ -1,13 +1,15 @@
 import logging
-
 from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
 from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
 import src.CONSTANTS as CONSTANTS
 from simulation.log_actions import log_action, log_event, log_strategy
 import time
+import datetime
 import os
 import random
+ 
+from record.game_db import create_connect_db, add_action_db, add_event_db, add_game_session_db, add_politician_db
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)  
@@ -75,15 +77,26 @@ def display_initial_candidate_resources(player, ai):
 ###############################################################
 def main():
     
+    connection = create_connect_db()
+    if connection is None:
+        print("Couldn't connect to MYSQL. EXIT")
+        return
+    
+    
+    session_id = f"session_{int(time.time())}"  # Identificador único para la sesión
+    start_time = datetime.now()
     logger.info("Game starts\n")
     print_start_message()    
     
-    player = create_politician() 
+    player = create_politician()
+    add_politician_db(connection, player, session_id)
     logger.info(player)
     time.sleep(3)
     ai = create_ai_politician()
+    add_politician_db(connection, ai, session_id)
     logger.info(ai)
     time.sleep(2)
+    add_game_session_db(connection, session_id, player, ai, start_time )
     
     #Set initial scores and resources
     player.points = set_initial_score(player)
