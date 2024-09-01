@@ -15,6 +15,16 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
+logger_pol = logging.getLogger(__name__)
+logger_pol.setLevel(logging.INFO)  
+file_handler = logging.FileHandler('logs/pols.log')
+file_handler.setLevel(logging.INFO)  
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(formatter)
+logger_pol.addHandler(file_handler)
+
+
+############################################################################################
 def ask_name() -> str:
     return input("Enter the politician's name: ").capitalize()
 
@@ -50,7 +60,9 @@ def create_politician():
     party = random.choice(CONSTANTS.PARTIES)
     prefecture = random.choice(CONSTANTS.PREFECTURES)
     
-    return Politician(name, age, gender, experience, party, prefecture)
+    politician= Politician(name, age, gender, experience, party, prefecture)
+    logger_pol.info(politician)
+    return politician
 
 def create_ai_politician():
     age = random.randint(25, 100)
@@ -62,7 +74,9 @@ def create_ai_politician():
     party = random.choice(CONSTANTS.PARTIES)
     prefecture = random.choice(CONSTANTS.PREFECTURES)
     
-    return Politician(name, age, gender, experience, party, prefecture)
+    politician= Politician(name, age, gender, experience, party, prefecture)
+    logger_pol.info(politician)
+    return politician
 
 
 
