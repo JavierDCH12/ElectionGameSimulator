@@ -5,7 +5,7 @@ from src import CONSTANTS
 import random
 from simulation.user_decisions import apply_strategy_modifiers
 from simulation.log_actions import log_event
-
+from record.game_db import add_event_db
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)  
@@ -112,34 +112,44 @@ def random_score_modifier() -> float:
     return random.uniform(0.8, 1.2)
 
 
-
-def week_simulation(politician, is_player=False) -> int:
-    if random.random() < 0.2:  
+def generate_random_event() -> tuple:
+    """Generate a random event and its base impact."""
+    if random.random() < 0.2:
         event, base_impact = random.choice(CONSTANTS.SPECIAL_EVENTS)
     else:
         event, base_impact = random.choice(CONSTANTS.EVENTS)
+    return event, base_impact
+
+
+def week_simulation(politician, is_player=False, event=None, base_impact=None, connection=None, session_id=None) -> int:
+    if event is None or base_impact is None:
+        event, base_impact = generate_random_event()
     
-    modifier = random_score_modifier() 
+    modifier = random_score_modifier()
     impact = round(base_impact * modifier)
     
-    # Ensure positive events stay positive and negative events stay negative
     if base_impact > 0:
-        impact = max(0, impact)  # Ensures positive impact stays positive or zero
+        impact = max(0, impact)  # Ensure positive impact stays positive or zero
     else:
-        impact = min(0, impact)  # Ensures negative impact stays negative or zero
+        impact = min(0, impact)  # Ensure negative impact stays negative or zero
     
     if is_player:
         print(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
-        logger.info(f"No action taken. Random event: {event}")
+        logger.info(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
     else:
         print(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
-        logger.info(f"No action taken. Random event: {event}")
+        logger.info(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
     
-    log_event(politician.name, event, impact, politician.points+impact)
+    log_event(politician.name, event, impact, politician.points + impact)
+
+    # Record the event in the database if connection and session_id are provided
+    if connection and session_id:
+        add_event_db(connection, session_id, event, impact)
+    
     return impact
 
-def simulate_election(politician:Politician, score, is_player=True, strategy=None) -> int:
-    impact = week_simulation(politician, is_player)
+def simulate_election(politician, score, is_player=True, strategy=None, connection=None, session_id=None) -> int:
+    impact = week_simulation(politician, is_player, connection=connection, session_id=session_id)
     
     if strategy:
         impact = apply_strategy_modifiers(strategy, impact)
@@ -149,8 +159,6 @@ def simulate_election(politician:Politician, score, is_player=True, strategy=Non
     
     print(f"Score after this week: {score}\n")
     return score
-
-
 
 
 def final_score_msg(player_score, ai_score):

@@ -5,11 +5,12 @@ from simulation.user_decisions import set_strategy, show_actions, apply_action, 
 import src.CONSTANTS as CONSTANTS
 from simulation.log_actions import log_action, log_event, log_strategy
 import time
-import datetime
+from  datetime import datetime
 import os
 import random
- 
 from record.game_db import create_connect_db, add_action_db, add_event_db, add_game_session_db, add_politician_db
+
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)  
@@ -77,6 +78,7 @@ def display_initial_candidate_resources(player, ai):
 ###############################################################
 def main():
     
+    
     connection = create_connect_db()
     if connection is None:
         print("Couldn't connect to MYSQL. EXIT")
@@ -139,12 +141,13 @@ def main():
         if decision == "action".strip().lower():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
+            add_action_db(connection, session_id, action)
             logger.info(f"Action taken: {action}")
         else:
             print("\nNo action taken.")
             print("You saved resources and increased them.")
             print("A random event will occur.\n")
-            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
+            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy, connection=connection, session_id=session_id)
             add_resources(player)
             
         #AI TURN++++++++++++++++++++++++++++++++++++++++++
@@ -153,6 +156,7 @@ def main():
         ai_action=random_action(ai)
         if ai_action is not None:
             apply_action(ai, ai_action)
+            add_action_db(connection, session_id, action)
         else:
             add_resources(ai)
             ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)  
