@@ -167,7 +167,10 @@ def main():
         
         
         print("--------------------------------------------------------------------------------------")
-
+    
+    
+    
+    #END OF GAME
     print(f"\nFinal Score for {player.name}: {player.points}")
     print(f"Final Score for {ai.name}: {ai.points}")
     logger.info(f"Player points: {player.points} ; Ai points: {ai.points}")
