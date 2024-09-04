@@ -1,5 +1,6 @@
 from src.party import Party
 from src.prefecture import Prefecture
+from src.resource import Resource
 
 
 class Politician:
@@ -11,11 +12,7 @@ class Politician:
         self._gender = gender
         self._experience=experience
         self._points=0
-        self._resources = {
-            'financial': 0,
-            'influence': 0,
-            'internal': 0
-        }
+        self._resources = Resource()
         self._party = party
         self._prefecture = prefecture
         
@@ -40,7 +37,7 @@ class Politician:
     @property
     def points(self):
         return self._points
-    
+
     @property
     def resources(self):
         return self._resources
@@ -107,5 +104,10 @@ class Politician:
                 )
         
         
-        
+    
 
+    def add_resources(self, financial: int, influence: int, internal:int):
+        self._resources.add(financial, influence, internal)
+    
+    def substract_resources(self, financial: int, influence: int, internal:int):
+        self._resources.subtract(financial, influence, internal)

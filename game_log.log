@@ -1,0 +1,24 @@
+2024-09-04 15:40:40,535 - INFO - Player: Javier delgado | Strategy name: aggressive campaign | Current Score: 45
+2024-09-04 15:40:40,536 - INFO - Player: Kenji Watanabe | Strategy name: neutral campaign | Current Score: 90
+2024-09-04 15:42:07,004 - INFO - Player: Javier delgado | Strategy name: aggressive campaign | Current Score: 54
+2024-09-04 15:42:07,005 - INFO - Player: Kenji Watanabe | Strategy name: aggressive campaign | Current Score: 108
+2024-09-04 15:42:15,041 - INFO - Player: Kenji Watanabe | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 22.5, 'influence': 17, 'internal': 22.5} | 
+2024-09-04 15:42:45,165 - INFO - Player: Javier delgado | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 22.5, 'influence': 2, 'internal': 22.5} | 
+2024-09-04 15:42:48,172 - INFO - Player: Kenji Watanabe | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 7.5, 'influence': 12, 'internal': 17.5} | 
+2024-09-04 15:43:01,519 - INFO - Player: Javier delgado | Event Name: Successful Small Rally | Impact: 10 | Score: 94 | 
+2024-09-04 17:02:50,298 - INFO - Player: Javier delgado | Strategy name: aggressive campaign | Current Score: 60
+2024-09-04 17:02:50,298 - INFO - Player: Akira Saito | Strategy name: neutral campaign | Current Score: 70
+2024-09-04 17:04:14,689 - INFO - Player: Javier delgado | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 20.0, 'influence': 3, 'internal': 27.5} | 
+2024-09-04 17:04:17,693 - INFO - Player: Akira Saito | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 13.0, 'influence': 19, 'internal': 21.0} | 
+2024-09-04 17:54:46,160 - INFO - Player: Javier | Strategy name: neutral campaign | Current Score: 50
+2024-09-04 17:54:46,160 - INFO - Player: Hiroshi Suzuki | Strategy name: neutral campaign | Current Score: 54
+2024-09-04 17:56:03,449 - INFO - Player: Javier | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 13.0, 'influence': 3, 'internal': 21.0} | 
+2024-09-04 17:56:06,452 - INFO - Player: Hiroshi Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 20.0, 'influence': 2, 'internal': 27.5} | 
+2024-09-04 17:58:12,953 - INFO - Player: Javier | Event Name: Positive Media Coverage | Impact: 9 | Score: 89 | 
+2024-09-04 17:58:15,959 - INFO - Player: Hiroshi Suzuki | Event Name: Minor Scandal Involving Staff Member | Impact: -5 | Score: 79 | 
+2024-09-04 18:16:39,395 - INFO - Player: Javier | Event Name: Minor Gaffe | Impact: -5 | Score: 84 | 
+2024-09-04 18:16:42,398 - INFO - Player: Hiroshi Suzuki | Event Name: Positive Media Coverage | Impact: 10 | Score: 89 | 
+2024-09-04 18:18:24,882 - INFO - Player: Javier | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 2.0, 'influence': 2, 'internal': 20.0} | 
+2024-09-04 18:18:27,886 - INFO - Player: Hiroshi Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 9.0, 'influence': 1, 'internal': 26.5} | 
+2024-09-04 18:18:57,592 - INFO - Player: Javier | Event Name: Public Criticism from Former Party Leader | Impact: -5 | Score: 109 | 
+2024-09-04 18:19:00,598 - INFO - Player: Hiroshi Suzuki | Event Name: Internal Party Disagreement | Impact: -6 | Score: 113 | 

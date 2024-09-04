@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
-import datetime
+from datetime import datetime
 from dotenv import load_dotenv
 import os
 
@@ -51,7 +51,7 @@ def add_politician_db(connection, politician, session_id):
     cursor.execute(query, (
         politician.name, politician.party.name, politician.age, politician.experience,
         politician.resources['financial'], politician.resources['influence'], politician.resources['internal'],
-        politician.points, session_id, datetime.now()
+        politician.points, session_id, datetime.today()
     ))
     connection.commit()
 

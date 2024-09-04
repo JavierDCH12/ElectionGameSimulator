@@ -5,10 +5,9 @@ from simulation.user_decisions import set_strategy, show_actions, apply_action, 
 import src.CONSTANTS as CONSTANTS
 from simulation.log_actions import log_action, log_event, log_strategy
 import time
-from  datetime import datetime
 import os
 import random
-from record.game_db import create_connect_db, add_action_db, add_event_db, add_game_session_db, add_politician_db
+from src.resource import Resource
 
 
 
@@ -49,67 +48,55 @@ def print_start_message():
 
 
 def display_initial_candidate_resources(player, ai):
-    # Obtener los recursos totales para el jugador y el AI
-    player_total_resources = (player.resources['financial'] +
-                              player.resources['influence'] +
-                              player.resources['internal'])
-    ai_total_resources = (ai.resources['financial'] +
-                          ai.resources['influence'] +
-                          ai.resources['internal'])
+    player_total_resources = player.resources.total_resources()
+    ai_total_resources = ai.resources.total_resources()
 
     print("\nYour candidate:")
     print(f"{player}")
     print(f"Initial Score: {player.points}")
-    print(f"Financial Resources: {player.resources['financial']} | "
-          f"Influence Resources: {player.resources['influence']} | "
-          f"Internal Resources: {player.resources['internal']}")
+    print(f"Financial Resources: {player.resources.financial_resources} | "
+          f"Influence Resources: {player.resources.influence_resources} | "
+          f"Internal Resources: {player.resources.internal_resources}")
     print(f"Total Resources: {player_total_resources}")  # Total Resources
     time.sleep(2)
     
     print("\nA.I Candidate:")
     print(f"{ai}")
     print(f"Initial Score: {ai.points}")
-    print(f"Financial Resources: {ai.resources['financial']} | "
-          f"Influence Resources: {ai.resources['influence']} | "
-          f"Internal Resources: {ai.resources['internal']}")
+    print(f"Financial Resources: {ai.resources.financial_resources} | "
+          f"Influence Resources: {ai.resources.influence_resources} | "
+          f"Internal Resources: {ai.resources.internal_resources}")
     print(f"Total Resources: {ai_total_resources}")  # Total Resources
+
 
 
 ###############################################################
 def main():
     
     
-    connection = create_connect_db()
-    if connection is None:
-        print("Couldn't connect to MYSQL. EXIT")
-        return
     
     
-    session_id = f"session_{int(time.time())}"  # Identificador único para la sesión
-    start_time = datetime.now()
     logger.info("Game starts\n")
-    print_start_message()    
+    print_start_message()
     
     player = create_politician()
-    add_politician_db(connection, player, session_id)
+    
     logger.info(player)
     time.sleep(3)
     ai = create_ai_politician()
-    add_politician_db(connection, ai, session_id)
     logger.info(ai)
     time.sleep(2)
-    add_game_session_db(connection, session_id, player, ai, start_time )
     
     #Set initial scores and resources
     player.points = set_initial_score(player)
-    player.resources['financial'] = set_initial_financial_resources(player)
-    player.resources['influence'] = set_initial_personal_resources(player)
-    player.resources['internal'] = set_initial_internal_resources(player)
+    player.resources.influence_resources = set_initial_financial_resources(player)
+    player.resources.influence_resources = set_initial_personal_resources(player)
+    player.resources.internal_resources = set_initial_internal_resources(player)
 
     ai.points = set_initial_score(ai)
-    ai.resources['financial'] = set_initial_financial_resources(ai)
-    ai.resources['influence'] = set_initial_personal_resources(ai)
-    ai.resources['internal'] = set_initial_internal_resources(ai)
+    ai.resources.financial_resources = set_initial_financial_resources(ai)
+    ai.resources.influence_resources = set_initial_personal_resources(ai)
+    ai.resources.internal_resources = set_initial_internal_resources(ai)
     
     
     display_initial_candidate_resources(player, ai)
@@ -127,10 +114,10 @@ def main():
         print("--------------------------------------------------------------------------------------")
         print(f"\nWeek {week + 1}:")
         logger.info(f"\nWeek {week + 1}:")
-        print(f"\nYOUR RESOURCES: {player.resources} | YOUR POINTS: {player.points}")
-        print(f"AI RESOURCES: {ai.resources} | AI POINTS: {ai.points}")
-        logger.info(f"{player.name}: {player.resources}")
-        logger.info(f"{ai.name}: {ai.resources}")
+        print(f"\nYOUR RESOURCES: {player.resources.total_resources()} | YOUR POINTS: {player.points}")
+        print(f"AI RESOURCES: {ai.resources.total_resources()} | AI POINTS: {ai.points}")
+        logger.info(f"{player.name}: {player.resources.total_resources()}")
+        logger.info(f"{ai.name}: {ai.resources.total_resources()}")
 
         
         #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
@@ -141,13 +128,12 @@ def main():
         if decision == "action".strip().lower():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
-            add_action_db(connection, session_id, action)
             logger.info(f"Action taken: {action}")
         else:
             print("\nNo action taken.")
             print("You saved resources and increased them.")
             print("A random event will occur.\n")
-            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy, connection=connection, session_id=session_id)
+            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
             add_resources(player)
             
         #AI TURN++++++++++++++++++++++++++++++++++++++++++
@@ -156,7 +142,6 @@ def main():
         ai_action=random_action(ai)
         if ai_action is not None:
             apply_action(ai, ai_action)
-            add_action_db(connection, session_id, action)
         else:
             add_resources(ai)
             ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)  

@@ -121,7 +121,7 @@ def generate_random_event() -> tuple:
     return event, base_impact
 
 
-def week_simulation(politician, is_player=False, event=None, base_impact=None, connection=None, session_id=None) -> int:
+def week_simulation(politician, is_player=False, event=None, base_impact=None) -> int:
     if event is None or base_impact is None:
         event, base_impact = generate_random_event()
     
@@ -142,14 +142,11 @@ def week_simulation(politician, is_player=False, event=None, base_impact=None, c
     
     log_event(politician.name, event, impact, politician.points + impact)
 
-    # Record the event in the database if connection and session_id are provided
-    if connection and session_id:
-        add_event_db(connection, session_id, event, impact)
     
     return impact
 
-def simulate_election(politician, score, is_player=True, strategy=None, connection=None, session_id=None) -> int:
-    impact = week_simulation(politician, is_player, connection=connection, session_id=session_id)
+def simulate_election(politician, score, is_player=True, strategy=None) -> int:
+    impact = week_simulation(politician, is_player)
     
     if strategy:
         impact = apply_strategy_modifiers(strategy, impact)
