@@ -104,7 +104,12 @@ class Politician:
                 )
         
         
-    
+   
+        
+        
+        
+        
+        
 
     def add_resources(self, financial: int, influence: int, internal:int):
         self._resources.add(financial, influence, internal)

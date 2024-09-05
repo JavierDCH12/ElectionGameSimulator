@@ -1,11 +1,9 @@
 import logging
-
 from src.politician import Politician
 from src import CONSTANTS
 import random
 from simulation.user_decisions import apply_strategy_modifiers
 from simulation.log_actions import log_event
-from record.game_db import add_event_db
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)  
@@ -134,10 +132,10 @@ def week_simulation(politician, is_player=False, event=None, base_impact=None) -
         impact = min(0, impact)  # Ensure negative impact stays negative or zero
     
     if is_player:
-        print(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
+        print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
         logger.info(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
     else:
-        print(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
+        print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
         logger.info(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
     
     log_event(politician.name, event, impact, politician.points + impact)

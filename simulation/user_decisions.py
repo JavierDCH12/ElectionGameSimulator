@@ -13,7 +13,8 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 def set_strategy(): #Set an initial strategy
-    print(f"\n{CONSTANTS.STRATEGIES}")
+    
+    print(f"\nStrategies: {', '.join(CONSTANTS.STRATEGIES)}")
     while True:
         
         strategy = input("Which kind of political strategy do you want to follow in this campaign? ").strip().lower()
@@ -27,30 +28,24 @@ def set_strategy(): #Set an initial strategy
             print("You have to choose a valid campaign strategy: ")
 
 def apply_strategy_modifiers(strategy, event_impact):
-    original_impact = event_impact  
+    original_impact = event_impact 
+    multiplier=1 
 
     if strategy == "aggressive campaign":
-        if event_impact > 0:
-            event_impact *= 1.2
-            print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})") #CHANGES THE IMAPCT OF THE RANDOM EVENT
-                                                                                                    #INCREASE OR DECREASE
-        else:
-            event_impact *= 1.2
-            print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})")
+        multiplier=1.2
     elif strategy == "defensive campaign":
-        if event_impact > 0:
-            event_impact *= 0.8
-            print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})")
-        else:
-            event_impact *= 0.8
-            print(f"(Original impact: {original_impact}, Modified impact: {round(event_impact)})")
+        multiplier=0.8
+        
+    modified_impact=original_impact*multiplier
+    print(f"(Original impact: {original_impact}, Modified impact: {round(modified_impact)})")
     
+    return round(modified_impact) 
     # No message needed for neutral strategy since no modification is applied
-    return round(event_impact)
+    return round(modified_impact)
 
 
 def show_actions():
-    print("\nYou can choose an action for this week:")
+    print("\nChoose an action for this week:")
     for idx, action in enumerate(CONSTANTS.ACTIONS): #Showing the actions
         print(f"{idx + 1}. {action}")
     
@@ -68,36 +63,38 @@ def select_action():
             print("Please enter a valid number.")
 
 
-def random_action(ai:Politician):
-    affordable_actions = [
-        action for action in CONSTANTS.ACTIONS 
-        if all(ai.resources[resource] >= cost for resource, cost in action.cost.items())
-    ]
-    
-    if not affordable_actions:  #We check if AI has resources to spend
-        print("AI has no affordable actions.")
+def random_action(ai: Politician):
+    affordable_actions = []
+    for action in CONSTANTS.ACTIONS:
+        if (ai.resources.financial_resources >= action.cost.get('financial', 0) and
+            ai.resources.influence_resources >= action.cost.get('influence', 0) and
+            ai.resources.internal_resources >= action.cost.get('internal', 0)):
+            affordable_actions.append(action)
+
+    if not affordable_actions:
+        print("AI has no affordable actions")
         return None
 
-    
     best_action = max(affordable_actions, key=lambda a: a.benefit / sum(a.cost.values()))
-
     return best_action
+
     
 
 def apply_action(politician: Politician, action: Action):
-   
-    can_afford = True
-    for resource_type, cost in action.cost.items():
-        if politician.resources[resource_type] < cost:
-            can_afford = False
-            break
+    can_afford = (
+        politician.resources.financial_resources >= action.cost.get('financial', 0) and
+        politician.resources.influence_resources >= action.cost.get('influence', 0) and
+        politician.resources.internal_resources >= action.cost.get('internal', 0)
+    )
 
     if can_afford:
-        for resource_type, cost in action.cost.items():
-            politician.resources[resource_type] -= cost
+        politician.resources.financial_resources -= action.cost.get('financial', 0)
+        politician.resources.influence_resources -= action.cost.get('influence', 0)
+        politician.resources.internal_resources -= action.cost.get('internal', 0)
+        
         politician.points += action.benefit
         
         log_action(politician.name, action.name, action.cost, action.benefit, politician.resources)
-        print(f"{action.name} applied successfully! Points gained: {action.benefit}")
+        print(f"'{action.name}' applied! Puntos won: {action.benefit}")
     else:
-        print(f"Not enough resources to apply {action.name}.")
+        print(f"Not enough resources to apply '{action.name}'.")

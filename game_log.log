@@ -22,3 +22,11 @@
 2024-09-04 18:18:27,886 - INFO - Player: Hiroshi Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 9.0, 'influence': 1, 'internal': 26.5} | 
 2024-09-04 18:18:57,592 - INFO - Player: Javier | Event Name: Public Criticism from Former Party Leader | Impact: -5 | Score: 109 | 
 2024-09-04 18:19:00,598 - INFO - Player: Hiroshi Suzuki | Event Name: Internal Party Disagreement | Impact: -6 | Score: 113 | 
+2024-09-04 18:53:26,278 - INFO - Player: Javier delgado | Strategy name: neutral campaign | Current Score: 60
+2024-09-04 18:53:26,279 - INFO - Player: Mika Kato | Strategy name: neutral campaign | Current Score: 90
+2024-09-05 11:24:07,434 - INFO - Player: Javier  | Strategy name: defensive campaign | Current Score: 90
+2024-09-05 11:24:07,435 - INFO - Player: Miyuki Nakamura | Strategy name: defensive campaign | Current Score: 50
+2024-09-05 11:24:12,450 - INFO - Player: Javier  | Event Name: Positive Media Coverage | Impact: 10 | Score: 100 | 
+2024-09-05 11:25:04,006 - INFO - Player: Javier  | Strategy name: defensive campaign | Current Score: 54
+2024-09-05 11:25:04,007 - INFO - Player: Akiko Yoshida | Strategy name: neutral campaign | Current Score: 80
+2024-09-05 11:25:05,972 - INFO - Player: Javier  | Event Name: Controversial Statement During Diet Session | Impact: -10 | Score: 44 | 

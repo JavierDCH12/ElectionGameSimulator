@@ -48,16 +48,14 @@ def print_start_message():
 
 
 def display_initial_candidate_resources(player, ai):
-    player_total_resources = player.resources.total_resources()
-    ai_total_resources = ai.resources.total_resources()
-
+    
     print("\nYour candidate:")
     print(f"{player}")
     print(f"Initial Score: {player.points}")
     print(f"Financial Resources: {player.resources.financial_resources} | "
           f"Influence Resources: {player.resources.influence_resources} | "
           f"Internal Resources: {player.resources.internal_resources}")
-    print(f"Total Resources: {player_total_resources}")  # Total Resources
+    print(f"Total Resources: {player.resources.total_resources()}")  # Total Resources
     time.sleep(2)
     
     print("\nA.I Candidate:")
@@ -66,8 +64,16 @@ def display_initial_candidate_resources(player, ai):
     print(f"Financial Resources: {ai.resources.financial_resources} | "
           f"Influence Resources: {ai.resources.influence_resources} | "
           f"Internal Resources: {ai.resources.internal_resources}")
-    print(f"Total Resources: {ai_total_resources}")  # Total Resources
+    print(f"Total Resources: {ai.resources.total_resources()}")  # Total Resources
 
+
+
+def initialize_candidate_resources(candidate):
+    """Initialize the candidate's points and resources."""
+    candidate.points = set_initial_score(candidate)
+    candidate.resources.financial_resources = set_initial_financial_resources(candidate)
+    candidate.resources.influence_resources = set_initial_personal_resources(candidate)
+    candidate.resources.internal_resources = set_initial_internal_resources(candidate)
 
 
 ###############################################################
@@ -89,14 +95,11 @@ def main():
     
     #Set initial scores and resources
     player.points = set_initial_score(player)
-    player.resources.influence_resources = set_initial_financial_resources(player)
-    player.resources.influence_resources = set_initial_personal_resources(player)
-    player.resources.internal_resources = set_initial_internal_resources(player)
-
     ai.points = set_initial_score(ai)
-    ai.resources.financial_resources = set_initial_financial_resources(ai)
-    ai.resources.influence_resources = set_initial_personal_resources(ai)
-    ai.resources.internal_resources = set_initial_internal_resources(ai)
+    initialize_candidate_resources(player)
+    initialize_candidate_resources(ai)
+    
+    
     
     
     display_initial_candidate_resources(player, ai)
@@ -123,9 +126,9 @@ def main():
         #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
         show_actions()
         # Player decides whether to take an action or let the random event happen
-        decision = input("Do you want to take an action or let the week go by? (action/letgo): ")
+        decision = input("Do you want to take an action this week?")
         
-        if decision == "action".strip().lower():
+        if decision == "yes".strip().lower():
             action = select_action()  # Selects an action from available options
             apply_action(player, action)
             logger.info(f"Action taken: {action}")
