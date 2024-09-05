@@ -117,8 +117,8 @@ def main():
         print("--------------------------------------------------------------------------------------")
         print(f"\nWeek {week + 1}:")
         logger.info(f"\nWeek {week + 1}:")
-        print(f"\nYOUR RESOURCES: {player.resources.total_resources()} | YOUR POINTS: {player.points}")
-        print(f"AI RESOURCES: {ai.resources.total_resources()} | AI POINTS: {ai.points}")
+        print(f"\nYOUR POINTS: {player.points} | YOUR RESOURCES: {player.resources.total_resources():}: Financial ({player.resources.financial_resources}), Influence: {player.resources.influence_resources}, Internal: {player.resources.internal_resources}")
+        print(f"\AI POINTS: {ai.points} | AI RESOURCES: {ai.resources.total_resources():}: Financial ({ai.resources.financial_resources}), Influence: {ai.resources.influence_resources}, Internal: {ai.resources.internal_resources}")
         logger.info(f"{player.name}: {player.resources.total_resources()}")
         logger.info(f"{ai.name}: {ai.resources.total_resources()}")
 
@@ -126,28 +126,40 @@ def main():
         #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
         show_actions()
         # Player decides whether to take an action or let the random event happen
-        decision = input("Do you want to take an action this week?")
-        
-        if decision == "yes".strip().lower():
-            action = select_action()  # Selects an action from available options
-            apply_action(player, action)
-            logger.info(f"Action taken: {action}")
+        decision = input("Do you want to take an action this week? ").strip().lower()
+
+        if decision == "yes":
+            action = select_action()  
+            can_apply = apply_action(player, action)  
+
+            if not can_apply:
+                print(f"Insufficient resources for action '{action.name}'. A random event will occur instead.\n")
+                player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
+                add_resources(player)
+            else:
+                logger.info(f"Action taken: {action}")
+
         else:
             print("\nNo action taken.")
             print("You saved resources and increased them.")
             print("A random event will occur.\n")
             player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
             add_resources(player)
-            
-        #AI TURN++++++++++++++++++++++++++++++++++++++++++
+
+        #AI'S TURN
         print("\nAI's TURN\n")
         time.sleep(3)
-        ai_action=random_action(ai)
+        ai_action = random_action(ai)
+
         if ai_action is not None:
-            apply_action(ai, ai_action)
+            can_apply_ai = apply_action(ai, ai_action)
+            if not can_apply_ai:
+                add_resources(ai)
+                ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
         else:
             add_resources(ai)
-            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)  
+            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
+
         time.sleep(4)
         logger.info(f"{player.name}: {player.points}")
         logger.info(f"{ai.name}: {ai.points}")

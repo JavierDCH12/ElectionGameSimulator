@@ -30,3 +30,40 @@
 2024-09-05 11:25:04,006 - INFO - Player: Javier  | Strategy name: defensive campaign | Current Score: 54
 2024-09-05 11:25:04,007 - INFO - Player: Akiko Yoshida | Strategy name: neutral campaign | Current Score: 80
 2024-09-05 11:25:05,972 - INFO - Player: Javier  | Event Name: Controversial Statement During Diet Session | Impact: -10 | Score: 44 | 
+2024-09-05 11:31:32,403 - INFO - Player: Javier | Strategy name: defensive campaign | Current Score: 63
+2024-09-05 11:31:32,403 - INFO - Player: Aiko Suzuki | Strategy name: aggressive campaign | Current Score: 45
+2024-09-05 11:31:34,146 - INFO - Player: Javier | Event Name: Minor Gaffe | Impact: -4 | Score: 59 | 
+2024-09-05 11:31:37,153 - INFO - Player: Aiko Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 38.0
+Financial: 13.0 | Influence: 4 | Internal: 21.0 | 
+2024-09-05 11:33:30,954 - INFO - Player: Javier | Event Name: Public Criticism from Former Party Leader | Impact: -4 | Score: 56 | 
+2024-09-05 11:34:35,241 - INFO - Player: Javier delgado | Strategy name: neutral campaign | Current Score: 90
+2024-09-05 11:34:35,242 - INFO - Player: Hana Sato | Strategy name: neutral campaign | Current Score: 60
+2024-09-05 11:34:39,600 - INFO - Player: Javier delgado | Event Name: Major Corruption Scandal | Impact: -20 | Score: 70 | 
+2024-09-05 11:34:42,602 - INFO - Player: Hana Sato | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 48.0
+Financial: 13.0 | Influence: 14 | Internal: 21.0 | 
+2024-09-05 11:35:00,496 - INFO - Player: Javier delgado | Event Name: Small Corruption Scandal | Impact: -9 | Score: 61 | 
+2024-09-05 11:35:03,507 - INFO - Player: Hana Sato | Event Name: Positive Reception in Social Media | Impact: 6 | Score: 96 | 
+2024-09-05 11:35:24,490 - INFO - Player: Javier delgado | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: Total Resources: 85.0
+Financial: 29.0 | Influence: 21 | Internal: 35.0 | 
+2024-09-05 11:35:27,493 - INFO - Player: Hana Sato | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 29.0
+Financial: 0.0 | Influence: 11 | Internal: 18.0 | 
+2024-09-05 11:35:35,982 - INFO - Player: Javier delgado | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 60.0
+Financial: 14.0 | Influence: 16 | Internal: 30.0 | 
+2024-09-05 11:35:38,989 - INFO - Player: Hana Sato | Event Name: Positive Coverage in the Newspapers | Impact: 6 | Score: 132 | 
+2024-09-05 11:35:50,961 - INFO - Player: Hana Sato | Event Name: Major Sex Scandal | Impact: -20 | Score: 112 | 
+2024-09-05 11:45:27,531 - INFO - Player: Elena | Strategy name: aggressive campaign | Current Score: 70
+2024-09-05 11:45:27,531 - INFO - Player: Yoshio Tanaka | Strategy name: neutral campaign | Current Score: 54
+2024-09-05 11:45:30,755 - INFO - Player: Elena | Event Name: Positive Media Coverage | Impact: 9 | Score: 79 | 
+2024-09-05 11:45:33,758 - INFO - Player: Yoshio Tanaka | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 48.0
+Financial: 22.5 | Influence: 3 | Internal: 22.5 | 
+2024-09-05 11:49:38,410 - INFO - Player: Elena | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: Total Resources: 55.0
+Financial: 19.5 | Influence: 11 | Internal: 24.5 | 
+2024-09-05 11:49:41,417 - INFO - Player: Yoshio Tanaka | Event Name: Public Criticism from Former Party Leader | Impact: -4 | Score: 80 | 
+2024-09-05 11:49:48,823 - INFO - Player: Elena | Event Name: Internal Party Disagreement | Impact: -4 | Score: 117 | 
+2024-09-05 11:49:51,826 - INFO - Player: Yoshio Tanaka | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 29.0
+Financial: 9.5 | Influence: 0 | Internal: 19.5 | 
+2024-09-05 11:50:56,912 - INFO - Player: Elena | Event Name: Positive Reception in Social Media | Impact: 5 | Score: 121 | 
+2024-09-05 11:50:59,918 - INFO - Player: Yoshio Tanaka | Event Name: Successful Small Rally | Impact: 11 | Score: 121 | 
+2024-09-05 11:51:11,505 - INFO - Player: Elena | Action: Hold Internal Party Meeting | Cost: {'financial': 5, 'influence': 10, 'internal': 25} | Benefit: 25 | Resources: Total Resources: 27.0
+Financial: 18.5 | Influence: 5 | Internal: 3.5 | 
+2024-09-05 11:51:14,512 - INFO - Player: Yoshio Tanaka | Event Name: Internal Party Disagreement | Impact: -6 | Score: 115 | 

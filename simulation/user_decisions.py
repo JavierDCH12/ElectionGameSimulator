@@ -58,7 +58,6 @@ def select_action():
                 return CONSTANTS.ACTIONS[choice]
             else:
                 print("Invalid choice. Please select a valid action number.")
-                logger.warning(f"\nInvalid input for age: {choice}\n", exc_info=True)
         except ValueError:
             print("Please enter a valid number.")
 
@@ -96,5 +95,7 @@ def apply_action(politician: Politician, action: Action):
         
         log_action(politician.name, action.name, action.cost, action.benefit, politician.resources)
         print(f"'{action.name}' applied! Puntos won: {action.benefit}")
+        return True
     else:
         print(f"Not enough resources to apply '{action.name}'.")
+        return False

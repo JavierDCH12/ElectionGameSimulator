@@ -56,3 +56,22 @@ NoneType: None
 2024-09-05 11:24:52 - simulation.game - INFO - Name: Javier  | Age: 27 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Nagasaki
 2024-09-05 11:24:55 - simulation.game - INFO - Name: Akiko Yoshida | Age: 66 | Gender: Female | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Miyazaki
 2024-09-05 11:25:05 - simulation.game - INFO - Your candidate experienced: Controversial Statement During Diet Session, resulting in an impact of -10 points.
+2024-09-05 11:31:19 - simulation.game - INFO - Name: Javier | Age: 45 | Gender: Male | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Saga
+2024-09-05 11:31:22 - simulation.game - INFO - Name: Aiko Suzuki | Age: 95 | Gender: Female | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Ehime
+2024-09-05 11:31:34 - simulation.game - INFO - Your candidate experienced: Minor Gaffe, resulting in an impact of -4 points.
+2024-09-05 11:33:30 - simulation.game - INFO - Your candidate experienced: Public Criticism from Former Party Leader, resulting in an impact of -4 points.
+2024-09-05 11:33:48 - simulation.game - INFO - Name: Javier delgado | Age: 56 | Gender: Male | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Kochi
+2024-09-05 11:33:51 - simulation.game - INFO - Name: Hana Sato | Age: 69 | Gender: Female | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Ibaraki
+2024-09-05 11:34:39 - simulation.game - INFO - Your candidate experienced: Major Corruption Scandal, resulting in an impact of -20 points.
+2024-09-05 11:35:00 - simulation.game - INFO - Your candidate experienced: Small Corruption Scandal, resulting in an impact of -9 points.
+2024-09-05 11:35:03 - simulation.game - INFO - The AI's candidate experienced: Positive Reception in Social Media, resulting in an impact of 6 points.
+2024-09-05 11:35:38 - simulation.game - INFO - The AI's candidate experienced: Positive Coverage in the Newspapers, resulting in an impact of 6 points.
+2024-09-05 11:35:50 - simulation.game - INFO - The AI's candidate experienced: Major Sex Scandal, resulting in an impact of -20 points.
+2024-09-05 11:45:15 - simulation.game - INFO - Name: Elena | Age: 78 | Gender: Female | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Toyama
+2024-09-05 11:45:18 - simulation.game - INFO - Name: Yoshio Tanaka | Age: 84 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Gunma
+2024-09-05 11:45:30 - simulation.game - INFO - Your candidate experienced: Positive Media Coverage, resulting in an impact of 9 points.
+2024-09-05 11:49:41 - simulation.game - INFO - The AI's candidate experienced: Public Criticism from Former Party Leader, resulting in an impact of -4 points.
+2024-09-05 11:49:48 - simulation.game - INFO - Your candidate experienced: Internal Party Disagreement, resulting in an impact of -4 points.
+2024-09-05 11:50:56 - simulation.game - INFO - Your candidate experienced: Positive Reception in Social Media, resulting in an impact of 5 points.
+2024-09-05 11:50:59 - simulation.game - INFO - The AI's candidate experienced: Successful Small Rally, resulting in an impact of 11 points.
+2024-09-05 11:51:14 - simulation.game - INFO - The AI's candidate experienced: Internal Party Disagreement, resulting in an impact of -6 points.
