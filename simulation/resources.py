@@ -1,7 +1,8 @@
-from src.politician import Politician
 from src import CONSTANTS
 import random
 from simulation import game
+from src.politician import Politician
+
 
 def set_initial_financial_resources(politician: Politician):
     #Financial Resources
@@ -13,7 +14,7 @@ def set_initial_financial_resources(politician: Politician):
         if party == CONSTANTS.PARTY_LDP.name or party == CONSTANTS.PARTY_CDPJ.name: 
             financial_resources = base_value + (base_value * 0.5)
         elif party ==CONSTANTS.PARTY_JCP.name or party == CONSTANTS.PARTY_KOMEITO.name:
-            financial_resources = base_value + (base_value * 0.3)
+            financial_resources = base_value + (base_value * 0.4)
         else:
             financial_resources = base_value
     else:
@@ -26,9 +27,8 @@ def set_initial_personal_resources(politician: Politician):
     age_score = game.age_bonus(politician)
 
     experience_modifier = CONSTANTS.EXPERIENCE_LEVEL_MODIFIER.get(politician.experience, 1)
-    influence_resources = round(experience_modifier * random.uniform(0.2, 0.4) * age_score)
+    influence_resources = round(age_score+ (experience_modifier * random.uniform(0.8, 1) * age_score)) #TODO TUNEIN
     return influence_resources
-
 
 
 def set_initial_internal_resources(politician: Politician):
@@ -49,3 +49,8 @@ def set_initial_internal_resources(politician: Politician):
         internal_resources = 0  
     
     return internal_resources
+
+def add_resources(politician:Politician): #Add resources when action is not taken
+    politician.resources.financial_resources +=2
+    politician.resources.influence_resources +=2
+    politician.resources.internal_resources +=2

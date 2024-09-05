@@ -1,0 +1,77 @@
+2024-09-01 14:03:44 - simulation.game - INFO - Name: Javier | Age: 78 | Gender: Male | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Mie
+2024-09-01 14:03:47 - simulation.game - INFO - Name: Kenji Watanabe | Age: 46 | Gender: Male | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Aichi
+2024-09-01 14:24:14 - simulation.game - INFO - Name: Javier delgado | Age: 78 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Nagasaki
+2024-09-01 14:24:17 - simulation.game - INFO - Name: Katsuo Kato | Age: 90 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Niigata
+2024-09-01 14:25:19 - simulation.game - ERROR - 
+Invalid input for age: 24
+NoneType: None
+2024-09-01 14:25:21 - simulation.game - INFO - Name: Mario | Age: 28 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Nagasaki
+2024-09-01 14:25:24 - simulation.game - INFO - Name: Sakura Kobayashi | Age: 64 | Gender: Female | Experience: New Candidate | Political Party: Komeito | Prefecture: Nagano
+2024-09-01 14:28:35 - simulation.game - INFO - Name: Abe shinzo | Age: 85 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Iwate
+2024-09-01 14:28:38 - simulation.game - INFO - Name: Kazuo Yamamoto | Age: 60 | Gender: Male | Experience: Incumbent | Political Party: Komeito | Prefecture: Yamaguchi
+2024-09-04 15:18:38 - simulation.game - INFO - Name: Javier delgado | Age: 29 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Tokyo
+2024-09-04 15:21:09 - simulation.game - INFO - Name: Javier delhgado | Age: 29 | Gender: Male | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Fukui
+2024-09-04 15:22:01 - simulation.game - INFO - Name: Javier delhgado | Age: 29 | Gender: Male | Experience: Incumbent | Political Party: Komeito | Prefecture: Yamaguchi
+2024-09-04 15:23:33 - simulation.game - INFO - Name: Javier delgado | Age: 29 | Gender: Male | Experience: New Candidate | Political Party: Liberal Democratic Party | Prefecture: Nagasaki
+2024-09-04 15:23:50 - simulation.game - INFO - Name: Javier | Age: 29 | Gender: Male | Experience: New Candidate | Political Party: Liberal Democratic Party | Prefecture: Kumamoto
+2024-09-04 15:27:34 - simulation.game - INFO - Name: Javier | Age: 29 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Gunma
+2024-09-04 15:27:59 - simulation.game - INFO - Name: Javier | Age: 29 | Gender: Male | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Toyama
+2024-09-04 15:28:27 - simulation.game - INFO - Name: Javier | Age: 29 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Tokyo
+2024-09-04 15:31:15 - simulation.game - INFO - Name: Javier delgado | Age: 29 | Gender: Male | Experience: Incumbent | Political Party: Komeito | Prefecture: Gunma
+2024-09-04 15:31:18 - simulation.game - INFO - Name: Takeshi Takahashi | Age: 46 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Osaka
+2024-09-04 15:40:19 - simulation.game - INFO - Name: Javier delgado | Age: 29 | Gender: Male | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Hokkaido
+2024-09-04 15:40:22 - simulation.game - INFO - Name: Kenji Watanabe | Age: 59 | Gender: Male | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Saitama
+2024-09-04 15:41:53 - simulation.game - INFO - Name: Javier delgado | Age: 29 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Saitama
+2024-09-04 15:41:56 - simulation.game - INFO - Name: Kenji Watanabe | Age: 53 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Tokyo
+2024-09-04 15:43:01 - simulation.game - INFO - Your candidate experienced: Successful Small Rally, resulting in an impact of 10 points.
+2024-09-04 17:02:11 - simulation.game - INFO - Name: Javier delgado | Age: 29 | Gender: Male | Experience: Incumbent | Political Party: Komeito | Prefecture: Shimane
+2024-09-04 17:02:14 - simulation.game - INFO - Name: Akira Saito | Age: 57 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Shimane
+2024-09-04 17:54:16 - simulation.game - INFO - Name: Javier | Age: 29 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Saitama
+2024-09-04 17:54:19 - simulation.game - INFO - Name: Hiroshi Suzuki | Age: 38 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Akita
+2024-09-04 17:58:12 - simulation.game - INFO - Your candidate experienced: Positive Media Coverage, resulting in an impact of 9 points.
+2024-09-04 17:58:15 - simulation.game - INFO - The AI's candidate experienced: Minor Scandal Involving Staff Member, resulting in an impact of -5 points.
+2024-09-04 18:16:39 - simulation.game - INFO - Your candidate experienced: Minor Gaffe, resulting in an impact of -5 points.
+2024-09-04 18:16:42 - simulation.game - INFO - The AI's candidate experienced: Positive Media Coverage, resulting in an impact of 10 points.
+2024-09-04 18:18:57 - simulation.game - INFO - Your candidate experienced: Public Criticism from Former Party Leader, resulting in an impact of -5 points.
+2024-09-04 18:19:00 - simulation.game - INFO - The AI's candidate experienced: Internal Party Disagreement, resulting in an impact of -6 points.
+2024-09-04 18:46:03 - simulation.game - INFO - Name: Irene | Age: 45 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Saga
+2024-09-04 18:46:06 - simulation.game - INFO - Name: Mika Kato | Age: 75 | Gender: Female | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Kyoto
+2024-09-04 18:49:19 - simulation.game - INFO - Name: Irene | Age: 45 | Gender: Male | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Wakayama
+2024-09-04 18:49:22 - simulation.game - INFO - Name: Hidetoshi Yoshida | Age: 57 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Kochi
+2024-09-04 18:49:56 - simulation.game - INFO - Name: Maria | Age: 45 | Gender: Female | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Tochigi
+2024-09-04 18:49:59 - simulation.game - INFO - Name: Takeshi Takahashi | Age: 63 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Ishikawa
+2024-09-04 18:50:52 - simulation.game - INFO - Name: Javier delgado | Age: 45 | Gender: Male | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Aichi
+2024-09-04 18:50:55 - simulation.game - INFO - Name: Aiko Suzuki | Age: 97 | Gender: Female | Experience: Incumbent | Political Party: Komeito | Prefecture: Yamaguchi
+2024-09-04 18:51:43 - simulation.game - INFO - Name: Javier | Age: 75 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Shiga
+2024-09-04 18:51:46 - simulation.game - INFO - Name: Rina Yamamoto | Age: 76 | Gender: Female | Experience: New Candidate | Political Party: Liberal Democratic Party | Prefecture: Ibaraki
+2024-09-04 18:53:14 - simulation.game - INFO - Name: Javier delgado | Age: 78 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Shimane
+2024-09-04 18:53:17 - simulation.game - INFO - Name: Mika Kato | Age: 46 | Gender: Female | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Kanagawa
+2024-09-04 19:21:32 - simulation.game - INFO - Name: Hola | Age: 45 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Kagawa
+2024-09-04 19:21:35 - simulation.game - INFO - Name: Hana Sato | Age: 93 | Gender: Female | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Ishikawa
+2024-09-05 11:16:52 - simulation.game - INFO - Name: Javier | Age: 47 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Osaka
+2024-09-05 11:16:55 - simulation.game - INFO - Name: Yoshio Tanaka | Age: 25 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Nara
+2024-09-05 11:23:51 - simulation.game - INFO - Name: Javier  | Age: 25 | Gender: Male | Experience: Incumbent | Political Party: Komeito | Prefecture: Kanagawa
+2024-09-05 11:23:54 - simulation.game - INFO - Name: Miyuki Nakamura | Age: 99 | Gender: Female | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Yamaguchi
+2024-09-05 11:24:12 - simulation.game - INFO - Your candidate experienced: Positive Media Coverage, resulting in an impact of 10 points.
+2024-09-05 11:24:52 - simulation.game - INFO - Name: Javier  | Age: 27 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Nagasaki
+2024-09-05 11:24:55 - simulation.game - INFO - Name: Akiko Yoshida | Age: 66 | Gender: Female | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Miyazaki
+2024-09-05 11:25:05 - simulation.game - INFO - Your candidate experienced: Controversial Statement During Diet Session, resulting in an impact of -10 points.
+2024-09-05 11:31:19 - simulation.game - INFO - Name: Javier | Age: 45 | Gender: Male | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Saga
+2024-09-05 11:31:22 - simulation.game - INFO - Name: Aiko Suzuki | Age: 95 | Gender: Female | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Ehime
+2024-09-05 11:31:34 - simulation.game - INFO - Your candidate experienced: Minor Gaffe, resulting in an impact of -4 points.
+2024-09-05 11:33:30 - simulation.game - INFO - Your candidate experienced: Public Criticism from Former Party Leader, resulting in an impact of -4 points.
+2024-09-05 11:33:48 - simulation.game - INFO - Name: Javier delgado | Age: 56 | Gender: Male | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Kochi
+2024-09-05 11:33:51 - simulation.game - INFO - Name: Hana Sato | Age: 69 | Gender: Female | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Ibaraki
+2024-09-05 11:34:39 - simulation.game - INFO - Your candidate experienced: Major Corruption Scandal, resulting in an impact of -20 points.
+2024-09-05 11:35:00 - simulation.game - INFO - Your candidate experienced: Small Corruption Scandal, resulting in an impact of -9 points.
+2024-09-05 11:35:03 - simulation.game - INFO - The AI's candidate experienced: Positive Reception in Social Media, resulting in an impact of 6 points.
+2024-09-05 11:35:38 - simulation.game - INFO - The AI's candidate experienced: Positive Coverage in the Newspapers, resulting in an impact of 6 points.
+2024-09-05 11:35:50 - simulation.game - INFO - The AI's candidate experienced: Major Sex Scandal, resulting in an impact of -20 points.
+2024-09-05 11:45:15 - simulation.game - INFO - Name: Elena | Age: 78 | Gender: Female | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Toyama
+2024-09-05 11:45:18 - simulation.game - INFO - Name: Yoshio Tanaka | Age: 84 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Gunma
+2024-09-05 11:45:30 - simulation.game - INFO - Your candidate experienced: Positive Media Coverage, resulting in an impact of 9 points.
+2024-09-05 11:49:41 - simulation.game - INFO - The AI's candidate experienced: Public Criticism from Former Party Leader, resulting in an impact of -4 points.
+2024-09-05 11:49:48 - simulation.game - INFO - Your candidate experienced: Internal Party Disagreement, resulting in an impact of -4 points.
+2024-09-05 11:50:56 - simulation.game - INFO - Your candidate experienced: Positive Reception in Social Media, resulting in an impact of 5 points.
+2024-09-05 11:50:59 - simulation.game - INFO - The AI's candidate experienced: Successful Small Rally, resulting in an impact of 11 points.
+2024-09-05 11:51:14 - simulation.game - INFO - The AI's candidate experienced: Internal Party Disagreement, resulting in an impact of -6 points.

@@ -1,15 +1,18 @@
 from src.party import Party
 from src.prefecture import Prefecture
+from src.resource import Resource
 
 
 class Politician:
     
-    def __init__(self, name: str = "", age: int = 0, gender: str = "", experience:str="", 
+    def __init__(self, name: str = "", age: int = 0, gender: str = "", experience:str="",
                  party = None, prefecture = None) -> None:
         self._name = name
         self._age = age
         self._gender = gender
         self._experience=experience
+        self._points=0
+        self._resources = Resource()
         self._party = party
         self._prefecture = prefecture
         
@@ -30,6 +33,14 @@ class Politician:
     @property
     def experience(self):
         return self._experience
+    
+    @property
+    def points(self):
+        return self._points
+
+    @property
+    def resources(self):
+        return self._resources
     
     @property
     def party(self):
@@ -65,6 +76,13 @@ class Politician:
         else:
             raise ValueError("Experience must be 'Incumbent' or 'New candidate'")
     
+    @points.setter
+    def points(self, value):
+        self._points=value
+    
+    @resources.setter
+    def resources(self, value):
+        self._resources=value
         
     @party.setter
     def party(self, value):
@@ -81,9 +99,20 @@ class Politician:
             raise ValueError("The prefecture must be an instance of the Prefecture class.")
     
     def __str__(self) -> str:
-        return (f"Name: {self.name} | Age: {self.age} | Gender: {self.gender} | "
-                f"Political Party: {self.party.name} | Prefecture: {self.prefecture.name}")
+        return (f"Name: {self.name} | Age: {self.age} | Gender: {self.gender} | Experience: {self.experience} | "
+                f"Political Party: {self.party.name} | Prefecture: {self.prefecture.name}"
+                )
+        
+        
+   
+        
+        
         
         
         
 
+    def add_resources(self, financial: int, influence: int, internal:int):
+        self._resources.add(financial, influence, internal)
+    
+    def substract_resources(self, financial: int, influence: int, internal:int):
+        self._resources.subtract(financial, influence, internal)

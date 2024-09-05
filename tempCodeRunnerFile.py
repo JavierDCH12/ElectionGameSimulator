@@ -1,1 +1,0 @@
-    player = create_politician()

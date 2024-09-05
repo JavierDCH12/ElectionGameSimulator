@@ -1,10 +1,26 @@
+import logging
 from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
+from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
+from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
+import src.CONSTANTS as CONSTANTS
+from simulation.log_actions import log_action, log_event, log_strategy
 import time
 import os
-import src.CONSTANTS as CONSTANTS
+import random
+from src.resource import Resource
 
-from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
-from simulation.user_decisions import set_strategy, apply_strategy_modifiers
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)  
+file_handler = logging.FileHandler('logs/simulation.log')
+file_handler.setLevel(logging.INFO)  
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+
+
 
 ###############################################################
 def print_start_message():
@@ -31,65 +47,138 @@ def print_start_message():
     time.sleep(2)  # Pause for 2 seconds to let the user read the message
 
 
-def display_initial_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources):
-    player_total_resources = player_financial_resources + player_influence_resources + player_internal_resources
-    ai_total_resources = ai_financial_resources + ai_influence_resources + ai_internal_resources
-
-    print("Your candidate: ")
+def display_initial_candidate_resources(player, ai):
+    
+    print("\nYour candidate:")
     print(f"{player}")
-    print(f"Initial Score: {player_score}")
-    print(f"Financial Resources: {player_financial_resources}")
-    print(f"Influence Resources: {player_influence_resources}")
-    print(f"Internal Resources: {player_internal_resources}")
-    print(f"Total Resources: {player_total_resources}")  #Total Resources
-
+    print(f"Initial Score: {player.points}")
+    print(f"Financial Resources: {player.resources.financial_resources} | "
+          f"Influence Resources: {player.resources.influence_resources} | "
+          f"Internal Resources: {player.resources.internal_resources}")
+    print(f"Total Resources: {player.resources.total_resources()}")  # Total Resources
+    time.sleep(2)
+    
     print("\nA.I Candidate:")
     print(f"{ai}")
-    print(f"Initial Score: {ai_score}")
-    print(f"Financial Resources: {ai_financial_resources}")
-    print(f"Influence Resources: {ai_influence_resources}")
-    print(f"Internal Resources: {ai_internal_resources}")
-    print(f"Total Resources: {ai_total_resources}")  #Total Resources
+    print(f"Initial Score: {ai.points}")
+    print(f"Financial Resources: {ai.resources.financial_resources} | "
+          f"Influence Resources: {ai.resources.influence_resources} | "
+          f"Internal Resources: {ai.resources.internal_resources}")
+    print(f"Total Resources: {ai.resources.total_resources()}")  # Total Resources
+
+
+
+def initialize_candidate_resources(candidate):
+    """Initialize the candidate's points and resources."""
+    candidate.points = set_initial_score(candidate)
+    candidate.resources.financial_resources = set_initial_financial_resources(candidate)
+    candidate.resources.influence_resources = set_initial_personal_resources(candidate)
+    candidate.resources.internal_resources = set_initial_internal_resources(candidate)
 
 
 ###############################################################
 def main():
-    print_start_message()    
+    
+    
+    
+    
+    logger.info("Game starts\n")
+    print_start_message()
     
     player = create_politician()
+    
+    logger.info(player)
+    time.sleep(3)
     ai = create_ai_politician()
+    logger.info(ai)
+    time.sleep(2)
     
-    # Set initial scores and resources
-    player_score = set_initial_score(player)
-    player_financial_resources = set_initial_financial_resources(player)
-    player_influence_resources = set_initial_personal_resources(player)
-    player_internal_resources = set_initial_internal_resources(player)
+    #Set initial scores and resources
+    player.points = set_initial_score(player)
+    ai.points = set_initial_score(ai)
+    initialize_candidate_resources(player)
+    initialize_candidate_resources(ai)
     
-    ai_score = set_initial_score(ai)
-    ai_financial_resources = set_initial_financial_resources(ai)
-    ai_influence_resources = set_initial_personal_resources(ai)
-    ai_internal_resources = set_initial_internal_resources(ai)
     
-    display_initial_candidate_resources(player, player_score, player_financial_resources, player_influence_resources, player_internal_resources, 
-                                        ai, ai_score, ai_financial_resources, ai_influence_resources, ai_internal_resources)
     
-    # Player chooses a campaign strategy
+    
+    display_initial_candidate_resources(player, ai)
+    
+    #Player chooses a campaign strategy
     player_strategy = set_strategy()
-
-    # Simulate elections for 5 weeks
-    for week in range(CONSTANTS.ROUND_WEEKS):
-        print(f"\nWeek {week + 1}:")
-        player_score = simulate_election(player, player_score, is_player=True, strategy=player_strategy)
-        time.sleep(10)
-        ai_score = simulate_election(ai, ai_score, is_player=False)  # A.I. podría tener una estrategia predeterminada
-        time.sleep(4)
-
-    print(f"\nFinal Score for {player.name}: {player_score}")
-    print(f"Final Score for {ai.name}: {ai_score}")
+    log_strategy(player.name, player_strategy, player.points)
+    ai_strategy=random.choice(CONSTANTS.STRATEGIES)
+    log_strategy(ai.name, ai_strategy, ai.points)
+    print(f"The AI has chosen the {ai_strategy.title()} strategy")
     
-    final_score_msg(player_score, ai_score)
 
-    #strategy_elected=set_strategy()
+    #Simulate elections for 5 weeks
+    for week in range(CONSTANTS.ROUND_WEEKS):
+        print("--------------------------------------------------------------------------------------")
+        print(f"\nWeek {week + 1}:")
+        logger.info(f"\nWeek {week + 1}:")
+        print(f"\nYOUR POINTS: {player.points} | YOUR RESOURCES: {player.resources.total_resources():}: Financial ({player.resources.financial_resources}), Influence: {player.resources.influence_resources}, Internal: {player.resources.internal_resources}")
+        print(f"\AI POINTS: {ai.points} | AI RESOURCES: {ai.resources.total_resources():}: Financial ({ai.resources.financial_resources}), Influence: {ai.resources.influence_resources}, Internal: {ai.resources.internal_resources}")
+        logger.info(f"{player.name}: {player.resources.total_resources()}")
+        logger.info(f"{ai.name}: {ai.resources.total_resources()}")
+
+        
+        #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
+        show_actions()
+        # Player decides whether to take an action or let the random event happen
+        decision = input("Do you want to take an action this week? ").strip().lower()
+
+        if decision == "yes":
+            action = select_action()  
+            can_apply = apply_action(player, action)  
+
+            if not can_apply:
+                print(f"Insufficient resources for action '{action.name}'. A random event will occur instead.\n")
+                player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
+                add_resources(player)
+            else:
+                logger.info(f"Action taken: {action}")
+
+        else:
+            print("\nNo action taken.")
+            print("You saved resources and increased them.")
+            print("A random event will occur.\n")
+            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
+            add_resources(player)
+
+        #AI'S TURN
+        print("\nAI's TURN\n")
+        time.sleep(3)
+        ai_action = random_action(ai)
+
+        if ai_action is not None:
+            can_apply_ai = apply_action(ai, ai_action)
+            if not can_apply_ai:
+                add_resources(ai)
+                ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
+        else:
+            add_resources(ai)
+            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
+
+        time.sleep(4)
+        logger.info(f"{player.name}: {player.points}")
+        logger.info(f"{ai.name}: {ai.points}")
+
+        
+        
+        print("--------------------------------------------------------------------------------------")
+    
+    
+    
+    #END OF GAME
+    print(f"\nFinal Score for {player.name}: {player.points}")
+    print(f"Final Score for {ai.name}: {ai.points}")
+    logger.info(f"Player points: {player.points} ; Ai points: {ai.points}")
+    
+    final_score_msg(player.points, ai.points)
+    logger.info("Game over")
+
+
 
 
 
