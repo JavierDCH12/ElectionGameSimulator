@@ -1,4 +1,26 @@
-2024-09-05 12:18:50 - __main__ - INFO - Game starts
+2024-09-05 18:45:28 - __main__ - INFO - Game starts
 
-2024-09-05 12:18:59 - __main__ - INFO - Name: Javier delgado | Age: 45 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Chiba
-2024-09-05 12:19:02 - __main__ - INFO - Name: Mika Kato | Age: 92 | Gender: Female | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Kanagawa
+2024-09-05 18:45:42 - __main__ - INFO - Name: Javier delgado | Age: 56 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Mie
+2024-09-05 18:45:45 - __main__ - INFO - Name: Hiroshi Suzuki | Age: 90 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Nara
+2024-09-05 18:46:13 - __main__ - INFO - 
+Week 1:
+2024-09-05 18:46:13 - __main__ - INFO - Javier delgado: 92.5
+2024-09-05 18:46:13 - __main__ - INFO - Hiroshi Suzuki: 74.0
+2024-09-05 18:47:19 - __main__ - INFO - 
+Week 2:
+2024-09-05 18:47:19 - __main__ - INFO - Javier delgado: 98.5
+2024-09-05 18:47:19 - __main__ - INFO - Hiroshi Suzuki: 49.0
+2024-09-05 18:47:39 - __main__ - INFO - 
+Week 3:
+2024-09-05 18:47:39 - __main__ - INFO - Javier delgado: 63.5
+2024-09-05 18:47:39 - __main__ - INFO - Hiroshi Suzuki: 55.0
+2024-09-05 18:47:56 - __main__ - INFO - 
+Week 4:
+2024-09-05 18:47:56 - __main__ - INFO - Javier delgado: 23.5
+2024-09-05 18:47:56 - __main__ - INFO - Hiroshi Suzuki: 30.0
+2024-09-05 18:48:11 - __main__ - INFO - 
+Week 5:
+2024-09-05 18:48:11 - __main__ - INFO - Javier delgado: 29.5
+2024-09-05 18:48:11 - __main__ - INFO - Hiroshi Suzuki: 36.0
+2024-09-05 18:48:54 - __main__ - INFO - Player points: 113 ; Ai points: 123
+2024-09-05 18:48:54 - __main__ - INFO - Game over

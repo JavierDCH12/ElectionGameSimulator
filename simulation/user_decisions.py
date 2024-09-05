@@ -2,15 +2,10 @@ import logging
 from src.politician import Politician
 from src.action import Action
 from src import CONSTANTS
-from simulation.log_actions import log_action, log_strategy
+from simulation.log_actions import log_action, log_strategy, log_event
 
 
-logger_error = logging.getLogger(__name__)
-logger_error.setLevel(logging.ERROR)  
-file_handler = logging.FileHandler('logs/errors.log')
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
-file_handler.setFormatter(formatter)
-logger_error.addHandler(file_handler)
+
 
 def set_strategy(): #Set an initial strategy
     
@@ -94,7 +89,7 @@ def apply_action(politician: Politician, action: Action):
         politician.points += action.benefit
         
         log_action(politician.name, action.name, action.cost, action.benefit, politician.resources)
-        print(f"'{action.name}' applied! Puntos won: {action.benefit}")
+        print(f"'{action.name}' applied! Points won: {action.benefit}")
         return True
     else:
         print(f"Not enough resources to apply '{action.name}'.")

@@ -126,7 +126,7 @@ def main():
         print(f"\nWeek {week + 1}:")
         logger_simulation.info(f"\nWeek {week + 1}:")
         print(f"\nYOUR POINTS: {player.points} | YOUR RESOURCES: {player.resources.total_resources():}: Financial ({player.resources.financial_resources}), Influence: {player.resources.influence_resources}, Internal: {player.resources.internal_resources}")
-        print(f"\AI POINTS: {ai.points} | AI RESOURCES: {ai.resources.total_resources():}: Financial ({ai.resources.financial_resources}), Influence: {ai.resources.influence_resources}, Internal: {ai.resources.internal_resources}")
+        print(f"AI POINTS: {ai.points} | AI RESOURCES: {ai.resources.total_resources():}: Financial ({ai.resources.financial_resources}), Influence: {ai.resources.influence_resources}, Internal: {ai.resources.internal_resources}")
         logger_simulation.info(f"{player.name}: {player.resources.total_resources()}")
         logger_simulation.info(f"{ai.name}: {ai.resources.total_resources()}")
 

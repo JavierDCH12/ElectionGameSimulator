@@ -140,7 +140,7 @@ def simulate_election(politician, score, is_player=True, strategy=None) -> int:
     
     score += impact
     score = max(0, score)
-    
+        
     print(f"Score after this week: {score}\n")
     return score
 
