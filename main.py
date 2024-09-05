@@ -11,13 +11,21 @@ from src.resource import Resource
 
 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)  
+logger_pols = logging.getLogger(__name__)
+logger_pols.setLevel(logging.INFO)  
+file_handler = logging.FileHandler('logs/pols.log')
+file_handler.setLevel(logging.INFO)  
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(formatter)
+logger_pols.addHandler(file_handler)
+
+logger_simulation = logging.getLogger(__name__)
+logger_simulation.setLevel(logging.INFO)  
 file_handler = logging.FileHandler('logs/simulation.log')
 file_handler.setLevel(logging.INFO)  
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+logger_simulation.addHandler(file_handler)
 
 
 
@@ -82,15 +90,15 @@ def main():
     
     
     
-    logger.info("Game starts\n")
+    logger_simulation.info("Game starts\n")
     print_start_message()
     
     player = create_politician()
     
-    logger.info(player)
+    logger_pols.info(player)
     time.sleep(3)
     ai = create_ai_politician()
-    logger.info(ai)
+    logger_pols.info(ai)
     time.sleep(2)
     
     #Set initial scores and resources
@@ -116,11 +124,11 @@ def main():
     for week in range(CONSTANTS.ROUND_WEEKS):
         print("--------------------------------------------------------------------------------------")
         print(f"\nWeek {week + 1}:")
-        logger.info(f"\nWeek {week + 1}:")
+        logger_simulation.info(f"\nWeek {week + 1}:")
         print(f"\nYOUR POINTS: {player.points} | YOUR RESOURCES: {player.resources.total_resources():}: Financial ({player.resources.financial_resources}), Influence: {player.resources.influence_resources}, Internal: {player.resources.internal_resources}")
         print(f"\AI POINTS: {ai.points} | AI RESOURCES: {ai.resources.total_resources():}: Financial ({ai.resources.financial_resources}), Influence: {ai.resources.influence_resources}, Internal: {ai.resources.internal_resources}")
-        logger.info(f"{player.name}: {player.resources.total_resources()}")
-        logger.info(f"{ai.name}: {ai.resources.total_resources()}")
+        logger_simulation.info(f"{player.name}: {player.resources.total_resources()}")
+        logger_simulation.info(f"{ai.name}: {ai.resources.total_resources()}")
 
         
         #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
@@ -137,7 +145,7 @@ def main():
                 player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
                 add_resources(player)
             else:
-                logger.info(f"Action taken: {action}")
+                print("x")
 
         else:
             print("\nNo action taken.")
@@ -161,8 +169,8 @@ def main():
             ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
 
         time.sleep(4)
-        logger.info(f"{player.name}: {player.points}")
-        logger.info(f"{ai.name}: {ai.points}")
+        #logger_simulation.info(f"{player.name}: {player.points}")
+        #logger_simulation.info(f"{ai.name}: {ai.points}")
 
         
         
@@ -173,10 +181,10 @@ def main():
     #END OF GAME
     print(f"\nFinal Score for {player.name}: {player.points}")
     print(f"Final Score for {ai.name}: {ai.points}")
-    logger.info(f"Player points: {player.points} ; Ai points: {ai.points}")
+    logger_simulation.info(f"Player points: {player.points} ; Ai points: {ai.points}")
     
     final_score_msg(player.points, ai.points)
-    logger.info("Game over")
+    logger_simulation.info("Game over")
 
 
 

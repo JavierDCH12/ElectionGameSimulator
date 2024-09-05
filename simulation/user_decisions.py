@@ -5,12 +5,12 @@ from src import CONSTANTS
 from simulation.log_actions import log_action, log_strategy
 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.ERROR)  
-file_handler = logging.FileHandler('errors.log')
+logger_error = logging.getLogger(__name__)
+logger_error.setLevel(logging.ERROR)  
+file_handler = logging.FileHandler('logs/errors.log')
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+logger_error.addHandler(file_handler)
 
 def set_strategy(): #Set an initial strategy
     

@@ -5,21 +5,13 @@ import random
 from simulation.user_decisions import apply_strategy_modifiers
 from simulation.log_actions import log_event
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.ERROR)  
-file_handler = logging.FileHandler('errors.log')
+logger_error = logging.getLogger(__name__)
+logger_error.setLevel(logging.ERROR)  
+file_handler = logging.FileHandler('logs/errors.log')
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+logger_error.addHandler(file_handler)
 
-
-logger_pol = logging.getLogger(__name__)
-logger_pol.setLevel(logging.INFO)  
-file_handler = logging.FileHandler('logs/pols.log')
-file_handler.setLevel(logging.INFO)  
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
-file_handler.setFormatter(formatter)
-logger_pol.addHandler(file_handler)
 
 
 ############################################################################################
@@ -34,10 +26,10 @@ def ask_age() -> int:
                 return age
             else:
                 print("Age must be between 25 and 100. Please try again.")
-                logger.error(f"\nInvalid input for age: {age}\n", exc_info=True)
+                logger_error.error(f"\nInvalid input for age: {age}\n", exc_info=True)
         except ValueError as e:
             print("Invalid input. Please enter a valid integer for age.")
-            logger.error(f"\nInvalid input for age: {e}\n", exc_info=True)
+            logger_error.error(f"\nInvalid input for age: {e}\n", exc_info=True)
 
 
 def ask_gender() -> str:
@@ -46,6 +38,7 @@ def ask_gender() -> str:
         if gender in ["Male", "Female"]:
             return gender
         else:
+            logger_error.error(f"\nInvalid gender: {gender}\n", exc_info=True)
             print("Gender must be 'Male' or 'Female'. Please try again.")
 
 def create_politician():
@@ -59,7 +52,6 @@ def create_politician():
     prefecture = random.choice(CONSTANTS.PREFECTURES)
     
     politician= Politician(name, age, gender, experience, party, prefecture)
-    logger_pol.info(politician)
     return politician
 
 def create_ai_politician():
@@ -73,7 +65,6 @@ def create_ai_politician():
     prefecture = random.choice(CONSTANTS.PREFECTURES)
     
     politician= Politician(name, age, gender, experience, party, prefecture)
-    logger_pol.info(politician)
     return politician
 
 
@@ -133,10 +124,8 @@ def week_simulation(politician, is_player=False, event=None, base_impact=None) -
     
     if is_player:
         print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
-        logger.info(f"Your candidate experienced: {event}, resulting in an impact of {impact} points.")
     else:
         print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
-        logger.info(f"The AI's candidate experienced: {event}, resulting in an impact of {impact} points.")
     
     log_event(politician.name, event, impact, politician.points + impact)
 
