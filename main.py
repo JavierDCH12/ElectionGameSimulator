@@ -3,11 +3,12 @@ from simulation.game import create_politician, create_ai_politician, simulate_el
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
 from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
 import src.CONSTANTS as CONSTANTS
-from simulation.log_actions import log_action, log_event, log_strategy
+from simulation.ai_simulation import run_ai_simulation
+from simulation.player_simulation import run_player_simulation
+from simulation.log_actions import log_strategy
 import time
 import os
 import random
-from src.resource import Resource
 
 
 
@@ -87,14 +88,9 @@ def initialize_candidate_resources(candidate):
 ###############################################################
 def main():
     
-    
-    
-    
     logger_simulation.info("Game starts\n")
     print_start_message()
-    
     player = create_politician()
-    
     logger_pols.info(player)
     time.sleep(3)
     ai = create_ai_politician()
@@ -134,7 +130,9 @@ def main():
         #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
         show_actions()
         # Player decides whether to take an action or let the random event happen
-        decision = input("Do you want to take an action this week? ").strip().lower()
+        
+        run_player_simulation(player, player_strategy)
+        """decision = input("Do you want to take an action this week? ").strip().lower()
 
         if decision == "yes":
             action = select_action()  
@@ -152,12 +150,14 @@ def main():
             print("You saved resources and increased them.")
             print("A random event will occur.\n")
             player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
-            add_resources(player)
-
+            add_resources(player)"""
+        #TODO DELETE COMMENTS
         #AI'S TURN
         print("\nAI's TURN\n")
         time.sleep(3)
-        ai_action = random_action(ai)
+        
+        run_ai_simulation(ai, ai_strategy)
+        """ai_action = random_action(ai)
 
         if ai_action is not None:
             can_apply_ai = apply_action(ai, ai_action)
@@ -166,13 +166,10 @@ def main():
                 ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
         else:
             add_resources(ai)
-            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
+            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)"""
+        #TODO DELETE COMMENTS
 
         time.sleep(4)
-        #logger_simulation.info(f"{player.name}: {player.points}")
-        #logger_simulation.info(f"{ai.name}: {ai.points}")
-
-        
         
         print("--------------------------------------------------------------------------------------")
     
@@ -181,30 +178,11 @@ def main():
     #END OF GAME
     print(f"\nFinal Score for {player.name}: {player.points}")
     print(f"Final Score for {ai.name}: {ai.points}")
-    logger_simulation.info(f"Player points: {player.points} ; Ai points: {ai.points}")
-    
+    logger_simulation.info(f"Player points: {player.points} ; Ai points: {ai.points}") 
     final_score_msg(player.points, ai.points)
     logger_simulation.info("Game over")
 
 
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
 ###################################################################3    
 if __name__=="__main__":

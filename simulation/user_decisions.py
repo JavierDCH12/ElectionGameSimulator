@@ -1,8 +1,7 @@
-import logging
 from src.politician import Politician
 from src.action import Action
 from src import CONSTANTS
-from simulation.log_actions import log_action, log_strategy, log_event
+from simulation.log_actions import log_action
 
 
 
