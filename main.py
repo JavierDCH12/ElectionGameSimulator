@@ -1,7 +1,7 @@
 import logging
-from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
-from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
-from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
+from simulation.game import create_politician, create_ai_politician, set_initial_score, final_score_msg
+from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
+from simulation.user_decisions import set_strategy, show_actions
 import src.CONSTANTS as CONSTANTS
 from simulation.ai_simulation import run_ai_simulation
 from simulation.player_simulation import run_player_simulation

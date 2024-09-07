@@ -1,7 +1,7 @@
 
 from simulation.game import simulate_election
 from simulation.resources import add_resources
-from simulation.user_decisions import apply_action, random_action, select_action
+from simulation.user_decisions import apply_action, select_action
 
 
 def run_player_simulation(player, player_strategy):
