@@ -1,6 +1,7 @@
 from src.party import Party
 from src.prefecture import Prefecture
 from src.action import Action
+from src.event import Event
 
 
 #Rounds#####################################################################################################
@@ -135,28 +136,28 @@ EXPERIENCE_LEVEL_MODIFIER={
 
 #Random Events#####################################################################################################
 EVENTS = [
-    ("Positive Media Coverage", 10),
-    ("Minor Gaffe", -5),
-    ("Small Corruption Scandal", -10),
-    ("Successful Small Rally", 10),
-    ("Internal Party Disagreement", -5),
-    ("Controversial Statement During Diet Session", -10),
-    ("Positive Coverage in the Newspapers", 5),
-    ("Minor Scandal Involving Staff Member", -5),
-    ("Endorsement by Influential Industry Group", 20),
-    ("Public Criticism from Former Party Leader", -5),
-    ("Positive Reception in Social Media", 5)
+    Event("Positive Media Coverage", 10),
+    Event("Minor Gaffe", -5),
+    Event("Small Corruption Scandal", -10),
+    Event("Successful Small Rally", 10),
+    Event("Internal Party Disagreement", -5),
+    Event("Controversial Statement During Diet Session", -10),
+    Event("Positive Coverage in the Newspapers", 5),
+    Event("Minor Scandal Involving Staff Member", -5),
+    Event("Endorsement by Influential Industry Group", 20),
+    Event("Public Criticism from Former Party Leader", -5),
+    Event("Positive Reception in Social Media", 5)
 ]
 SPECIAL_EVENTS = [
-    ("Major Positive Media Coverage", 20),
-    ("Major Sex Scandal", -25),
-    ("Major Corruption Scandal", -20),
-    ("Major Gaffe", -20),
-    ("Severe Economic Crisis", -30),
-    ("Massively Successful Rally", 20),
-    ("Severe Internal Party Conflict", -15),
-    ("Prime Minister Endorsement", 25),
-    ("Sudden Health Issue", -10)
+    Event("Major Positive Media Coverage", 20),
+    Event("Major Sex Scandal", -25),
+    Event("Major Corruption Scandal", -20),
+    Event("Major Gaffe", -20),
+    Event("Severe Economic Crisis", -30),
+    Event("Massively Successful Rally", 20),
+    Event("Severe Internal Party Conflict", -15),
+    Event("Prime Minister Endorsement", 25),
+    Event("Sudden Health Issue", -10)
 ]
 
 

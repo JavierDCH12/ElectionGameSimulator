@@ -131,43 +131,14 @@ def main():
         show_actions()
         # Player decides whether to take an action or let the random event happen
         
-        run_player_simulation(player, player_strategy)
-        """decision = input("Do you want to take an action this week? ").strip().lower()
-
-        if decision == "yes":
-            action = select_action()  
-            can_apply = apply_action(player, action)  
-
-            if not can_apply:
-                print(f"Insufficient resources for action '{action.name}'. A random event will occur instead.\n")
-                player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
-                add_resources(player)
-            else:
-                print("x")
-
-        else:
-            print("\nNo action taken.")
-            print("You saved resources and increased them.")
-            print("A random event will occur.\n")
-            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
-            add_resources(player)"""
-        #TODO DELETE COMMENTS
+        decision = input("Do you want to take an action this week? ").strip().lower()
+        run_player_simulation(player, player_strategy, decision)
+        
         #AI'S TURN
         print("\nAI's TURN\n")
         time.sleep(3)
         
         run_ai_simulation(ai, ai_strategy)
-        """ai_action = random_action(ai)
-
-        if ai_action is not None:
-            can_apply_ai = apply_action(ai, ai_action)
-            if not can_apply_ai:
-                add_resources(ai)
-                ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
-        else:
-            add_resources(ai)
-            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)"""
-        #TODO DELETE COMMENTS
 
         time.sleep(4)
         

@@ -110,9 +110,8 @@ def generate_random_event() -> tuple:
     return event, base_impact
 
 
-def week_simulation(politician, is_player=False, event=None, base_impact=None) -> int:
-    if event is None or base_impact is None:
-        event, base_impact = generate_random_event()
+def generate_impact(politician, is_player=False, event=None, base_impact=None) -> int:
+    event, base_impact = generate_random_event()
     
     modifier = random_score_modifier()
     impact = round(base_impact * modifier)
@@ -122,18 +121,15 @@ def week_simulation(politician, is_player=False, event=None, base_impact=None) -
     else:
         impact = min(0, impact)  # Ensure negative impact stays negative or zero
     
-    if is_player:
-        print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
-    else:
-        print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
+    print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
     
     log_event(politician.name, event, impact, politician.points + impact)
 
     
     return impact
 
-def simulate_election(politician, score, is_player=True, strategy=None) -> int:
-    impact = week_simulation(politician, is_player)
+def generate_score(politician, score, is_player=True, strategy=None) -> int:
+    impact = generate_impact(politician, is_player)
     
     if strategy:
         impact = apply_strategy_modifiers(strategy, impact)
