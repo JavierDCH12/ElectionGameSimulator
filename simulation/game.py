@@ -1,5 +1,7 @@
 import logging
 from src.politician import Politician
+from src.event import Event
+
 from src import CONSTANTS
 import random
 from simulation.user_decisions import apply_strategy_modifiers
@@ -104,26 +106,26 @@ def random_score_modifier() -> float:
 def generate_random_event() -> tuple:
     """Generate a random event and its base impact."""
     if random.random() < 0.2:
-        event, base_impact = random.choice(CONSTANTS.SPECIAL_EVENTS)
+        event = random.choice(CONSTANTS.SPECIAL_EVENTS)
     else:
-        event, base_impact = random.choice(CONSTANTS.EVENTS)
-    return event, base_impact
+        event = random.choice(CONSTANTS.EVENTS)
+    return event
 
 
 def generate_impact(politician, is_player=False, event=None, base_impact=None) -> int:
-    event, base_impact = generate_random_event()
+    event = generate_random_event()
     
     modifier = random_score_modifier()
     impact = round(base_impact * modifier)
     
-    if base_impact > 0:
+    if event.impact > 0:
         impact = max(0, impact)  # Ensure positive impact stays positive or zero
     else:
         impact = min(0, impact)  # Ensure negative impact stays negative or zero
     
     print(f"{politician.name} experienced: '{event}', with an impact of {impact} points.")
     
-    log_event(politician.name, event, impact, politician.points + impact)
+    log_event(politician.name, event.name, event.impact, politician.points + impact)
 
     
     return impact

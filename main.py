@@ -1,4 +1,7 @@
 import logging
+import time
+import os
+import random
 from simulation.game import create_politician, create_ai_politician, set_initial_score, final_score_msg
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
 from simulation.user_decisions import set_strategy, show_actions
@@ -6,9 +9,8 @@ import src.CONSTANTS as CONSTANTS
 from simulation.ai_simulation import run_ai_simulation
 from simulation.player_simulation import run_player_simulation
 from simulation.log_actions import log_strategy
-import time
-import os
-import random
+from simulation.menu import intro_menu_option
+
 
 
 
@@ -85,9 +87,7 @@ def initialize_candidate_resources(candidate):
     candidate.resources.internal_resources = set_initial_internal_resources(candidate)
 
 
-###############################################################
-def main():
-    
+def run_game():
     logger_simulation.info("Game starts\n")
     print_start_message()
     player = create_politician()
@@ -152,6 +152,19 @@ def main():
     logger_simulation.info(f"Player points: {player.points} ; Ai points: {ai.points}") 
     final_score_msg(player.points, ai.points)
     logger_simulation.info("Game over")
+    
+
+###############################################################
+def main():
+    
+    """Main function to handle the menu and game flow."""
+    while True:
+        game_choice = intro_menu_option()
+
+        if game_choice == "new_game":
+            run_game()
+    
+    
 
 
  
