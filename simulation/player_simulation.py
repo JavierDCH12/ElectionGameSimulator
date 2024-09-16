@@ -15,8 +15,6 @@ def run_player_simulation(player, player_strategy, decision):
                 print(f"Insufficient resources for action '{action.name}'. A random event will occur instead.\n")
                 player.points = generate_score(player, player.points, is_player=True, strategy=player_strategy)
                 add_resources(player)
-            else:
-                print("x")
 
     else:
         print("\nNo action taken.")

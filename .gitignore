@@ -9,3 +9,6 @@ game.log
 simulation.log
 errors.log
 .env
+
+__pycache__/
+*.pyc

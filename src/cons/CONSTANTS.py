@@ -153,7 +153,6 @@ SPECIAL_EVENTS = [
     Event("Major Sex Scandal", -25),
     Event("Major Corruption Scandal", -20),
     Event("Major Gaffe", -20),
-    Event("Severe Economic Crisis", -30),
     Event("Massively Successful Rally", 20),
     Event("Severe Internal Party Conflict", -15),
     Event("Prime Minister Endorsement", 25),

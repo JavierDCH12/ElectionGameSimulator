@@ -5,7 +5,9 @@ import random
 from simulation.game import create_politician, create_ai_politician, set_initial_score, final_score_msg
 from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
 from simulation.user_decisions import set_strategy, show_actions
-import src.CONSTANTS as CONSTANTS
+import src.cons.CONSTANTS as CONSTANTS
+import src.cons.STRINGS as STRINGS
+
 from simulation.ai_simulation import run_ai_simulation
 from simulation.player_simulation import run_player_simulation
 from simulation.log_actions import log_strategy
@@ -119,23 +121,23 @@ def run_game():
     #Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
         print("--------------------------------------------------------------------------------------")
-        print(f"\nWeek {week + 1}:")
-        logger_simulation.info(f"\nWeek {week + 1}:")
-        print(f"\nYOUR POINTS: {player.points} | YOUR RESOURCES: {player.resources.total_resources():}: Financial ({player.resources.financial_resources}), Influence: {player.resources.influence_resources}, Internal: {player.resources.internal_resources}")
-        print(f"AI POINTS: {ai.points} | AI RESOURCES: {ai.resources.total_resources():}: Financial ({ai.resources.financial_resources}), Influence: {ai.resources.influence_resources}, Internal: {ai.resources.internal_resources}")
+        print(f"\{STRINGS.WEEK} {week + 1}:")
+        logger_simulation.info(f"\{STRINGS.WEEK} {week + 1}:")
+        print(f"\n{STRINGS.PLAYER_POINTS}{player.points} | {STRINGS.PLAYER_RESOURCESS} {player.resources.total_resources():}: {STRINGS.FINANCIAL} {player.resources.financial_resources}, {STRINGS.INFLUENCE}: {player.resources.influence_resources}, {STRINGS.INTERNAL}: {player.resources.internal_resources}")
+        print(f"{STRINGS.AI_POINTS}{ai.points} | {STRINGS.AI_RESOURCESS} {ai.resources.total_resources():}: {STRINGS.FINANCIAL} {ai.resources.financial_resources}, {STRINGS.INFLUENCE}: {ai.resources.influence_resources}, {STRINGS.INTERNAL}: {ai.resources.internal_resources}")
         logger_simulation.info(f"{player.name}: {player.resources.total_resources()}")
         logger_simulation.info(f"{ai.name}: {ai.resources.total_resources()}")
 
         
         #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
+        print(f"{STRINGS.PLAYER_TURN}\n")
         show_actions()
         # Player decides whether to take an action or let the random event happen
-        
-        decision = input("Do you want to take an action this week? ").strip().lower()
+        decision = input({STRINGS.ACTION_QUESTION}).strip().lower()
         run_player_simulation(player, player_strategy, decision)
         
         #AI'S TURN
-        print("\nAI's TURN\n")
+        print(f"\n {STRINGS.AI_TURN} \n")
         time.sleep(3)
         
         run_ai_simulation(ai, ai_strategy)
@@ -147,11 +149,11 @@ def run_game():
     
     
     #END OF GAME
-    print(f"\nFinal Score for {player.name}: {player.points}")
-    print(f"Final Score for {ai.name}: {ai.points}")
+    print(f"\n{STRINGS.FINAL_SCORE}{player.name}: {player.points}")
+    print(f"{STRINGS.FINAL_SCORE}{ai.name}: {ai.points}")
     logger_simulation.info(f"Player points: {player.points} ; Ai points: {ai.points}") 
     final_score_msg(player.points, ai.points)
-    logger_simulation.info("Game over")
+    logger_simulation.info(f"{STRINGS.GAME_OVER}")
     
 
 ###############################################################

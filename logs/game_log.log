@@ -14,3 +14,28 @@ Financial: 9.5 | Influence: 1 | Internal: 19.5 |
 2024-09-05 18:48:07,166 - INFO - Player: Hiroshi Suzuki | Event Name: Minor Gaffe | Impact: -6 | Score: 104 | 
 2024-09-05 18:48:47,724 - INFO - Player: Javier delgado | Event Name: Minor Gaffe | Impact: -6 | Score: 113 | 
 2024-09-05 18:48:50,728 - INFO - Player: Hiroshi Suzuki | Event Name: Endorsement by Influential Industry Group | Impact: 19 | Score: 123 | 
+2024-09-14 19:12:17,542 - INFO - Player: Javier delgado | Strategy name: defensive campaign | Current Score: 80
+2024-09-14 19:12:17,542 - INFO - Player: Yoshio Tanaka | Strategy name: neutral campaign | Current Score: 63
+2024-09-14 19:16:58,167 - INFO - Player: Maria perez | Strategy name: defensive campaign | Current Score: 90
+2024-09-14 19:16:58,168 - INFO - Player: Hidetoshi Yoshida | Strategy name: neutral campaign | Current Score: 63
+2024-09-14 19:18:34,902 - INFO - Player: Jose delgado | Strategy name: defensive campaign | Current Score: 99
+2024-09-14 19:18:34,902 - INFO - Player: Sakura Kobayashi | Strategy name: aggressive campaign | Current Score: 80
+2024-09-14 19:18:36,633 - INFO - Player: Jose delgado | Event Name: Internal Party Disagreement | Impact: -5 | Score: 93 | 
+2024-09-14 19:18:39,635 - INFO - Player: Sakura Kobayashi | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 69.0
+Financial: 22.5 | Influence: 24 | Internal: 22.5 | 
+2024-09-14 19:31:50,292 - INFO - Player: Akira abe | Strategy name: aggressive campaign | Current Score: 54
+2024-09-14 19:31:50,293 - INFO - Player: Shinji Nakamura | Strategy name: aggressive campaign | Current Score: 80
+2024-09-14 19:32:10,389 - INFO - Player: Akira abe | Event Name: Positive Coverage in the Newspapers | Impact: 5 | Score: 60 | 
+2024-09-14 19:32:13,392 - INFO - Player: Shinji Nakamura | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 76
+Financial: 30 | Influence: 15 | Internal: 31 | 
+2024-09-14 19:34:17,373 - INFO - Player: Akira abe | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: Total Resources: 46
+Financial: 20 | Influence: 1 | Internal: 25 | 
+2024-09-14 19:34:20,375 - INFO - Player: Shinji Nakamura | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 51
+Financial: 15 | Influence: 10 | Internal: 26 | 
+2024-09-14 19:35:17,772 - INFO - Player: Akira abe | Event Name: Internal Party Disagreement | Impact: -5 | Score: 97 | 
+2024-09-14 19:35:20,774 - INFO - Player: Shinji Nakamura | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 26
+Financial: 0 | Influence: 5 | Internal: 21 | 
+2024-09-14 19:35:34,423 - INFO - Player: Akira abe | Event Name: Minor Gaffe | Impact: -5 | Score: 91 | 
+2024-09-14 19:35:37,424 - INFO - Player: Shinji Nakamura | Event Name: Massively Successful Rally | Impact: 20 | Score: 187 | 
+2024-09-14 19:35:45,026 - INFO - Player: Akira abe | Event Name: Positive Media Coverage | Impact: 10 | Score: 99 | 
+2024-09-14 19:35:48,029 - INFO - Player: Shinji Nakamura | Event Name: Successful Small Rally | Impact: 10 | Score: 200 | 

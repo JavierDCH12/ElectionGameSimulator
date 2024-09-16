@@ -1,6 +1,6 @@
 from src.politician import Politician
 from src.action import Action
-from src import CONSTANTS
+from src.cons import CONSTANTS
 from simulation.log_actions import log_action
 
 
@@ -31,11 +31,10 @@ def apply_strategy_modifiers(strategy, event_impact):
         multiplier=0.8
         
     modified_impact=original_impact*multiplier
-    print(f"(Original impact: {original_impact}, Modified impact: {round(modified_impact)})")
+    #print(f"(Original impact: {original_impact}, Modified impact: {round(modified_impact)})")
     
     return round(modified_impact) 
-    # No message needed for neutral strategy since no modification is applied
-    return round(modified_impact)
+    
 
 
 def show_actions():

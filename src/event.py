@@ -28,4 +28,4 @@ class Event():
         print(f"Event for {politician.name}: {'+' if self.impact >= 0 else ''}{self.impact} points")
     
     def __str__(self) -> str:
-        return f"Event Name: {self.name} | Impact points: {self.impact}"
+        return f"{self.name} | Impact points: {self.impact}"

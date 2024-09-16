@@ -46,3 +46,59 @@ Week 5:
 
 2024-09-08 20:03:14 - __main__ - INFO - Game starts
 
+2024-09-14 19:07:38 - __main__ - INFO - Game starts
+
+2024-09-14 19:11:55 - __main__ - INFO - Game starts
+
+2024-09-14 19:12:02 - __main__ - INFO - Name: Javier delgado | Age: 45 | Gender: Male | Experience: Incumbent | Political Party: Komeito | Prefecture: Nagano
+2024-09-14 19:12:05 - __main__ - INFO - Name: Yoshio Tanaka | Age: 60 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Toyama
+2024-09-14 19:12:17 - __main__ - INFO - 
+Week 1:
+2024-09-14 19:12:17 - __main__ - INFO - Javier delgado: 96.5
+2024-09-14 19:12:17 - __main__ - INFO - Yoshio Tanaka: 84.5
+2024-09-14 19:16:33 - __main__ - INFO - Game starts
+
+2024-09-14 19:16:41 - __main__ - INFO - Name: Maria perez | Age: 47 | Gender: Female | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Gunma
+2024-09-14 19:16:44 - __main__ - INFO - Name: Hidetoshi Yoshida | Age: 45 | Gender: Male | Experience: New Candidate | Political Party: Japanese Communist Party | Prefecture: Kagawa
+2024-09-14 19:16:58 - __main__ - INFO - 
+Week 1:
+2024-09-14 19:16:58 - __main__ - INFO - Maria perez: 110.0
+2024-09-14 19:16:58 - __main__ - INFO - Hidetoshi Yoshida: 80.0
+2024-09-14 19:18:08 - __main__ - INFO - Game starts
+
+2024-09-14 19:18:20 - __main__ - INFO - Name: Jose delgado | Age: 52 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Osaka
+2024-09-14 19:18:23 - __main__ - INFO - Name: Sakura Kobayashi | Age: 59 | Gender: Female | Experience: Incumbent | Political Party: Constitutional Democratic Party of Japan | Prefecture: Akita
+2024-09-14 19:18:34 - __main__ - INFO - 
+Week 1:
+2024-09-14 19:18:34 - __main__ - INFO - Jose delgado: 92.5
+2024-09-14 19:18:34 - __main__ - INFO - Sakura Kobayashi: 94.0
+2024-09-14 19:18:43 - __main__ - INFO - 
+Week 2:
+2024-09-14 19:18:43 - __main__ - INFO - Jose delgado: 98.5
+2024-09-14 19:18:43 - __main__ - INFO - Sakura Kobayashi: 69.0
+2024-09-14 19:31:22 - __main__ - INFO - Game starts
+
+2024-09-14 19:31:33 - __main__ - INFO - Name: Akira abe | Age: 29 | Gender: Male | Experience: New Candidate | Political Party: Constitutional Democratic Party of Japan | Prefecture: Yamaguchi
+2024-09-14 19:31:36 - __main__ - INFO - Name: Shinji Nakamura | Age: 70 | Gender: Male | Experience: Incumbent | Political Party: Liberal Democratic Party | Prefecture: Ehime
+2024-09-14 19:31:50 - __main__ - INFO - 
+Week 1:
+2024-09-14 19:31:50 - __main__ - INFO - Akira abe: 75
+2024-09-14 19:31:50 - __main__ - INFO - Shinji Nakamura: 101
+2024-09-14 19:32:17 - __main__ - INFO - 
+Week 2:
+2024-09-14 19:32:17 - __main__ - INFO - Akira abe: 81
+2024-09-14 19:32:17 - __main__ - INFO - Shinji Nakamura: 76
+2024-09-14 19:34:24 - __main__ - INFO - 
+Week 3:
+2024-09-14 19:34:24 - __main__ - INFO - Akira abe: 46
+2024-09-14 19:34:24 - __main__ - INFO - Shinji Nakamura: 51
+2024-09-14 19:35:24 - __main__ - INFO - 
+Week 4:
+2024-09-14 19:35:24 - __main__ - INFO - Akira abe: 52
+2024-09-14 19:35:24 - __main__ - INFO - Shinji Nakamura: 26
+2024-09-14 19:35:41 - __main__ - INFO - 
+Week 5:
+2024-09-14 19:35:41 - __main__ - INFO - Akira abe: 58
+2024-09-14 19:35:41 - __main__ - INFO - Shinji Nakamura: 32
+2024-09-14 19:35:52 - __main__ - INFO - Player points: 101 ; Ai points: 202
+2024-09-14 19:35:52 - __main__ - INFO - Game over
