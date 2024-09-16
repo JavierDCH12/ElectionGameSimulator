@@ -45,3 +45,5 @@ Financial: 0 | Influence: 5 | Internal: 21 |
 Financial: 15 | Influence: 8 | Internal: 27 | 
 2024-09-16 23:28:39,175 - INFO - Player: Makoto Kobayashi | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 58
 Financial: 13 | Influence: 24 | Internal: 21 | 
+2024-09-17 00:06:58,223 - INFO - Player: Irene | Strategy name: defensive campaign | Current Score: 80
+2024-09-17 00:06:58,223 - INFO - Player: Shinji Nakamura | Strategy name: neutral campaign | Current Score: 90

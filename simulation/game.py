@@ -1,8 +1,8 @@
 import logging
 from src.politician import Politician
-from src.event import Event
-
 from src.cons import CONSTANTS
+from src.cons import STRINGS
+
 import random
 from simulation.user_decisions import apply_strategy_modifiers
 from simulation.log_actions import log_event
@@ -18,33 +18,33 @@ logger_error.addHandler(file_handler)
 
 ############################################################################################
 def ask_name() -> str:
-    return input("Enter the politician's name: ").capitalize()
+    return input(f"{STRINGS.INPUT_NAME}").capitalize()
 
 def ask_age() -> int:
     while True:
         try:
-            age = int(input("Enter the politician's age: "))
+            age = int(input(f"{STRINGS.INPUT_AGE}"))
             if 25 <= age <= 100:
                 return age
             else:
-                print("Age must be between 25 and 100. Please try again.")
+                print(f"{STRINGS.AGE_ERROR_1}")
                 logger_error.error(f"\nInvalid input for age: {age}\n", exc_info=True)
         except ValueError as e:
-            print("Invalid input. Please enter a valid integer for age.")
+            print(f"{STRINGS.AGE_ERROR_2}")
             logger_error.error(f"\nInvalid input for age: {e}\n", exc_info=True)
 
 
 def ask_gender() -> str:
     while True:
-        gender = input("Enter the politician's gender (Male/Female): ").capitalize()
+        gender = input(f"{STRINGS.INPUT_GENDER}").capitalize()
         if gender in ["Male", "Female"]:
             return gender
         else:
             logger_error.error(f"\nInvalid gender: {gender}\n", exc_info=True)
-            print("Gender must be 'Male' or 'Female'. Please try again.")
+            print(f"{STRINGS.GENDER_ERROR}")
 
 def create_politician():
-    print("Let's create your desired candidate: ")
+    print(f"{STRINGS.CANDIDATE_CREATION}")
     name = ask_name()
     age = ask_age()
     gender = ask_gender()
@@ -125,7 +125,7 @@ def generate_impact(politician, is_player=False, event=None) -> int:
     """
     
     
-    print(f"{politician.name} experienced: '{event}', with a final modified impact of {final_impact} points.")
+    print(f"{politician.name}\n: {STRINGS.EVENT}'{event}' {STRINGS.MODIFIED_IMPACT} {final_impact} {STRINGS.POINTS}.")
     
     log_event(politician.name, event.name, event.impact, politician.points + final_impact)
 
@@ -141,13 +141,13 @@ def generate_score(politician, score, is_player=True, strategy=None) -> int:
     score += impact
     score = max(0, score)
         
-    print(f"Score after this week: {score}\n")
+    print(f"{STRINGS.WEEKLY_SCORE}{score}\n")
     return score
 
 
 def final_score_msg(player_score, ai_score):
     if player_score > ai_score:
-        print("You have been elected President of Japan!")
+        print(f"{STRINGS.PLAYER_WIN}")
         print("""
   ____    _    _   _ _____   _    ___  
  | __ )  / \  | \ | |__  /  / \  |_ _| 
@@ -155,7 +155,7 @@ def final_score_msg(player_score, ai_score):
  | |_) / ___ \| |\  |/ /_ / ___ \ | |  
  |____/_/   \_\_| \_/____/_/   \_\___| """)
     elif ai_score > player_score:
-        print("The AI candidate has won the election...")
+        print(f"{STRINGS.AI_WIN}")
         print("""
   / ___| __ _ _ __ ___   ___   / _ \__   _____ _ __ 
  | |  _ / _` | '_ ` _ \ / _ \ | | | \ \ / / _ \ '__|
