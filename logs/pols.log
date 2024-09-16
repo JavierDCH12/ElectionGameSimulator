@@ -102,3 +102,13 @@ Week 5:
 2024-09-14 19:35:41 - __main__ - INFO - Shinji Nakamura: 32
 2024-09-14 19:35:52 - __main__ - INFO - Player points: 101 ; Ai points: 202
 2024-09-14 19:35:52 - __main__ - INFO - Game over
+2024-09-16 23:26:17 - __main__ - INFO - Game starts
+
+2024-09-16 23:26:31 - __main__ - INFO - Name: Javier | Age: 75 | Gender: Male | Experience: New Candidate | Political Party: Komeito | Prefecture: Fukuoka
+2024-09-16 23:26:34 - __main__ - INFO - Name: Makoto Kobayashi | Age: 45 | Gender: Male | Experience: Incumbent | Political Party: Japanese Communist Party | Prefecture: Shizuoka
+2024-09-16 23:27:22 - __main__ - INFO - \Week 1:
+2024-09-16 23:27:22 - __main__ - INFO - Javier: 85
+2024-09-16 23:27:22 - __main__ - INFO - Makoto Kobayashi: 83
+2024-09-16 23:28:43 - __main__ - INFO - \Week 2:
+2024-09-16 23:28:43 - __main__ - INFO - Javier: 50
+2024-09-16 23:28:43 - __main__ - INFO - Makoto Kobayashi: 58

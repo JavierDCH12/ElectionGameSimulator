@@ -39,3 +39,9 @@ Financial: 0 | Influence: 5 | Internal: 21 |
 2024-09-14 19:35:37,424 - INFO - Player: Shinji Nakamura | Event Name: Massively Successful Rally | Impact: 20 | Score: 187 | 
 2024-09-14 19:35:45,026 - INFO - Player: Akira abe | Event Name: Positive Media Coverage | Impact: 10 | Score: 99 | 
 2024-09-14 19:35:48,029 - INFO - Player: Shinji Nakamura | Event Name: Successful Small Rally | Impact: 10 | Score: 200 | 
+2024-09-16 23:27:22,987 - INFO - Player: Javier | Strategy name: aggressive campaign | Current Score: 63
+2024-09-16 23:27:22,990 - INFO - Player: Makoto Kobayashi | Strategy name: aggressive campaign | Current Score: 70
+2024-09-16 23:28:36,173 - INFO - Player: Javier | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: Total Resources: 50
+Financial: 15 | Influence: 8 | Internal: 27 | 
+2024-09-16 23:28:39,175 - INFO - Player: Makoto Kobayashi | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 58
+Financial: 13 | Influence: 24 | Internal: 21 | 

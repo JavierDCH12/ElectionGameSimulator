@@ -90,7 +90,7 @@ def initialize_candidate_resources(candidate):
 
 
 def run_game():
-    logger_simulation.info("Game starts\n")
+    logger_simulation.info(f"{STRINGS.GAME_STARTS}\n")
     print_start_message()
     player = create_politician()
     logger_pols.info(player)
@@ -112,15 +112,16 @@ def run_game():
     
     #Player chooses a campaign strategy
     player_strategy = set_strategy()
+    print(f"{STRINGS.PLAYER_STRATEGY} {player_strategy.title()}")
     log_strategy(player.name, player_strategy, player.points)
     ai_strategy=random.choice(CONSTANTS.STRATEGIES)
     log_strategy(ai.name, ai_strategy, ai.points)
-    print(f"The AI has chosen the {ai_strategy.title()} strategy")
+    print(f"{STRINGS.AI_STRATEGY} {ai_strategy.title()}")
     
 
     #Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
-        print("--------------------------------------------------------------------------------------")
+        print(f"{STRINGS.LINES}")
         print(f"\{STRINGS.WEEK} {week + 1}:")
         logger_simulation.info(f"\{STRINGS.WEEK} {week + 1}:")
         print(f"\n{STRINGS.PLAYER_POINTS}{player.points} | {STRINGS.PLAYER_RESOURCESS} {player.resources.total_resources():}: {STRINGS.FINANCIAL} {player.resources.financial_resources}, {STRINGS.INFLUENCE}: {player.resources.influence_resources}, {STRINGS.INTERNAL}: {player.resources.internal_resources}")
@@ -144,14 +145,14 @@ def run_game():
 
         time.sleep(4)
         
-        print("--------------------------------------------------------------------------------------")
+        print(f"{STRINGS.LINES}")
     
     
     
     #END OF GAME
     print(f"\n{STRINGS.FINAL_SCORE}{player.name}: {player.points}")
     print(f"{STRINGS.FINAL_SCORE}{ai.name}: {ai.points}")
-    logger_simulation.info(f"Player points: {player.points} ; Ai points: {ai.points}") 
+    logger_simulation.info(f"{STRINGS.PLAYER_POINTS} {player.points} ; {STRINGS.AI_POINTS} {ai.points}") 
     final_score_msg(player.points, ai.points)
     logger_simulation.info(f"{STRINGS.GAME_OVER}")
     

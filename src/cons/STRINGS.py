@@ -15,5 +15,13 @@ PLAYER_POINTS="YOUR POINTS: "
 AI_POINTS="AI POINTS: "
 PLAYER_RESOURCESS="YOUR RESOURCES: "
 AI_RESOURCESS="AI RESOURCES: "
+PLAYER_STRATEGY="PLAYER's Strategy: "
+
+AI_STRATEGY="AI's Strategy: "
+
+LINES="--------------------------------------------------------------------------------------"
 
 FINAL_SCORE="Final Score for "
+
+GAME_STARTS="Game starts"
+GAME_OVER="Game over"
