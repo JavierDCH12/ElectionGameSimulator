@@ -1,10 +1,49 @@
-2024-09-01 11:59:00,777 - INFO - Player: Irene | Strategy name: neutral campaign | Current Score: 81
-2024-09-01 11:59:00,777 - INFO - Player: Hiroshi Suzuki | Strategy name: aggressive campaign | Current Score: 63
-2024-09-01 11:59:13,090 - INFO - Player: Irene | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: {'financial': 25.0, 'influence': 12, 'internal': 31.0} | 
-2024-09-01 11:59:16,092 - INFO - Player: Hiroshi Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 20.0, 'influence': 11, 'internal': 27.5} | 
-2024-09-01 11:59:34,531 - INFO - Player: Irene | Event Name: Positive Coverage in the Newspapers | Impact: 5 | Score: 126 | 
-2024-09-01 11:59:37,538 - INFO - Player: Hiroshi Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: {'financial': 5.0, 'influence': 6, 'internal': 22.5} | 
-2024-09-01 11:59:52,254 - INFO - Player: Hiroshi Suzuki | Event Name: Internal Party Disagreement | Impact: -5 | Score: 118 | 
-2024-09-01 12:00:09,082 - INFO - Player: Hiroshi Suzuki | Event Name: Severe Economic Crisis | Impact: -35 | Score: 82 | 
-2024-09-01 12:00:20,964 - INFO - Player: Irene | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: {'financial': 7.0, 'influence': 4, 'internal': 28.0} | 
-2024-09-01 12:00:23,967 - INFO - Player: Hiroshi Suzuki | Action: Hold Internal Party Meeting | Cost: {'financial': 5, 'influence': 10, 'internal': 25} | Benefit: 25 | Resources: {'financial': 4.0, 'influence': 0, 'internal': 1.5} | 
+2024-09-05 18:46:13,909 - INFO - Player: Javier delgado | Strategy name: neutral campaign | Current Score: 72
+2024-09-05 18:46:13,910 - INFO - Player: Hiroshi Suzuki | Strategy name: neutral campaign | Current Score: 54
+2024-09-05 18:47:12,568 - INFO - Player: Javier delgado | Event Name: Controversial Statement During Diet Session | Impact: -9 | Score: 63 | 
+2024-09-05 18:47:15,570 - INFO - Player: Hiroshi Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 49.0
+Financial: 22.5 | Influence: 4 | Internal: 22.5 | 
+2024-09-05 18:47:32,577 - INFO - Player: Javier delgado | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: Total Resources: 63.5
+Financial: 17.0 | Influence: 17 | Internal: 29.5 | 
+2024-09-05 18:47:35,587 - INFO - Player: Hiroshi Suzuki | Event Name: Internal Party Disagreement | Impact: -4 | Score: 80 | 
+2024-09-05 18:47:49,273 - INFO - Player: Javier delgado | Action: Hold Internal Party Meeting | Cost: {'financial': 5, 'influence': 10, 'internal': 25} | Benefit: 25 | Resources: Total Resources: 23.5
+Financial: 12.0 | Influence: 7 | Internal: 4.5 | 
+2024-09-05 18:47:52,277 - INFO - Player: Hiroshi Suzuki | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 30.0
+Financial: 9.5 | Influence: 1 | Internal: 19.5 | 
+2024-09-05 18:48:04,160 - INFO - Player: Javier delgado | Event Name: Small Corruption Scandal | Impact: -9 | Score: 119 | 
+2024-09-05 18:48:07,166 - INFO - Player: Hiroshi Suzuki | Event Name: Minor Gaffe | Impact: -6 | Score: 104 | 
+2024-09-05 18:48:47,724 - INFO - Player: Javier delgado | Event Name: Minor Gaffe | Impact: -6 | Score: 113 | 
+2024-09-05 18:48:50,728 - INFO - Player: Hiroshi Suzuki | Event Name: Endorsement by Influential Industry Group | Impact: 19 | Score: 123 | 
+2024-09-14 19:12:17,542 - INFO - Player: Javier delgado | Strategy name: defensive campaign | Current Score: 80
+2024-09-14 19:12:17,542 - INFO - Player: Yoshio Tanaka | Strategy name: neutral campaign | Current Score: 63
+2024-09-14 19:16:58,167 - INFO - Player: Maria perez | Strategy name: defensive campaign | Current Score: 90
+2024-09-14 19:16:58,168 - INFO - Player: Hidetoshi Yoshida | Strategy name: neutral campaign | Current Score: 63
+2024-09-14 19:18:34,902 - INFO - Player: Jose delgado | Strategy name: defensive campaign | Current Score: 99
+2024-09-14 19:18:34,902 - INFO - Player: Sakura Kobayashi | Strategy name: aggressive campaign | Current Score: 80
+2024-09-14 19:18:36,633 - INFO - Player: Jose delgado | Event Name: Internal Party Disagreement | Impact: -5 | Score: 93 | 
+2024-09-14 19:18:39,635 - INFO - Player: Sakura Kobayashi | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 69.0
+Financial: 22.5 | Influence: 24 | Internal: 22.5 | 
+2024-09-14 19:31:50,292 - INFO - Player: Akira abe | Strategy name: aggressive campaign | Current Score: 54
+2024-09-14 19:31:50,293 - INFO - Player: Shinji Nakamura | Strategy name: aggressive campaign | Current Score: 80
+2024-09-14 19:32:10,389 - INFO - Player: Akira abe | Event Name: Positive Coverage in the Newspapers | Impact: 5 | Score: 60 | 
+2024-09-14 19:32:13,392 - INFO - Player: Shinji Nakamura | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 76
+Financial: 30 | Influence: 15 | Internal: 31 | 
+2024-09-14 19:34:17,373 - INFO - Player: Akira abe | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: Total Resources: 46
+Financial: 20 | Influence: 1 | Internal: 25 | 
+2024-09-14 19:34:20,375 - INFO - Player: Shinji Nakamura | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 51
+Financial: 15 | Influence: 10 | Internal: 26 | 
+2024-09-14 19:35:17,772 - INFO - Player: Akira abe | Event Name: Internal Party Disagreement | Impact: -5 | Score: 97 | 
+2024-09-14 19:35:20,774 - INFO - Player: Shinji Nakamura | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 26
+Financial: 0 | Influence: 5 | Internal: 21 | 
+2024-09-14 19:35:34,423 - INFO - Player: Akira abe | Event Name: Minor Gaffe | Impact: -5 | Score: 91 | 
+2024-09-14 19:35:37,424 - INFO - Player: Shinji Nakamura | Event Name: Massively Successful Rally | Impact: 20 | Score: 187 | 
+2024-09-14 19:35:45,026 - INFO - Player: Akira abe | Event Name: Positive Media Coverage | Impact: 10 | Score: 99 | 
+2024-09-14 19:35:48,029 - INFO - Player: Shinji Nakamura | Event Name: Successful Small Rally | Impact: 10 | Score: 200 | 
+2024-09-16 23:27:22,987 - INFO - Player: Javier | Strategy name: aggressive campaign | Current Score: 63
+2024-09-16 23:27:22,990 - INFO - Player: Makoto Kobayashi | Strategy name: aggressive campaign | Current Score: 70
+2024-09-16 23:28:36,173 - INFO - Player: Javier | Action: Set up support groups (Koenkai) | Cost: {'financial': 20, 'influence': 10, 'internal': 5} | Benefit: 40 | Resources: Total Resources: 50
+Financial: 15 | Influence: 8 | Internal: 27 | 
+2024-09-16 23:28:39,175 - INFO - Player: Makoto Kobayashi | Action: Increase your presence in traditional media | Cost: {'financial': 15, 'influence': 5, 'internal': 5} | Benefit: 30 | Resources: Total Resources: 58
+Financial: 13 | Influence: 24 | Internal: 21 | 
+2024-09-17 00:06:58,223 - INFO - Player: Irene | Strategy name: defensive campaign | Current Score: 80
+2024-09-17 00:06:58,223 - INFO - Player: Shinji Nakamura | Strategy name: neutral campaign | Current Score: 90

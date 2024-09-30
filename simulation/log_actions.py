@@ -2,14 +2,13 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)  
-
-file_handler = logging.FileHandler('game_log.log')
+file_handler = logging.FileHandler('logs/game_log.log')
 file_handler.setLevel(logging.INFO)  
-
 formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(formatter)
-
 logger.addHandler(file_handler)
+
+#CREATE DIFFERENT LOGS DEFS TO RECORD SPECIFIC ACTIONS, EVENTS AND STRATEGIES
 
 def log_action(player_name, action_name, cost, benefit, resources):
     logger.info(f"Player: {player_name} | Action: {action_name} | Cost: {cost} | Benefit: {benefit} | Resources: {resources} | ")

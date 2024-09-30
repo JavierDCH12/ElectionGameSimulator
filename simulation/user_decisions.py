@@ -1,31 +1,27 @@
-import logging
 from src.politician import Politician
 from src.action import Action
-from src import CONSTANTS
-from simulation.log_actions import log_action, log_strategy
+from src.cons import CONSTANTS
+from src.cons import STRINGS
+
+from simulation.log_actions import log_action
 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.ERROR)  
-file_handler = logging.FileHandler('errors.log')
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+
 
 def set_strategy(): #Set an initial strategy
     
-    print(f"\nStrategies: {', '.join(CONSTANTS.STRATEGIES)}")
+    print(f"\n{STRINGS.STRATEGIES}{', '.join(CONSTANTS.STRATEGIES)}")
     while True:
         
-        strategy = input("Which kind of political strategy do you want to follow in this campaign? ").strip().lower()
+        strategy = input(f"{STRINGS.STRATEGY_QUESTION}").strip().lower()
         
 
         if strategy in CONSTANTS.STRATEGIES:
-            print(f"You have chosen the {strategy.title()} strategy.")
-            print("The chosen strategy will either intensify or dampen the impact of the random events, accordingly\n")
+            print(f"{STRINGS.STRATEGY_CHOSEN} {strategy.title()}")
+            print(f"{STRINGS.STRATEGY_EFFECT}\n")
             return strategy
         else:
-            print("You have to choose a valid campaign strategy: ")
+            print(f"{STRINGS.STRATEGY_ERROR}")
 
 def apply_strategy_modifiers(strategy, event_impact):
     original_impact = event_impact 
@@ -37,15 +33,13 @@ def apply_strategy_modifiers(strategy, event_impact):
         multiplier=0.8
         
     modified_impact=original_impact*multiplier
-    print(f"(Original impact: {original_impact}, Modified impact: {round(modified_impact)})")
     
     return round(modified_impact) 
-    # No message needed for neutral strategy since no modification is applied
-    return round(modified_impact)
+    
 
 
 def show_actions():
-    print("\nChoose an action for this week:")
+    print(f"\n{STRINGS.CHOOSE_ACTION_1}")
     for idx, action in enumerate(CONSTANTS.ACTIONS): #Showing the actions
         print(f"{idx + 1}. {action}")
     
@@ -53,13 +47,13 @@ def show_actions():
 def select_action():
     while True:
         try:
-            choice = int(input("Enter the number of your choice: ")) - 1
+            choice = int(input(f"{STRINGS.CHOOSE_ACTION_2}")) - 1
             if 0 <= choice < len(CONSTANTS.ACTIONS):
                 return CONSTANTS.ACTIONS[choice]
             else:
-                print("Invalid choice. Please select a valid action number.")
+                print(f"{STRINGS.ACTION_ERROR_1}")
         except ValueError:
-            print("Please enter a valid number.")
+            print(f"{STRINGS.ACTION_ERROR_2}")
 
 
 def random_action(ai: Politician):
@@ -71,7 +65,7 @@ def random_action(ai: Politician):
             affordable_actions.append(action)
 
     if not affordable_actions:
-        print("AI has no affordable actions")
+        print(f"{STRINGS.NOT_ENOUGH_RES_1}")
         return None
 
     best_action = max(affordable_actions, key=lambda a: a.benefit / sum(a.cost.values()))
@@ -94,8 +88,8 @@ def apply_action(politician: Politician, action: Action):
         politician.points += action.benefit
         
         log_action(politician.name, action.name, action.cost, action.benefit, politician.resources)
-        print(f"'{action.name}' applied! Puntos won: {action.benefit}")
+        print(f"{STRINGS.ACTION_APPLIED}'{action.name}' {STRINGS.POINTS_WON} {action.benefit}")
         return True
     else:
-        print(f"Not enough resources to apply '{action.name}'.")
+        print(f"{STRINGS.NOT_ENOUGH_RES_2}'{action.name}'.")
         return False

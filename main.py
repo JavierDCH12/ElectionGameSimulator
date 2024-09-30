@@ -1,23 +1,36 @@
 import logging
-from simulation.game import create_politician, create_ai_politician, simulate_election, set_initial_score, final_score_msg
-from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources, add_resources
-from simulation.user_decisions import set_strategy, show_actions, apply_action, select_action, random_action
-import src.CONSTANTS as CONSTANTS
-from simulation.log_actions import log_action, log_event, log_strategy
 import time
 import os
 import random
-from src.resource import Resource
+from simulation.game import create_politician, create_ai_politician, set_initial_score, final_score_msg
+from simulation.resources import set_initial_financial_resources, set_initial_internal_resources, set_initial_personal_resources
+from simulation.user_decisions import set_strategy, show_actions
+import src.cons.CONSTANTS as CONSTANTS
+import src.cons.STRINGS as STRINGS
+
+from simulation.ai_simulation import run_ai_simulation
+from simulation.player_simulation import run_player_simulation
+from simulation.log_actions import log_strategy
+from simulation.menu import intro_menu_option
 
 
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)  
+
+logger_pols = logging.getLogger(__name__)
+logger_pols.setLevel(logging.INFO)  
+file_handler = logging.FileHandler('logs/pols.log')
+file_handler.setLevel(logging.INFO)  
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(formatter)
+logger_pols.addHandler(file_handler)
+
+logger_simulation = logging.getLogger(__name__)
+logger_simulation.setLevel(logging.INFO)  
 file_handler = logging.FileHandler('logs/simulation.log')
 file_handler.setLevel(logging.INFO)  
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+logger_simulation.addHandler(file_handler)
 
 
 
@@ -76,21 +89,14 @@ def initialize_candidate_resources(candidate):
     candidate.resources.internal_resources = set_initial_internal_resources(candidate)
 
 
-###############################################################
-def main():
-    
-    
-    
-    
-    logger.info("Game starts\n")
+def run_game():
+    logger_simulation.info(f"{STRINGS.GAME_STARTS}\n")
     print_start_message()
-    
     player = create_politician()
-    
-    logger.info(player)
+    logger_pols.info(player)
     time.sleep(3)
     ai = create_ai_politician()
-    logger.info(ai)
+    logger_pols.info(ai)
     time.sleep(2)
     
     #Set initial scores and resources
@@ -106,97 +112,64 @@ def main():
     
     #Player chooses a campaign strategy
     player_strategy = set_strategy()
+    print(f"{STRINGS.PLAYER_STRATEGY} {player_strategy.title()}")
     log_strategy(player.name, player_strategy, player.points)
     ai_strategy=random.choice(CONSTANTS.STRATEGIES)
     log_strategy(ai.name, ai_strategy, ai.points)
-    print(f"The AI has chosen the {ai_strategy.title()} strategy")
+    print(f"{STRINGS.AI_STRATEGY} {ai_strategy.title()}")
     
 
     #Simulate elections for 5 weeks
     for week in range(CONSTANTS.ROUND_WEEKS):
-        print("--------------------------------------------------------------------------------------")
-        print(f"\nWeek {week + 1}:")
-        logger.info(f"\nWeek {week + 1}:")
-        print(f"\nYOUR POINTS: {player.points} | YOUR RESOURCES: {player.resources.total_resources():}: Financial ({player.resources.financial_resources}), Influence: {player.resources.influence_resources}, Internal: {player.resources.internal_resources}")
-        print(f"\AI POINTS: {ai.points} | AI RESOURCES: {ai.resources.total_resources():}: Financial ({ai.resources.financial_resources}), Influence: {ai.resources.influence_resources}, Internal: {ai.resources.internal_resources}")
-        logger.info(f"{player.name}: {player.resources.total_resources()}")
-        logger.info(f"{ai.name}: {ai.resources.total_resources()}")
+        print(f"{STRINGS.LINES}")
+        print(f"\{STRINGS.WEEK} {week + 1}:")
+        logger_simulation.info(f"\{STRINGS.WEEK} {week + 1}:")
+        print(f"\n{STRINGS.PLAYER_POINTS}{player.points} | {STRINGS.PLAYER_RESOURCESS} {player.resources.total_resources():}: {STRINGS.FINANCIAL} {player.resources.financial_resources}, {STRINGS.INFLUENCE}: {player.resources.influence_resources}, {STRINGS.INTERNAL}: {player.resources.internal_resources}")
+        print(f"{STRINGS.AI_POINTS}{ai.points} | {STRINGS.AI_RESOURCESS} {ai.resources.total_resources():}: {STRINGS.FINANCIAL} {ai.resources.financial_resources}, {STRINGS.INFLUENCE}: {ai.resources.influence_resources}, {STRINGS.INTERNAL}: {ai.resources.internal_resources}")
+        logger_simulation.info(f"{player.name}: {player.resources.total_resources()}")
+        logger_simulation.info(f"{ai.name}: {ai.resources.total_resources()}")
 
         
         #PLAYER TURN++++++++++++++++++++++++++++++++++++++++++
+        print(f"{STRINGS.PLAYER_TURN}\n")
         show_actions()
         # Player decides whether to take an action or let the random event happen
-        decision = input("Do you want to take an action this week? ").strip().lower()
-
-        if decision == "yes":
-            action = select_action()  
-            can_apply = apply_action(player, action)  
-
-            if not can_apply:
-                print(f"Insufficient resources for action '{action.name}'. A random event will occur instead.\n")
-                player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
-                add_resources(player)
-            else:
-                logger.info(f"Action taken: {action}")
-
-        else:
-            print("\nNo action taken.")
-            print("You saved resources and increased them.")
-            print("A random event will occur.\n")
-            player.points = simulate_election(player, player.points, is_player=True, strategy=player_strategy)
-            add_resources(player)
-
+        decision = input({STRINGS.ACTION_QUESTION}).strip().lower()
+        run_player_simulation(player, player_strategy, decision)
+        
         #AI'S TURN
-        print("\nAI's TURN\n")
+        print(f"\n {STRINGS.AI_TURN} \n")
         time.sleep(3)
-        ai_action = random_action(ai)
-
-        if ai_action is not None:
-            can_apply_ai = apply_action(ai, ai_action)
-            if not can_apply_ai:
-                add_resources(ai)
-                ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
-        else:
-            add_resources(ai)
-            ai.points = simulate_election(ai, ai.points, is_player=False, strategy=ai_strategy)
+        
+        run_ai_simulation(ai, ai_strategy)
 
         time.sleep(4)
-        logger.info(f"{player.name}: {player.points}")
-        logger.info(f"{ai.name}: {ai.points}")
-
         
-        
-        print("--------------------------------------------------------------------------------------")
+        print(f"{STRINGS.LINES}")
     
     
     
     #END OF GAME
-    print(f"\nFinal Score for {player.name}: {player.points}")
-    print(f"Final Score for {ai.name}: {ai.points}")
-    logger.info(f"Player points: {player.points} ; Ai points: {ai.points}")
-    
+    print(f"\n{STRINGS.FINAL_SCORE}{player.name}: {player.points}")
+    print(f"{STRINGS.FINAL_SCORE}{ai.name}: {ai.points}")
+    logger_simulation.info(f"{STRINGS.PLAYER_POINTS} {player.points} ; {STRINGS.AI_POINTS} {ai.points}") 
     final_score_msg(player.points, ai.points)
-    logger.info("Game over")
+    logger_simulation.info(f"{STRINGS.GAME_OVER}")
+    
+
+###############################################################
+def main():
+    
+    """Main function to handle the menu and game flow."""
+    while True:
+        game_choice = intro_menu_option()
+
+        if game_choice == "new_game":
+            run_game()
+    
+    
 
 
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
 ###################################################################3    
 if __name__=="__main__":
