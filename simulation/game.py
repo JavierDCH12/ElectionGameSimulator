@@ -2,6 +2,8 @@ import logging
 from src.politician import Politician
 from src.cons import CONSTANTS
 from src.cons import STRINGS
+from src.cons import INTS
+
 
 import random
 from simulation.user_decisions import apply_strategy_modifiers
@@ -24,7 +26,7 @@ def ask_age() -> int:
     while True:
         try:
             age = int(input(f"{STRINGS.INPUT_AGE}"))
-            if 25 <= age <= 100:
+            if INTS.BOTTOM_AGE <= age <= INTS.TOP_AGE:
                 return age
             else:
                 print(f"{STRINGS.AGE_ERROR_1}")
@@ -57,7 +59,7 @@ def create_politician():
     return politician
 
 def create_ai_politician():
-    age = random.randint(25, 100)
+    age = random.randint(INTS.BOTTOM_AGE, INTS.TOP_AGE)
     gender = random.choice(["Male", "Female"])
     
     name = random.choice(CONSTANTS.MALE_NAMES) if gender == "Male" else random.choice(CONSTANTS.FEMALE_NAMES)
@@ -100,12 +102,12 @@ def set_initial_score(politician: Politician) -> int:
     return score
 
 def random_score_modifier() -> float:
-    return random.uniform(0.8, 1.2)
+    return random.uniform(INTS.BOTTOM_SCORE_MODIFIER, INTS.TOP_SCORE_MODIFIER)
 
 
 def generate_random_event() -> tuple:
     """Generate a random event and its base impact."""
-    if random.random() < 0.2:
+    if random.random() < INTS.SPECIAL_EVENTS:
         event = random.choice(CONSTANTS.SPECIAL_EVENTS)
     else:
         event = random.choice(CONSTANTS.EVENTS)
