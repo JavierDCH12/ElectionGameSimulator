@@ -29,8 +29,8 @@ def intro_menu_option():
                 case 1:
                     return "new_game"
                 case 2:
-                    #show_options()
-                    return
+                    setting_options()
+                    
                 case 3:
                     print("Exiting the game. Goodbye! ")
                     exit
@@ -42,5 +42,7 @@ def intro_menu_option():
             logger_error.error(f"\nInvalid input for initial menu option: {opc}\n", exc_info=True)
 
             time.sleep(1)
-                    
+
+
+def setting_options():            
                 
